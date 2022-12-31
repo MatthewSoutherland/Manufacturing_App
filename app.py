@@ -25,7 +25,7 @@ app.config["SESSION_COOKIE_SECURE"] = True
 app.permanent_session_lifetime = timedelta(days=7)
 
 # SMS message setup
-client = vonage.Client(key="a0d95cf9", secret="U0Eg3thF3kUBNkal")
+client = vonage.Client(key="a0d95cf9", secret=secret.vonage_secret)
 sms = vonage.Sms(client)
 
 # initialize mail for this app
