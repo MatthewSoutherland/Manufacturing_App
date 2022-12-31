@@ -13,13 +13,12 @@ from datetime import *
 import csv
 import json
 import vonage
+import secret
 
 app = Flask(__name__)
 
 # configure session
-app.config[
-    "SECRET_KEY"
-] = "192f9bdd21ab9ed4d82e236c78afcb3a393ec15f71bbr5dc987d54727823bcbd"
+app.config["SECRET_KEY"] = secret.Secret_Key
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_COOKIE_SECURE"] = True
@@ -34,7 +33,7 @@ sms = vonage.Sms(client)
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USERNAME"] = "ToolList91@gmail.com"
-app.config["MAIL_PASSWORD"] = "cllvhzgljixztfnh"
+app.config["MAIL_PASSWORD"] = secret.mail_password
 app.config["MAIL_DEFAULT_SENDER"] = "ToolList91@gmail.com"
 app.config["MAIL_MAX_EMAILS"] = 2
 # tls and ssl are email encriptions, might have to play with until it works.
@@ -197,7 +196,7 @@ def chips():
     if request.method == "POST":
         message1 = request.form.get("message1")
         responseData = sms.send_message(
-            {"from": "18777738885", "to": "19897981745", "text": message1}
+            {"from": secret.from_number, "to": secret.my_number, "text": message1}
         )
         if responseData["messages"][0]["status"] == "0":
             messageguy = "message sent successfully"
