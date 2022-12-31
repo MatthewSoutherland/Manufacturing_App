@@ -1,0 +1,6 @@
+# log files
+*.log
+__pycache__
+.vscode
+env/
+test.py
