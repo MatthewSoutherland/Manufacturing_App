@@ -1,0 +1,539 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.alert-div {
+  display: block;
+  margin-top: 1rem;
+}
+
+#as-port {
+  opacity: 1;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#buttons-labels {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  padding: 2rem;
+  padding-top: 6rem;
+  padding-right: 8.5rem;
+  background-color: rgb(254, 254, 254);
+}
+
+#calc-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  font-family: Roboto;
+}
+
+.calc-inputs {
+  width: 4rem;
+  text-indent: .2rem;
+  height: 1.4rem;
+  border: 1px solid whitesmoke;
+  border-bottom: 1px solid grey;
+}
+
+.calc-labels {
+  margin-bottom: -.1rem;
+  font-family: Geneva, Tahoma, sans-serif;
+}
+
+.calc-p-elements {
+  align-self: flex-end;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.calc-p-equals {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.calc-label-input-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.card-container {
+  width: 13rem;
+  height: 13rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.card-master {
+  display: flex;
+  justify-self: center;
+  margin-top: 10rem;
+  flex-wrap: wrap;
+}
+
+#chip-container {
+  padding-top: 6rem;
+  width: 40%;
+}
+
+.cl-img {
+  width: 1.6rem;
+  object-fit: cover;
+}
+
+#cl-nav {
+  position: fixed;
+  top: 4rem;
+  left: 3rem;
+}
+
+#drill-tap-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.dropdown-ports {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.ele {
+  cursor: pointer;
+}
+
+#email-button-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+#email-sent-div {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 10rem;
+}
+
+#exInput {
+  display: none;
+}
+
+fieldset {
+  width: 40%;
+}
+
+.head-contain {
+  position: fixed;
+  left: 0rem;
+  padding-left: 2rem;
+  z-index: 1;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+#home-id {
+  padding-top: 5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 2rem;
+}
+
+h5 {
+  margin: 0;
+}
+
+.idselect {
+  opacity: 0;
+  height: 1px;
+}
+
+.key {
+  font-weight: 500;
+  border: 1px, solid, black;
+}
+
+.label-div-port {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+#login-container {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#login-font {
+  padding-left: 3rem;
+  font-family: Times, serif;
+}
+
+.machine-div {
+  padding-left: 5rem;
+  line-height: .5rem;
+}
+
+.machine-select {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#main-container {
+  width: 100%;
+}
+
+#message1 {
+  border: none;
+  width: 80%;
+  display: none;
+}
+
+.new-font-style {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#notes {
+  width: 25rem;
+}
+
+p {
+  margin: 0;
+}
+
+#person-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+  padding-top: 2rem;
+}
+
+.personal-info-input {
+  width: 20%;
+  text-indent: .3rem;
+}
+
+.port {
+  width: 55rem;
+  object-fit: cover;
+  position: absolute;
+  top: 20rem;
+  left: 20%;
+}
+
+#port-container {
+  padding-top: 4rem;
+}
+
+.program-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#port-search-div {
+  width: 16rem;
+  padding-left: 2rem;
+  margin: 1rem;
+}
+
+.remove-button {
+  background-color: aliceblue;
+  border-radius: .2rem;
+  cursor: pointer;
+}
+
+#rpm-to-sfm {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2rem;
+}
+
+#sae-port {
+  opacity: 0;
+}
+
+#sfm-to-rpm {
+  display: flex;
+  flex-direction: row;
+}
+
+.shorten {
+  width: 4rem;
+}
+
+.table-div {
+  line-height: .7rem;
+  font-size: .9rem;
+  padding-top: 5%;
+  width: 60%;
+}
+
+.table-port {
+  line-height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 5%;
+  width: 100%;
+}
+
+#table-divider {
+  line-height: .7rem;
+  font-size: .8rem;
+  padding-top: 5%;
+  width: 50%;
+  padding-left: 0rem;
+}
+
+table {
+  border-collapse:initial;
+}
+
+
+.table-div thead th {
+  position: sticky;
+  top: 0rem;
+  background-color: aliceblue;
+}
+
+#t-head-port {
+  background-color: aliceblue;
+}
+
+.tap-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tap-check {
+  cursor: pointer;
+}
+
+#test {
+  padding-top: 10rem;
+}
+
+#tool-table-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+#tool-table-table {
+  width: 75%;
+}
+
+#tool-table-thead {
+  background-color: aliceblue;
+}
+
+#toollist-div {
+  padding-top: 5rem;
+}
+
+.tool-page-inputboxes {
+  font-size: 1rem;
+  width: 7rem;
+  border-radius: .3rem;
+  text-indent: .3rem;
+}
+
+#tool-form-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tool-page-div {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.tool-page-div label {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+#triangle {
+  position: absolute;
+  top: 23rem;
+  left: 10%;
+  width: 20rem;
+  object-fit: cover;
+}
+
+.triangle-alignments {
+  display: flex;
+  flex-direction: row;
+}
+
+.triangle-input {
+  border: 1px solid rgb(231, 186, 193);
+  border-radius: .2rem;
+  text-indent: .2rem;
+  width: 5rem;
+  height: 1.4rem;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.triangle-input:focus {
+  outline: none;
+  border: 1px solid rgb(231, 36, 66);
+}
+
+#triangle-inputs-labels {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 24rem;
+  left: 50%;
+  font-family:Arial, sans-serif;
+}
+
+.trig-buttons {
+  cursor: pointer;
+  border: 1px solid rgb(235, 224, 224);
+  border-radius: .2rem;
+}
+
+#trig-button-check:hover {
+  background-color: rgb(161, 220, 189);
+}
+
+#trig-button-clear:hover {
+  background-color: lightpink;
+}
+
+.value {
+  border: 1px, solid, black;
+}
+
+#wpcs {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 12rem;
+  left: 3rem;
+  opacity: .2;
+}
+
+@media (max-width: 1000px) {
+  .table {
+    line-height: .8rem;
+    padding-top: 21rem;
+    width: 30%;
+    padding-left: 0;
+  }
+
+  #drill-tap-container {
+    justify-content: flex-start;
+    padding-left: .5rem;
+  }
+
+  .port {
+    width: 45rem;
+    object-fit: cover;
+    position: absolute;
+    top: 20rem;
+    left: 10%;
+  }
+
+}
+
+
+@media (max-width: 800px){
+  .machine-select {
+    padding-top: 6.5rem;
+    font-size: .9rem;
+  }
+
+  .machine-div {
+    padding-left: 1rem;
+    line-height: .6rem;
+    font-size: .6rem;
+  }
+
+  #wpcs {
+    top: 15rem;
+    left: 1rem;
+  }
+
+  .cl-img {
+    width: 1.3rem;
+  }
+
+  .table-div thead th {
+    top: 20rem;
+  }
+  .navbar-nav {
+    font-size: .7rem;
+  }
+
+  .head-contain {
+    padding-left: .5rem;
+  }
+
+  .card-container {
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .port {
+    width: 25rem;
+    object-fit: cover;
+    position: absolute;
+    top: 23rem;
+    left: 1%;
+  }
+
+  .table-port {
+    line-height: 1rem;
+    font-size: .8rem;
+    text-align: center;
+    padding-top: 5%;
+    width: 50%;
+  }
+
+  #triangle {
+    top: 33rem;
+    left: 10%;
+    width: 18rem;
+  }
+
+  #triangle-inputs-labels {
+    top: 18rem;
+    left: 30%;
+  }
+}
