@@ -190,6 +190,9 @@ def chips():
     if not session.get("name"):
         return redirect(url_for("login"))
 
+    # the hours run in developent will be local time.
+    # The app is run off a london server so in production,
+    # the template conditionals will be different.
     hours = datetime.today().now().strftime("%H")
     hours = int(hours)
     day = datetime.today().strftime("%A")
@@ -229,5 +232,6 @@ def calculator():
     return render_template("calculator.html")
 
 
+# comment out in production
 if __name__ == "__main__":
     app.run(debug=True)
