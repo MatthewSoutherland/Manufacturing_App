@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}
+Message confirmation
+{% endblock %}
+{% block main %}
+<div id="email-sent-div">
+    <h3>
+    {% if messageguy %}
+    {{ messageguy }}
+    {% endif %}
+    </h3>
+</div>
+{% endblock %}

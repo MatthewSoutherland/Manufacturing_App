@@ -1,0 +1,50 @@
+{% extends "layout.html" %} 
+{% block title %} 
+    Chips
+{% endblock %} 
+{% block main%} 
+<script>
+
+    function appendMessage(){
+        let getMess = document.getElementById('messagex').innerText;
+        let appMess = document.getElementById('message1');
+
+        appMess.value = getMess.toString();
+    }
+    function updateFun(){
+        let operator = document.getElementById('operator').value;
+        let machineCenter = document.getElementById('machine-center').value;
+        let material = document.getElementById('material').value;
+        let messageX = document.getElementById('messagex');
+        messageX.innerText =`${operator} at ${machineCenter} needs a ${material} chip gong`
+    }
+</script>
+<div id="chip-container">  
+    <h1>{{day}} {{hours}}</h1>
+    {% if hours < 17 and hours > 7 %}
+        {% if day == "Monday" or day == "Tuesday" or day == "Wednesday" or day == "Thursday" or day == "Friday" %}
+    <form method="post" action="/chips" onsubmit={appendMessage()} id="form-ele">
+        <label for="operator">Operator</label>
+        <input type="text" name="operator" id="operator" onkeyup={updateFun()} class="form-control" placeholder="operator" value={{ session['name'] }}><br>
+        <label for="machine-center">Work center</label>
+        <input type="text" name="machine-center" id="machine-center" onkeyup={updateFun()} class="form-control" placeholder="Machine" required autofocus><br>
+        <label for="material">Material</label>
+        <input type="text" id="material" name="material" onkeyup={updateFun()} class="form-control" placeholder="Material" required><br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+        <label for="message1"></label><br>
+        <input type="text" name="message1" id="message1">
+        <h4>Message that will be sent:</h4>
+        <h6 id="messagex"></h6>
+    </form>
+        {% else %}
+        <h3>
+            This page is only availble between 6:00am - 4:00pm Mon - Fri
+        </h3>
+        {% endif %}
+    {% else %}
+    <h3>
+        This page is only availble between 6:00am - 4:00pm Mon - Fri
+    </h3>
+    {% endif %}
+</div>
+{% endblock %}

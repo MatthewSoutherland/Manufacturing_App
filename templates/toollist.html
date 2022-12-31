@@ -1,0 +1,194 @@
+{% extends "layout.html" %} {% block title %} Tool list {% endblock %} {% block
+main%}
+<script>
+    function getData(){
+
+        // create tooling table value and send to backend
+        // remove html not needed for email
+        let rmbuttons = document.querySelectorAll('.remove-button');
+        rmbuttons.forEach(button => {
+          button.remove();
+        })
+        let rmbutton1 = document.querySelector('.remove-button1');
+        rmbutton1.remove();
+
+        // set values of machinist info
+        let machineCenter = document.getElementById('machine-center');
+        machineCenter.setAttribute('value', machineCenter.value);
+        let operator = document.getElementById('person');
+        operator.setAttribute('value', operator.value);
+        let needBy = document.getElementById('need-by');
+        needBy.setAttribute('value', needBy.value);
+
+        // stringify and send html to endpoint
+        let ho = document.getElementById('email-message');
+        ho = JSON.stringify(ho.outerHTML);
+        let exInput = document.getElementById('exInput');
+        exInput.setAttribute('value', ho);
+    }
+
+    function removeMe(){
+        let highlighter = document.querySelectorAll('.toolrow');
+        Array.from(highlighter).forEach(el => {
+        el.addEventListener('click', function() {
+            el.remove()
+      })
+    })
+    }
+
+    function addTool(){
+        
+        let tool = document.getElementById('tool').value;
+        let toolSize = document.getElementById('toolsize').value;
+        let loc = document.getElementById('loc').value;
+        let overallLength = document.getElementById('overall-length').value;
+        let tapper = document.getElementById('tapper').value;
+        let notes = document.getElementById('notes').value;
+
+        let wrapper = document.createElement('tr');
+        wrapper.setAttribute("class", "table-bordered");
+        wrapper.classList.add('toolrow')
+        document.getElementById('table-body').appendChild(wrapper);
+
+        // create a button to remove tool
+        let removeButton = document.createElement('button');
+        removeButton.setAttribute('type', 'button');
+        removeButton.setAttribute('onclick', '{removeMe()}');
+        removeButton.setAttribute('class', 'remove-button');
+        removeButton.innerText = 'Remove Tool';
+
+        newArray = [];
+        newArray.push(tool);
+        newArray.push(toolSize);
+        newArray.push(loc);
+        newArray.push(overallLength);
+        newArray.push(tapper);
+        newArray.push(notes);
+
+        for(el in newArray){
+            let newGuy = document.createElement("th");
+            newGuy.classList.add('tool-ele-data')
+            newGuy.innerHTML += newArray[el]
+            wrapper.appendChild(newGuy)
+          }
+        wrapper.appendChild(removeButton)  
+        tool.innerText = ''
+    }
+
+</script>
+<div id="toollist-div">
+    <div id="tool-form-container">
+      <div class="tool-page-div">
+        <label for="tool"
+          >Tool
+          <input
+            id="tool"
+            type="text"
+            value=""
+            placeholder="Required"
+            class="tool-page-inputboxes"
+            required
+          />
+        </label>
+      </div>
+      <div class="tool-page-div">
+        <label for="toolsize"
+          >Size
+          <input
+            id="toolsize"
+            type="text"
+            value=""
+            placeholder="Required"
+            class="tool-page-inputboxes"
+            required
+          />
+        </label>
+      </div>
+      <div class="tool-page-div">
+        <label
+          >LOC
+          <input
+            id="loc"
+            type="text"
+            value=""
+            placeholder="-"
+            class="tool-page-inputboxes"
+          />
+        </label>
+      </div>
+      <div class="tool-page-div">
+        <label
+          >Overall Length
+          <input
+            id="overall-length"
+            type="text"
+            value=""
+            placeholder="-"
+            class="tool-page-inputboxes"
+          />
+        </label>
+      </div>
+      <div class="tool-page-div">
+        <label
+          >Tapper
+          <input
+            id="tapper"
+            type="text"
+            value="50"
+            placeholder="Required"
+            class="tool-page-inputboxes"
+            required
+          />
+        </label>
+      </div>
+      <div class="tool-page-div">
+        <label
+          >Notes
+          <input
+            id="notes"
+            type="text"
+            value=""
+            placeholder="-"
+            class="tool-page-inputboxes"
+          />
+        </label>
+      </div>
+      <button class="btn btn-secondary mr-3" type="button" id="button-addon1" onclick={addTool()}>Add Tool</button>
+    </div>
+    <form action="/toollist" method="POST" onsubmit={getData()}>
+      <div id="email-message">
+  <div id="tool-table-div">
+    <table id="tool-table-table"  name="userList">
+      <thead id="tool-table-thead" style="background-color: lightgrey;">
+        <tr>
+          <th class="table-bordered">Tool</th>
+          <th class="table-bordered">Size</th>
+          <th class="table-bordered">LOC</th>
+          <th class="table-bordered">Overall</th>
+          <th class="table-bordered">Tapper</th>
+          <th class="table-bordered">Notes</th>
+        </tr>
+      </thead>
+      <tbody  id="table-body">
+        
+      </tbody>
+    </table><br><br><br>
+  </div>
+  <div id="person-info">
+    <label for="machine-center">Machine
+    <input class="personal-info-input" name="machine" type="text" id="machine-center" required></label><br>
+    <label for="person">Operator
+    <input class="personal-info-input" name="operator" type="text" id="person" value={{ session['name'] }}></label><br>
+    <label for="need-by">Need by
+    <input class="personal-info-input" name="need-by" type="text" id="need-by"></label>
+  </div>
+  <div id="email-button-div">
+    <button class="btn btn-secondary remove-button1" type="submit" id="button-addon">Send E-mail</button>
+  </div>
+      </div>
+      <label for="exInput"></label>
+  <input id="exInput" type="text" name="exInput" placeholder="/">
+    </form>
+</div>
+
+{% endblock %}

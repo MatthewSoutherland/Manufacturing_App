@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block title %}
+MZ4
+{% endblock %}
+{% block main %}
+    
+    <div class="machine-select">
+        <div id="mz4-a" class="pr-5">
+            <h1>MZ4 A</h1>
+            
+            <form action="/mz4cl" method="POST" class="row g-3">
+                <div class="col-auto">
+                    <div class="mb-1 row">
+                  <label for="mz4ax" class="visually-hidden mb-1">Change X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text"  class="form-control mr-1" name='mz4ax' id="mz4-a-xcl" value="{{ mz4a[0] }}">
+                </div>
+                <div class="mb-1 row">
+                  <label for="mz4az" class="visually-hidden mb-1">Change Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text" class="form-control mr-1" name='mz4az' id="mz4-a-zcl" value="{{ mz4a[1] }}">
+                </div>
+                  <button type="submit" class="btn btn-primary center">submit change</button>
+                </div>
+              </form>
+        </div>
+        <div id="mz4-b" class="pr-5">
+            <h1>MZ4 B</h1>
+            
+            <form action="/mz4cl" method="POST" class="row g-3">
+                <div class="col-auto">
+                    <div class="mb-1 row">
+                  <label for="mz4bx" class="visually-hidden mb-1">Change X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text"  class="form-control mr-1" name='mz4bx' id="mz4-b-xcl" value="{{ mz4b[0] }}">
+                </div>
+                <div class="mb-1 row">
+                  <label for="mz4bz" class="visually-hidden mb-1">Change Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text" class="form-control mr-1" name='mz4bz' id="mz4-b-zcl" value="{{ mz4b[1] }}">
+                </div>
+                  <button type="submit" class="btn btn-primary center">submit change</button>
+                </div>
+              </form>
+        </div>
+        <div id="mz4-c">
+            <h1>MZ4 C</h1>
+            
+            <form action="/mz4cl" method="POST" class="row g-3">
+                <div class="col-auto">
+                    <div class="mb-1 row">
+                  <label for="mz4cx" class="visually-hidden mb-1">Change X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text"  class="form-control mr-1" name='mz4cx' id="mz4-c-xcl" value="{{ mz4c[0] }}">
+                </div>
+                <div class="mb-1 row">
+                  <label for="mz4cz" class="visually-hidden mb-1">Change Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image></label>
+                  <input type="text" class="form-control mr-1" name="mz4cz" id="mz4-c-zcl" value="{{ mz4c[1] }}">
+                </div>
+                  <button type="submit" class="btn btn-primary center">submit change</button>
+                </div>
+              </form>
+        </div>
+    </div>
+{% endblock %}

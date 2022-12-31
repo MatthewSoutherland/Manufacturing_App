@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block
+main%}
+<div id="home-id">
+  <h5 id="login-font">
+    {% if session["name"] %} You are logged in as {{ session["name"] }} {% endif
+    %}
+  </h5>
+  <br />
+  <h2>About</h2>
+  <p>
+    Tip: log in with your actual name, and it will fill out some form data for
+    you.
+  </p>
+  <p>
+    <a href="{{ url_for('taps_drills') }}">Taps/drills:</a> Sort thru various
+    tap charts by major diameter. Sort thru drill and counterbore/countersink
+    charts. Auto highlighting by selection, or click to highlight.
+  </p>
+  <p>
+    <a href="{{ url_for('ports') }}">Ports:</a> Currently only AS5202 and J1926
+    port specs available. However you can search google for different
+    specifications
+  </p>
+  <p>
+    <a href="{{ url_for('mz4') }}">MZ4:</a> Double check your WPC's by entering
+    in your iniatial pickup. Automatically calculates 90, 180, and 270 degree
+    indexes. Add any amount of additional angles.
+  </p>
+  <!-- <p><a href="{{ url_for('toollist') }}">Tool List:</a> Generate and email a tool list to the toolcrib. Be sure to fill out all required information.</p> -->
+  <p>
+    <a href="{{ url_for('chips') }}">Chips:</a> Need a new chip gong? Send a
+    text message to Dougie. Be sure to fill out all required fields.
+  </p>
+  <p>
+    <a href="{{ url_for('calculator') }}">Calculator</a> Convert SFM to RPM, RPM
+    to SFM. Find leg length and angles of a triangle.
+  </p>
+</div>
+{% endblock %}

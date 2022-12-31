@@ -1,0 +1,818 @@
+{% extends "layout.html" %} {% block title %} Taps and Drills {% endblock %} {%
+block main %}
+<script>
+    taps = [
+{'Screw size': '0-80', 'Class': '2B', 'drill-standard': '3/64', 'minor-min': '0.0465', 'minor-max': '0.0514', 'Major': '0.06', 'Type': 'F'},
+{'Screw size': '0-80', 'Class': '3B', 'drill-standard': '3/64', 'minor-min': '0.0465', 'minor-max': '0.0514', 'Major': '0.06', 'Type': 'F'},
+{'Screw size': '.1-64', 'Class': '2B', 'drill-standard': '53', 'minor-min': '0.0561', 'minor-max': '0.0623', 'Major': '0.073', 'Type': 'C'},
+{'Screw size': '.1-64', 'Class': '3B', 'drill-standard': '53', 'minor-min': '0.0561', 'minor-max': '0.0623', 'Major': '0.073', 'Type': 'C'},
+{'Screw size': '.1-72', 'Class': '2B', 'drill-standard': '53', 'minor-min': '0.058', 'minor-max': '0.0635', 'Major': '0.073', 'Type': 'F'},
+{'Screw size': '.1-72', 'Class': '3B', 'drill-standard': '53', 'minor-min': '0.058', 'minor-max': '0.0635', 'Major': '0.073', 'Type': 'F'},
+{'Screw size': '.2-56', 'Class': '2B', 'drill-standard': '50', 'minor-min': '0.0667', 'minor-max': '0.0737', 'Major': '0.086', 'Type': 'C'},
+{'Screw size': '.2-56', 'Class': '3B', 'drill-standard': '50', 'minor-min': '0.0667', 'minor-max': '0.0737', 'Major': '0.086', 'Type': 'C'},
+{'Screw size': '.2-64', 'Class': '2B', 'drill-standard': '50', 'minor-min': '0.0691', 'minor-max': '0.0753', 'Major': '0.086', 'Type': 'F'},
+{'Screw size': '.2-64', 'Class': '3B', 'drill-standard': '50', 'minor-min': '0.0691', 'minor-max': '0.0753', 'Major': '0.086', 'Type': 'F'},
+{'Screw size': '.3-48', 'Class': '2B', 'drill-standard': '47', 'minor-min': '0.0764', 'minor-max': '0.0845', 'Major': '0.099', 'Type': 'C'},
+{'Screw size': '.3-48', 'Class': '3B', 'drill-standard': '47', 'minor-min': '0.0764', 'minor-max': '0.0845', 'Major': '0.099', 'Type': 'C'},
+{'Screw size': '.3-56', 'Class': '2B', 'drill-standard': '47', 'minor-min': '0.0797', 'minor-max': '0.0865', 'Major': '0.099', 'Type': 'F'},
+{'Screw size': '.3-56', 'Class': '3B', 'drill-standard': '47', 'minor-min': '0.0797', 'minor-max': '0.0865', 'Major': '0.099', 'Type': 'F'},
+{'Screw size': '.4-40', 'Class': '2B', 'drill-standard': '43', 'minor-min': '0.0849', 'minor-max': '0.0939', 'Major': '0.112', 'Type': 'C'},
+{'Screw size': '.4-40', 'Class': '3B', 'drill-standard': '43', 'minor-min': '.O849', 'minor-max': '0.0939', 'Major': '0.112', 'Type': 'C'},
+{'Screw size': '.4-48', 'Class': '2B', 'drill-standard': '42', 'minor-min': '0.0894', 'minor-max': '0.0968', 'Major': '0.112', 'Type': 'F'},
+{'Screw size': '.4-48', 'Class': '3B', 'drill-standard': '42', 'minor-min': '0.0894', 'minor-max': '0.0968', 'Major': '0.112', 'Type': 'F'},
+{'Screw size': '.5-40', 'Class': '2B', 'drill-standard': '38', 'minor-min': '0.0979', 'minor-max': '0.1062', 'Major': '0.125', 'Type': 'C'},
+{'Screw size': '.5-40', 'Class': '3B', 'drill-standard': '38', 'minor-min': '0.0979', 'minor-max': '0.1062', 'Major': '0.125', 'Type': 'C'},
+{'Screw size': '.5-44', 'Class': '2B', 'drill-standard': '37', 'minor-min': '0.1004', 'minor-max': '0.1079', 'Major': '0.125', 'Type': 'F'},
+{'Screw size': '.5-44', 'Class': '3B', 'drill-standard': '37', 'minor-min': '0.1004', 'minor-max': '0.1079', 'Major': '0.125', 'Type': 'F'},
+{'Screw size': '.6-32', 'Class': '2B', 'drill-standard': '36', 'minor-min': '0.104', 'minor-max': '0.114', 'Major': '0.138', 'Type': 'C'},
+{'Screw size': '.6-32', 'Class': '3B', 'drill-standard': '36', 'minor-min': '0.104', 'minor-max': '0.114', 'Major': '0.138', 'Type': 'C'},
+{'Screw size': '.6-40', 'Class': '2B', 'drill-standard': '33', 'minor-min': '0.111', 'minor-max': '0.119', 'Major': '0.138', 'Type': 'F'},
+{'Screw size': '.6-40', 'Class': '3B', 'drill-standard': '33', 'minor-min': '0.111', 'minor-max': '0.1186', 'Major': '0.138', 'Type': 'F'},
+{'Screw size': '.8-32', 'Class': '2B', 'drill-standard': '29', 'minor-min': '0.13', 'minor-max': '0.139', 'Major': '0.164', 'Type': 'C'},
+{'Screw size': '.8-32', 'Class': '3B', 'drill-standard': '29', 'minor-min': '0.13', 'minor-max': '0.1389', 'Major': '0.164', 'Type': 'C'},
+{'Screw size': '.8-36', 'Class': '2B', 'drill-standard': '29', 'minor-min': '0.134', 'minor-max': '0.142', 'Major': '0.164', 'Type': 'F'},
+{'Screw size': '.8-36', 'Class': '3B', 'drill-standard': '29', 'minor-min': '0.134', 'minor-max': '0.1416', 'Major': '0.164', 'Type': 'F'},
+{'Screw size': '.10-24', 'Class': '2B', 'drill-standard': '25', 'minor-min': '0.145', 'minor-max': '0.156', 'Major': '0.19', 'Type': 'C'},
+{'Screw size': '.10-24', 'Class': '3B', 'drill-standard': '25', 'minor-min': '0.145', 'minor-max': '0.1555', 'Major': '0.19', 'Type': 'C'},
+{'Screw size': '.10-32', 'Class': '2B', 'drill-standard': '21', 'minor-min': '0.156', 'minor-max': '0.164', 'Major': '0.19', 'Type': 'F'},
+{'Screw size': '.10-32', 'Class': '3B', 'drill-standard': '21', 'minor-min': '0.156', 'minor-max': '0.1641', 'Major': '0.19', 'Type': 'F'},
+{'Screw size': '.25-20', 'Class': '2B', 'drill-standard': '7', 'minor-min': '0.196', 'minor-max': '0.207', 'Major': '0.25', 'Type': 'C'},
+{'Screw size': '.25-20', 'Class': '3B', 'drill-standard': '7', 'minor-min': '0.196', 'minor-max': '0.207', 'Major': '0.25', 'Type': 'C'},
+{'Screw size': '.25-28', 'Class': '2B', 'drill-standard': '3', 'minor-min': '0.211', 'minor-max': '0.22', 'Major': '0.25', 'Type': 'F'},
+{'Screw size': '.25-28', 'Class': '3B', 'drill-standard': '3', 'minor-min': '0.211', 'minor-max': '0.219', 'Major': '0.25', 'Type': 'F'},
+{'Screw size': '.3125-18', 'Class': '2B', 'drill-standard': 'F', 'minor-min': '0.252', 'minor-max': '0.265', 'Major': '0.3125', 'Type': 'C'},
+{'Screw size': '.3125-18', 'Class': '3B', 'drill-standard': 'F', 'minor-min': '0.252', 'minor-max': '0.263', 'Major': '0.3125', 'Type': 'C'},
+{'Screw size': '0.3125-24', 'Class': '2B', 'drill-standard': 'I', 'minor-min': '0.267', 'minor-max': '0.277', 'Major': '0.3125', 'Type': 'F'},
+{'Screw size': '0.3125-24', 'Class': '3B', 'drill-standard': 'I', 'minor-min': '0.267', 'minor-max': '0.2754', 'Major': '0.3125', 'Type': 'F'},
+{'Screw size': '.375-16', 'Class': '2B', 'drill-standard': '5/16', 'minor-min': '0.307', 'minor-max': '0.321', 'Major': '0.375', 'Type': 'C'},
+{'Screw size': '.375-16', 'Class': '3B', 'drill-standard': '5/16', 'minor-min': '0.307', 'minor-max': '0.3182', 'Major': '0.375', 'Type': 'C'},
+{'Screw size': '0.375-24', 'Class': '2B', 'drill-standard': 'Q', 'minor-min': '0.33', 'minor-max': '0.34', 'Major': '0.375', 'Type': 'F'},
+{'Screw size': '0.375-24', 'Class': '3B', 'drill-standard': 'Q', 'minor-min': '0.33', 'minor-max': '0.3372', 'Major': '0.375', 'Type': 'F'},
+{'Screw size': '.4375-14', 'Class': '2B', 'drill-standard': 'U', 'minor-min': '0.36', 'minor-max': '0.376', 'Major': '0.4375', 'Type': 'C'},
+{'Screw size': '.4375-14', 'Class': '3B', 'drill-standard': 'U', 'minor-min': '0.36', 'minor-max': '0.3717', 'Major': '0.4375', 'Type': 'C'},
+{'Screw size': '.4375-20', 'Class': '2B', 'drill-standard': 'W', 'minor-min': '0.383', 'minor-max': '0.395', 'Major': '0.4375', 'Type': 'F'},
+{'Screw size': '.4375-20', 'Class': '3B', 'drill-standard': 'W', 'minor-min': '0.383', 'minor-max': '0.3916', 'Major': '0.4375', 'Type': 'F'},
+{'Screw size': '.5-13', 'Class': '2B', 'drill-standard': '27/64', 'minor-min': '0.417', 'minor-max': '0.434', 'Major': '0.5', 'Type': 'C'},
+{'Screw size': '.5-13', 'Class': '3B', 'drill-standard': '27/64', 'minor-min': '0.417', 'minor-max': '0.4284', 'Major': '0.5', 'Type': 'C'},
+{'Screw size': '.5-20', 'Class': '2B', 'drill-standard': '29/64', 'minor-min': '0.446', 'minor-max': '0.457', 'Major': '0.5', 'Type': 'F'},
+{'Screw size': '.5-20', 'Class': '3B', 'drill-standard': '29/64', 'minor-min': '0.446', 'minor-max': '0.4537', 'Major': '0.5', 'Type': 'F'},
+{'Screw size': '0.5625-12', 'Class': '2B', 'drill-standard': '31/64', 'minor-min': '0.472', 'minor-max': '0.49', 'Major': '0.5625', 'Type': 'C'},
+{'Screw size': '0.5625-12', 'Class': '3B', 'drill-standard': '31/64', 'minor-min': '0.472', 'minor-max': '0.4843', 'Major': '0.5625', 'Type': 'C'},
+{'Screw size': '0.5625-18', 'Class': '2B', 'drill-standard': '33/64', 'minor-min': '0.502', 'minor-max': '0.515', 'Major': '0.5625', 'Type': 'F'},
+{'Screw size': '0.5625-18', 'Class': '3B', 'drill-standard': '33/64', 'minor-min': '0.502', 'minor-max': '0.5106', 'Major': '0.5625', 'Type': 'F'},
+{'Screw size': '.625-11', 'Class': '2B', 'drill-standard': '17/32', 'minor-min': '0.527', 'minor-max': '0.546', 'Major': '0.625', 'Type': 'C'},
+{'Screw size': '.625-11', 'Class': '3B', 'drill-standard': '17/32', 'minor-min': '0.527', 'minor-max': '0.5391', 'Major': '0.625', 'Type': 'C'},
+{'Screw size': '.625-18', 'Class': '2B', 'drill-standard': '37/64', 'minor-min': '0.565', 'minor-max': '0.578', 'Major': '0.625', 'Type': 'F'},
+{'Screw size': '.625-18', 'Class': '3B', 'drill-standard': '37/64', 'minor-min': '0.565', 'minor-max': '0.573', 'Major': '0.625', 'Type': 'F'},
+{'Screw size': '.75-10', 'Class': '2B', 'drill-standard': '21/32', 'minor-min': '0.642', 'minor-max': '0.663', 'Major': '0.75', 'Type': 'C'},
+{'Screw size': '.75-10', 'Class': '3B', 'drill-standard': '21/32', 'minor-min': '0.642', 'minor-max': '0.6545', 'Major': '0.75', 'Type': 'C'},
+{'Screw size': '.75-16', 'Class': '2B', 'drill-standard': '11/16', 'minor-min': '0.682', 'minor-max': '0.696', 'Major': '0.75', 'Type': 'F'},
+{'Screw size': '.75-16', 'Class': '3B', 'drill-standard': '11/16', 'minor-min': '0.682', 'minor-max': '0.6908', 'Major': '0.75', 'Type': 'F'},
+{'Screw size': '.875-9', 'Class': '2B', 'drill-standard': '49/64', 'minor-min': '0.755', 'minor-max': '0.778', 'Major': '0.875', 'Type': 'C'},
+{'Screw size': '.875-9', 'Class': '3B', 'drill-standard': '49/64', 'minor-min': '0.755', 'minor-max': '0.7681', 'Major': '0.875', 'Type': 'C'},
+{'Screw size': '.875-14', 'Class': '2B', 'drill-standard': '13/16', 'minor-min': '0.798', 'minor-max': '0.814', 'Major': '0.875', 'Type': 'F'},
+{'Screw size': '.875-14', 'Class': '3B', 'drill-standard': '13/16', 'minor-min': '0.798', 'minor-max': '0.8068', 'Major': '0.875', 'Type': 'F'},
+{'Screw size': '1.0-8', 'Class': '2B', 'drill-standard': '.875', 'minor-min': '0.865', 'minor-max': '0.89', 'Major': '1', 'Type': 'C'},
+{'Screw size': '1.0-8', 'Class': '3B', 'drill-standard': '.875', 'minor-min': '0.865', 'minor-max': '0.8797', 'Major': '1', 'Type': 'C'},
+{'Screw size': '1.0-12', 'Class': '2B', 'drill-standard': '15/16', 'minor-min': '0.91', 'minor-max': '0.928', 'Major': '1', 'Type': 'F'},
+{'Screw size': '1.0-12', 'Class': '3B', 'drill-standard': '15/16', 'minor-min': '0.91', 'minor-max': '0.9198', 'Major': '1', 'Type': 'F'},
+{'Screw size': 'M1.6-3.5', 'Class': '', 'drill-standard': '1.25mm', 'minor-min': '', 'minor-max': '', 'Major': 'M1', 'Type': 'S'},
+{'Screw size': 'M2-.4', 'Class': '', 'drill-standard': '1.6mm', 'minor-min': '', 'minor-max': '', 'Major': 'M2', 'Type': 'S'},
+{'Screw size': 'M2.5-.45', 'Class': '', 'drill-standard': '2.05mm', 'minor-min': '', 'minor-max': '', 'Major': 'M2', 'Type': 'S'},
+{'Screw size': 'M3-.5', 'Class': '', 'drill-standard': '2.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M3', 'Type': 'S'},
+{'Screw size': 'M3.5-.6', 'Class': '', 'drill-standard': '2.9mm', 'minor-min': '', 'minor-max': '', 'Major': 'M3', 'Type': 'S'},
+{'Screw size': 'M4-.7', 'Class': '', 'drill-standard': '3.3mm', 'minor-min': '', 'minor-max': '', 'Major': 'M4', 'Type': 'S'},
+{'Screw size': 'M5-.8', 'Class': '', 'drill-standard': '4.2mm', 'minor-min': '', 'minor-max': '', 'Major': 'M5', 'Type': 'S'},
+{'Screw size': 'M6-1', 'Class': '', 'drill-standard': '5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M6', 'Type': 'S'},
+{'Screw size': 'M8-1', 'Class': '', 'drill-standard': '7mm', 'minor-min': '', 'minor-max': '', 'Major': 'M8', 'Type': 'S'},
+{'Screw size': 'M10-1.5', 'Class': '', 'drill-standard': '8.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M10', 'Type': 'C'},
+{'Screw size': 'M10-1.25', 'Class': '', 'drill-standard': '8.8mm', 'minor-min': '', 'minor-max': '', 'Major': 'M10', 'Type': 'F'},
+{'Screw size': 'M12-1.75', 'Class': '', 'drill-standard': '10.2mm', 'minor-min': '', 'minor-max': '', 'Major': 'M12', 'Type': 'C'},
+{'Screw size': 'M12-1.25', 'Class': '', 'drill-standard': '10.8mm', 'minor-min': '', 'minor-max': '', 'Major': 'M12', 'Type': 'F'},
+{'Screw size': 'M14-2', 'Class': '', 'drill-standard': '12mm', 'minor-min': '', 'minor-max': '', 'Major': 'M14', 'Type': 'C'},
+{'Screw size': 'M14-1.5', 'Class': '', 'drill-standard': '12.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M14', 'Type': 'F'},
+{'Screw size': 'M16-2', 'Class': '', 'drill-standard': '14mm', 'minor-min': '', 'minor-max': '', 'Major': 'M16', 'Type': 'C'},
+{'Screw size': 'M16-1.5', 'Class': '', 'drill-standard': '14.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M16', 'Type': 'F'},
+{'Screw size': 'M18-2.5', 'Class': '', 'drill-standard': '15.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M18', 'Type': 'C'},
+{'Screw size': 'M18-1.5', 'Class': '', 'drill-standard': '16.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M18', 'Type': 'F'},
+{'Screw size': 'M20-2.5', 'Class': '', 'drill-standard': '17.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M20', 'Type': 'C'},
+{'Screw size': 'M20-1.5', 'Class': '', 'drill-standard': '18.5mm', 'minor-min': '', 'minor-max': '', 'Major': 'M20', 'Type': 'F'},
+
+    ]
+    drillSizes = [
+    {'drill': '97', 'size': '0.0059'},
+    {'drill': '96', 'size': '0.0063'},
+    {'drill': '95', 'size': '0.0067'},
+    {'drill': '94', 'size': '0.0071'},
+    {'drill': '93', 'size': '0.0075'},
+    {'drill': '92', 'size': '0.0079'},
+    {'drill': '91', 'size': '0.0083'},
+    {'drill': '90', 'size': '0.0087'},
+    {'drill': '89', 'size': '0.0091'},
+    {'drill': '88', 'size': '0.0095'},
+    {'drill': '.25 mm', 'size': '0.0098'},
+    {'drill': '87', 'size': '0.01'},
+    {'drill': '86', 'size': '0.0105'},
+    {'drill': '85', 'size': '0.011'},
+    {'drill': '84', 'size': '0.0115'},
+    {'drill': '.30 mm', 'size': '0.0118'},
+    {'drill': '83', 'size': '0.012'},
+    {'drill': '82', 'size': '0.0125'},
+    {'drill': '.32 mm', 'size': '0.0126'},
+    {'drill': '81', 'size': '0.013'},
+    {'drill': '80', 'size': '0.0135'},
+    {'drill': '.35 mm', 'size': '0.0138'},
+    {'drill': '.36 mm', 'size': '0.0142'},
+    {'drill': '79', 'size': '0.0145'},
+    {'drill': '.38 mm', 'size': '0.015'},
+    {'drill': '1/64', 'size': '0.0156'},
+    {'drill': '.40 mm', 'size': '0.0157'},
+    {'drill': '78', 'size': '0.016'},
+    {'drill': '.42 mm', 'size': '0.0165'},
+    {'drill': '.44 mm', 'size': '0.0173'},
+    {'drill': '.45 mm', 'size': '0.0177'},
+    {'drill': '77', 'size': '0.018'},
+    {'drill': '.46 mm', 'size': '0.0181'},
+    {'drill': '.48 mm', 'size': '0.0189'},
+    {'drill': '.50 mm', 'size': '0.0197'},
+    {'drill': '76', 'size': '0.02'},
+    {'drill': '75', 'size': '0.021'},
+    {'drill': '.55 mm', 'size': '0.0217'},
+    {'drill': '74', 'size': '0.0225'},
+    {'drill': '.60 mm', 'size': '0.0236'},
+    {'drill': '73', 'size': '0.024'},
+    {'drill': '72', 'size': '0.025'},
+    {'drill': '.65 mm', 'size': '0.0256'},
+    {'drill': '71', 'size': '0.026'},
+    {'drill': '.70 mm', 'size': '0.0276'},
+    {'drill': '70', 'size': '0.028'},
+    {'drill': '69', 'size': '0.0292'},
+    {'drill': '.75 mm', 'size': '0.0295'},
+    {'drill': '68', 'size': '0.031'},
+    {'drill': '1/32', 'size': '0.0312'},
+    {'drill': '.80 mm', 'size': '0.0315'},
+    {'drill': '67', 'size': '0.032'},
+    {'drill': '66', 'size': '0.033'},
+    {'drill': '.85 mm', 'size': '0.0335'},
+    {'drill': '65', 'size': '0.035'},
+    {'drill': '.90 mm', 'size': '0.0354'},
+    {'drill': '64', 'size': '0.036'},
+    {'drill': '63', 'size': '0.037'},
+    {'drill': '.95 mm', 'size': '0.0374'},
+    {'drill': '62', 'size': '0.038'},
+    {'drill': '61', 'size': '0.039'},
+    {'drill': '1.00 mm', 'size': '0.0394'},
+    {'drill': '60', 'size': '0.04'},
+    {'drill': '59', 'size': '0.041'},
+    {'drill': '1.05 mm', 'size': '0.0413'},
+    {'drill': '58', 'size': '0.042'},
+    {'drill': '57', 'size': '0.043'},
+    {'drill': '1.10 mm', 'size': '0.0433'},
+    {'drill': '1.15 mm', 'size': '0.0453'},
+    {'drill': '56', 'size': '0.0465'},
+    {'drill': '3/64', 'size': '0.0469'},
+    {'drill': '1.20 mm', 'size': '0.0472'},
+    {'drill': '1.25 mm', 'size': '0.0492'},
+    {'drill': '1.30 mm', 'size': '0.0512'},
+    {'drill': '55', 'size': '0.052'},
+    {'drill': '1.35 mm', 'size': '0.0531'},
+    {'drill': '54', 'size': '0.055'},
+    {'drill': '1.40 mm', 'size': '0.0551'},
+    {'drill': '1.45 mm', 'size': '0.0571'},
+    {'drill': '1.50 mm', 'size': '0.0591'},
+    {'drill': '53', 'size': '0.0595'},
+    {'drill': '1.55 mm', 'size': '0.061'},
+    {'drill': '1/16', 'size': '0.0625'},
+    {'drill': '1.60 mm', 'size': '0.063'},
+    {'drill': '52', 'size': '0.0635'},
+    {'drill': '1.65 mm', 'size': '0.065'},
+    {'drill': '1.70 mm', 'size': '0.0669'},
+    {'drill': '51', 'size': '0.067'},
+    {'drill': '1.75 mm', 'size': '0.0689'},
+    {'drill': '50', 'size': '0.07'},
+    {'drill': '1.80 mm', 'size': '0.0709'},
+    {'drill': '1.85 mm', 'size': '0.0728'},
+    {'drill': '49', 'size': '0.073'},
+    {'drill': '1.90 mm', 'size': '0.0748'},
+    {'drill': '48', 'size': '0.076'},
+    {'drill': '1.95 mm', 'size': '0.0768'},
+    {'drill': '5/64', 'size': '0.0781'},
+    {'drill': '47', 'size': '0.0785'},
+    {'drill': '2.00 mm', 'size': '0.0787'},
+    {'drill': '2.05 mm', 'size': '0.0807'},
+    {'drill': '46', 'size': '0.081'},
+    {'drill': '45', 'size': '0.082'},
+    {'drill': '2.10 mm', 'size': '0.0827'},
+    {'drill': '2.15 mm', 'size': '0.0846'},
+    {'drill': '44', 'size': '0.086'},
+    {'drill': '2.20 mm', 'size': '0.0866'},
+    {'drill': '2.25 mm', 'size': '0.0886'},
+    {'drill': '43', 'size': '0.089'},
+    {'drill': '2.30 mm', 'size': '0.0906'},
+    {'drill': '2.35 mm', 'size': '0.0925'},
+    {'drill': '42', 'size': '0.0935'},
+    {'drill': '3/32', 'size': '0.0938'},
+    {'drill': '2.40 mm', 'size': '0.0945'},
+    {'drill': '41', 'size': '0.096'},
+    {'drill': '2.45 mm', 'size': '0.0965'},
+    {'drill': '40', 'size': '0.098'},
+    {'drill': '2.50 mm', 'size': '0.0984'},
+    {'drill': '39', 'size': '0.0995'},
+    {'drill': '38', 'size': '0.1015'},
+    {'drill': '2.60 mm', 'size': '0.1024'},
+    {'drill': '37', 'size': '0.104'},
+    {'drill': '2.70 mm', 'size': '0.1063'},
+    {'drill': '36', 'size': '0.1065'},
+    {'drill': '2.75 mm', 'size': '0.1083'},
+    {'drill': '7/64', 'size': '0.1094'},
+    {'drill': '35', 'size': '0.11'},
+    {'drill': '2.80 mm', 'size': '0.1102'},
+    {'drill': '34', 'size': '0.111'},
+    {'drill': '33', 'size': '0.113'},
+    {'drill': '2.90 mm', 'size': '0.1142'},
+    {'drill': '32', 'size': '0.116'},
+    {'drill': '3.00 mm', 'size': '0.1181'},
+    {'drill': '31', 'size': '0.12'},
+    {'drill': '3.10 mm', 'size': '0.122'},
+    {'drill': '1/8', 'size': '0.125'},
+    {'drill': '3.20 mm', 'size': '0.126'},
+    {'drill': '3.25 mm', 'size': '0.128'},
+    {'drill': '30', 'size': '0.1285'},
+    {'drill': '3.30 mm', 'size': '0.1299'},
+    {'drill': '3.40 mm', 'size': '0.1339'},
+    {'drill': '29', 'size': '0.136'},
+    {'drill': '3.50 mm', 'size': '0.1378'},
+    {'drill': '28', 'size': '0.1405'},
+    {'drill': '9/64', 'size': '0.1406'},
+    {'drill': '3.60 mm', 'size': '0.1417'},
+    {'drill': '27', 'size': '0.144'},
+    {'drill': '3.70 mm', 'size': '0.1457'},
+    {'drill': '26', 'size': '0.147'},
+    {'drill': '3.75 mm', 'size': '0.1476'},
+    {'drill': '25', 'size': '0.1495'},
+    {'drill': '3.80 mm', 'size': '0.1496'},
+    {'drill': '24', 'size': '0.152'},
+    {'drill': '3.90 mm', 'size': '0.1535'},
+    {'drill': '23', 'size': '0.154'},
+    {'drill': '5/32', 'size': '0.1562'},
+    {'drill': '22', 'size': '0.157'},
+    {'drill': '4.00 mm', 'size': '0.1575'},
+    {'drill': '21', 'size': '0.159'},
+    {'drill': '20', 'size': '0.161'},
+    {'drill': '4.10 mm', 'size': '0.1614'},
+    {'drill': '4.20 mm', 'size': '0.1654'},
+    {'drill': '19', 'size': '0.166'},
+    {'drill': '4.25 mm', 'size': '0.1673'},
+    {'drill': '4.30 mm', 'size': '0.1693'},
+    {'drill': '18', 'size': '0.1695'},
+    {'drill': '11/64', 'size': '0.1719'},
+    {'drill': '17', 'size': '0.173'},
+    {'drill': '4.40 mm', 'size': '0.1732'},
+    {'drill': '16', 'size': '0.177'},
+    {'drill': '4.50 mm', 'size': '0.1772'},
+    {'drill': '15', 'size': '0.18'},
+    {'drill': '4.60 mm', 'size': '0.1811'},
+    {'drill': '14', 'size': '0.182'},
+    {'drill': '13', 'size': '0.185'},
+    {'drill': '4.70 mm', 'size': '0.185'},
+    {'drill': '4.75 mm', 'size': '0.187'},
+    {'drill': '3/16', 'size': '0.1875'},
+    {'drill': '4.80 mm', 'size': '0.189'},
+    {'drill': '12', 'size': '0.189'},
+    {'drill': '11', 'size': '0.191'},
+    {'drill': '4.90 mm', 'size': '0.1929'},
+    {'drill': '10', 'size': '0.1935'},
+    {'drill': '9', 'size': '0.196'},
+    {'drill': '5.00 mm', 'size': '0.1969'},
+    {'drill': '8', 'size': '0.199'},
+    {'drill': '5.10 mm', 'size': '0.2008'},
+    {'drill': '7', 'size': '0.201'},
+    {'drill': '13/64', 'size': '0.2031'},
+    {'drill': '6', 'size': '0.204'},
+    {'drill': '5.20 mm', 'size': '0.2047'},
+    {'drill': '5', 'size': '0.2055'},
+    {'drill': '5.25 mm', 'size': '0.2067'},
+    {'drill': '5.30 mm', 'size': '0.2087'},
+    {'drill': '4', 'size': '0.209'},
+    {'drill': '5.40 mm', 'size': '0.2126'},
+    {'drill': '3', 'size': '0.213'},
+    {'drill': '5.50 mm', 'size': '0.2165'},
+    {'drill': '7/32', 'size': '0.2188'},
+    {'drill': '5.60 mm', 'size': '0.2205'},
+    {'drill': '2', 'size': '0.221'},
+    {'drill': '5.70 mm', 'size': '0.2244'},
+    {'drill': '5.75 mm', 'size': '0.2264'},
+    {'drill': '1', 'size': '0.228'},
+    {'drill': '5.80 mm', 'size': '0.2283'},
+    {'drill': '5.90 mm', 'size': '0.2323'},
+    {'drill': 'A', 'size': '0.234'},
+    {'drill': '15/64', 'size': '0.2344'},
+    {'drill': '6.00 mm', 'size': '0.2362'},
+    {'drill': 'B', 'size': '0.238'},
+    {'drill': '6.10 mm', 'size': '0.2402'},
+    {'drill': 'C', 'size': '0.242'},
+    {'drill': '6.20 mm', 'size': '0.2441'},
+    {'drill': 'D', 'size': '0.246'},
+    {'drill': '6.25 mm', 'size': '0.2461'},
+    {'drill': '6.30 mm', 'size': '0.248'},
+    {'drill': '1/4 E', 'size': '0.25'},
+    {'drill': '6.40 mm', 'size': '0.252'},
+    {'drill': '6.50 mm', 'size': '0.2559'},
+    {'drill': 'F', 'size': '0.257'},
+    {'drill': '6.60 mm', 'size': '0.2598'},
+    {'drill': 'G', 'size': '0.261'},
+    {'drill': '6.70 mm', 'size': '0.2638'},
+    {'drill': '17/64', 'size': '0.2656'},
+    {'drill': '6.75 mm', 'size': '0.2657'},
+    {'drill': 'H', 'size': '0.266'},
+    {'drill': '6.80 mm', 'size': '0.2677'},
+    {'drill': '6.90 mm', 'size': '0.2717'},
+    {'drill': 'I', 'size': '0.272'},
+    {'drill': '7.00 mm', 'size': '0.2756'},
+    {'drill': 'J', 'size': '0.277'},
+    {'drill': '7.10 mm', 'size': '0.2795'},
+    {'drill': 'K', 'size': '0.281'},
+    {'drill': '9/32', 'size': '0.2812'},
+    {'drill': '7.20 mm', 'size': '0.2835'},
+    {'drill': '7.25 mm', 'size': '0.2854'},
+    {'drill': '7.30 mm', 'size': '0.2874'},
+    {'drill': 'L', 'size': '0.29'},
+    {'drill': '7.40 mm', 'size': '0.2913'},
+    {'drill': 'M', 'size': '0.295'},
+    {'drill': '7.50 mm', 'size': '0.2953'},
+    {'drill': '19/64', 'size': '0.2969'},
+    {'drill': '7.60 mm', 'size': '0.2992'},
+    {'drill': 'N', 'size': '0.302'},
+    {'drill': '7.70 mm', 'size': '0.3031'},
+    {'drill': '7.75 mm', 'size': '0.3051'},
+    {'drill': '7.80 mm', 'size': '0.3071'},
+    {'drill': '7.90 mm', 'size': '0.311'},
+    {'drill': '5/16', 'size': '0.3125'},
+    {'drill': '8.00 mm', 'size': '0.315'},
+    {'drill': 'O', 'size': '0.316'},
+    {'drill': '8.10 mm', 'size': '0.3189'},
+    {'drill': '8.20 mm', 'size': '0.3228'},
+    {'drill': 'P', 'size': '0.323'},
+    {'drill': '8.25 mm', 'size': '0.3248'},
+    {'drill': '8.30 mm', 'size': '0.3268'},
+    {'drill': '21/64', 'size': '0.3281'},
+    {'drill': '8.40 mm', 'size': '0.3307'},
+    {'drill': 'Q', 'size': '0.332'},
+    {'drill': '8.50 mm', 'size': '0.3346'},
+    {'drill': '8.60 mm', 'size': '0.3386'},
+    {'drill': 'R', 'size': '0.339'},
+    {'drill': '8.70 mm', 'size': '0.3425'},
+    {'drill': '11/32', 'size': '0.3438'},
+    {'drill': '8.75 mm', 'size': '0.3445'},
+    {'drill': '8.80 mm', 'size': '0.3465'},
+    {'drill': 'S', 'size': '0.348'},
+    {'drill': '8.90 mm', 'size': '0.3504'},
+    {'drill': '9.00 mm', 'size': '0.3543'},
+    {'drill': 'T', 'size': '0.358'},
+    {'drill': '9.10 mm', 'size': '0.3583'},
+    {'drill': '23/64', 'size': '0.3594'},
+    {'drill': '9.20 mm', 'size': '0.3622'},
+    {'drill': '9.25 mm', 'size': '0.3642'},
+    {'drill': '9.30 mm', 'size': '0.3661'},
+    {'drill': 'U', 'size': '0.368'},
+    {'drill': '9.40 mm', 'size': '0.3701'},
+    {'drill': '9.50 mm', 'size': '0.374'},
+    {'drill': '3/8', 'size': '0.375'},
+    {'drill': 'V', 'size': '0.377'},
+    {'drill': '9.60 mm', 'size': '0.378'},
+    {'drill': '9.70 mm', 'size': '0.3819'},
+    {'drill': '9.75 mm', 'size': '0.3839'},
+    {'drill': '9.80 mm', 'size': '0.3858'},
+    {'drill': 'W', 'size': '0.386'},
+    {'drill': '9.90 mm', 'size': '0.3898'},
+    {'drill': '25/64', 'size': '0.3906'},
+    {'drill': '10.00 mm', 'size': '0.3937'},
+    {'drill': 'X', 'size': '0.397'},
+    {'drill': 'Y', 'size': '0.404'},
+    {'drill': '13/32', 'size': '0.4062'},
+    {'drill': 'Z', 'size': '0.413'},
+    {'drill': '10.50 mm', 'size': '0.4134'},
+    {'drill': '27/64', 'size': '0.4219'},
+    {'drill': '11.00 mm', 'size': '0.4331'},
+    {'drill': '7/16', 'size': '0.4375'},
+    {'drill': '11.50 mm', 'size': '0.4528'},
+    {'drill': '29/64', 'size': '0.4531'},
+    {'drill': '15/32', 'size': '0.4688'},
+    {'drill': '12.00 mm', 'size': '0.4724'},
+    {'drill': '31/64', 'size': '0.4844'},
+    {'drill': '12.50 mm', 'size': '0.4921'},
+    {'drill': '1/2', 'size': '0.5'},
+    {'drill': '13.00 mm', 'size': '0.5118'},
+    {'drill': '33/64', 'size': '0.5156'},
+    {'drill': '17/32', 'size': '0.5312'},
+    {'drill': '13.50 mm', 'size': '0.5315'},
+    {'drill': '35/64', 'size': '0.5469'},
+    {'drill': '14.00 mm', 'size': '0.5512'},
+    {'drill': '9/16', 'size': '0.5625'},
+    {'drill': '14.50 mm', 'size': '0.5709'},
+    {'drill': '37/64', 'size': '0.5781'},
+    {'drill': '15.00 mm', 'size': '0.5906'},
+    {'drill': '19/32', 'size': '0.5938'},
+    {'drill': '39/64', 'size': '0.6094'},
+    {'drill': '15.50 mm', 'size': '0.6102'},
+    {'drill': '5/8', 'size': '0.625'},
+    {'drill': '16.00 mm', 'size': '0.6299'},
+    {'drill': '41/64', 'size': '0.6406'},
+    {'drill': '16.50 mm', 'size': '0.6496'},
+    {'drill': '21/32', 'size': '0.6562'},
+    {'drill': '17.00 mm', 'size': '0.6693'},
+    {'drill': '43/64', 'size': '0.6719'},
+    {'drill': '11/16', 'size': '0.6875'},
+    {'drill': '17.50 mm', 'size': '0.689'},
+    {'drill': '45/64', 'size': '0.7031'},
+    {'drill': '18.00 mm', 'size': '0.7087'},
+    {'drill': '23/32', 'size': '0.7188'},
+    {'drill': '18.50 mm', 'size': '0.7283'},
+    {'drill': '47/64', 'size': '0.7344'},
+    {'drill': '19.00 mm', 'size': '0.748'},
+    {'drill': '3/4', 'size': '0.75'},
+    {'drill': '49/64', 'size': '0.7656'},
+    {'drill': '19.50 mm', 'size': '0.7677'},
+    {'drill': '25/32', 'size': '0.7812'},
+    {'drill': '20.00 mm', 'size': '0.7874'},
+    {'drill': '51/64', 'size': '0.7969'},
+    {'drill': '20.50 mm', 'size': '0.8071'},
+    {'drill': '13/16', 'size': '0.8125'},
+    {'drill': '21.00 mm', 'size': '0.8268'},
+    {'drill': '53/64', 'size': '0.8281'},
+    {'drill': '27/32', 'size': '0.8438'},
+    {'drill': '21.50 mm', 'size': '0.8465'},
+    {'drill': '55/64', 'size': '0.8594'},
+    {'drill': '22.00 mm', 'size': '0.8661'},
+    {'drill': '7/8', 'size': '0.875'},
+    {'drill': '22.50 mm', 'size': '0.8858'},
+    {'drill': '57/64', 'size': '0.8906'},
+    {'drill': '23.00 mm', 'size': '0.9055'},
+    {'drill': '29/32', 'size': '0.9062'},
+    {'drill': '59/64', 'size': '0.9219'},
+    {'drill': '23.50 mm', 'size': '0.9252'},
+    {'drill': '15/16', 'size': '0.9375'},
+    {'drill': '24.00 mm', 'size': '0.9449'},
+    {'drill': '61/64', 'size': '0.9531'},
+    {'drill': '24.50 mm', 'size': '0.9646'},
+    {'drill': '31/32', 'size': '0.9688'},
+    {'drill': '25.00 mm', 'size': '0.9843'},
+    {'drill': '1.0', 'size': '1.0'}
+    ]
+    cBorescSinks = [
+{'Screw dia.': '#0', 'C. bore dia.': '1/8', 'C. bore depth': '.060', 'C.sink dia.': '.074', '(normal fit)': '#49', '(close fit)': '#51'},
+{'Screw dia.': '#2', 'C. bore dia.': '3/16', 'C. bore depth': '.086', 'C.sink dia.': '.102', '(normal fit)': '#36', '(close fit)': '3/32'},
+{'Screw dia.': '#4', 'C. bore dia.': '7/32', 'C. bore depth': '.112', 'C.sink dia.': '.130', '(normal fit)': '#29', '(close fit)': '1/8'},
+{'Screw dia.': '#5', 'C. bore dia.': '1/4', 'C. bore depth': '.125', 'C.sink dia.': '.145', '(normal fit)': '#23', '(close fit)': '9/64'},
+{'Screw dia.': '#6', 'C. bore dia.': '9/32', 'C. bore depth': '.138', 'C.sink dia.': '.158', '(normal fit)': '#18', '(close fit)': '#23'},
+{'Screw dia.': '#8', 'C. bore dia.': '5/16', 'C. bore depth': '.164', 'C.sink dia.': '.188', '(normal fit)': '#10', '(close fit)': '#15'},
+{'Screw dia.': '#10', 'C. bore dia.': '3/8', 'C. bore depth': '.190', 'C.sink dia.': '.218', '(normal fit)': '#2', '(close fit)': '#5'},
+{'Screw dia.': '1/4', 'C. bore dia.': '7/16', 'C. bore depth': '.250', 'C.sink dia.': '.278', '(normal fit)': '9/32', '(close fit)': '17/64'},
+{'Screw dia.': '5/16', 'C. bore dia.': '17/32', 'C. bore depth': '.312', 'C.sink dia.': '.346', '(normal fit)': '11/32', '(close fit)': '21/64'},
+{'Screw dia.': '3/8', 'C. bore dia.': '5/8', 'C. bore depth': '.375', 'C.sink dia.': '.415', '(normal fit)': '13/32', '(close fit)': '25/64'},
+{'Screw dia.': '7/16', 'C. bore dia.': '23/32', 'C. bore depth': '.438', 'C.sink dia.': '.483', '(normal fit)': '15/32', '(close fit)': '29/64'},
+{'Screw dia.': '1/2', 'C. bore dia.': '13/16', 'C. bore depth': '.500', 'C.sink dia.': '.552', '(normal fit)': '17/32', '(close fit)': '33/64'},
+{'Screw dia.': '5/8', 'C. bore dia.': '1', 'C. bore depth': '.625', 'C.sink dia.': '.689', '(normal fit)': '21/32', '(close fit)': '41/64'},
+{'Screw dia.': '3/4', 'C. bore dia.': '1 3/16', 'C. bore depth': '.750', 'C.sink dia.': '.828', '(normal fit)': '25/32', '(close fit)': '49/64'},
+{'Screw dia.': '7/8', 'C. bore dia.': '1 3/8', 'C. bore depth': '.875', 'C.sink dia.': '.963', '(normal fit)': '29/32', '(close fit)': '57/64'},
+{'Screw dia.': '1', 'C. bore dia.': '1 5/8', 'C. bore depth': '1.000', 'C.sink dia.': '1.100', '(normal fit)': '1 1/32', '(close fit)': '1 1/64'},
+{'Screw dia.': '1 1/4', 'C. bore dia.': '2', 'C. bore depth': '1.250', 'C.sink dia.': '1.370', '(normal fit)': '1 5/16', '(close fit)': '1 9/32'},
+{'Screw dia.': '1 1/2', 'C. bore dia.': '2 3/8', 'C. bore depth': '1.500', 'C.sink dia.': '1.640', '(normal fit)': '1 9/16', '(close fit)': '1 17/32'},
+{'Screw dia.': '1 3/4', 'C. bore dia.': '2 3/4', 'C. bore depth': '1.750', 'C.sink dia.': '1.910', '(normal fit)': '1 13/16', '(close fit)': '1 25/32'},
+{'Screw dia.': '2', 'C. bore dia.': '3 1/8', 'C. bore depth': '2.000', 'C.sink dia.': '2.180', '(normal fit)': '2 1/16', '(close fit)': '2 1/32'}
+
+    ]
+    heliCoils = [
+{'Thread': '1-64', 'Aluminum': '0.0785', 'Steel': '0.081', 'Major': '0.073', 'Type': 'c'},
+{'Thread': '2-56', 'Aluminum': '.0938', 'Steel': '0.096', 'Major': '0.086', 'Type': 'c'},
+{'Thread': '2-64', 'Aluminum': '0.0925', 'Steel': '0.0925', 'Major': '0.086', 'Type': 'f'},
+{'Thread': '3-48', 'Aluminum': '0.1065', 'Steel': '0.1094', 'Major': '0.099', 'Type': 'c'},
+{'Thread': '3-56', 'Aluminum': '0.104', 'Steel': '0.1065', 'Major': '0.099', 'Type': 'f'},
+{'Thread': '4-40', 'Aluminum': '0.12', 'Steel': '0.12', 'Major': '0.112', 'Type': 'c'},
+{'Thread': '4-48', 'Aluminum': '0.1181', 'Steel': '0.12', 'Major': '0.112', 'Type': 'f'},
+{'Thread': '5-40', 'Aluminum': '0.1339', 'Steel': '0.136', 'Major': '0.125', 'Type': 'c'},
+{'Thread': '6-32', 'Aluminum': '0.147', 'Steel': '0.1495', 'Major': '0.138', 'Type': 'c'},
+{'Thread': '6-40', 'Aluminum': '0.147', 'Steel': '0.1495', 'Major': '0.138', 'Type': 'f'},
+{'Thread': '8-32', 'Aluminum': '0.173', 'Steel': '0.177', 'Major': '0.164', 'Type': 'c'},
+{'Thread': '8-36', 'Aluminum': '0.173', 'Steel': '0.177', 'Major': '0.164', 'Type': 'f'},
+{'Thread': '10-24', 'Aluminum': '0.2031', 'Steel': '0.2055', 'Major': '0.19', 'Type': 'c'},
+{'Thread': '10-32', 'Aluminum': '0.201', 'Steel': '0.2031', 'Major': '0.19', 'Type': 'f'},
+{'Thread': '12-24', 'Aluminum': '0.228', 'Steel': '0.228', 'Major': '0.216', 'Type': 'c'},
+{'Thread': '1/4-20', 'Aluminum': '0.266', 'Steel': '0.266', 'Major': '0.25', 'Type': 'c'},
+{'Thread': '1/4-28', 'Aluminum': '0.261', 'Steel': '0.2638', 'Major': '0.25', 'Type': 'f'},
+{'Thread': '5/16-18', 'Aluminum': '0.332', 'Steel': '0.332', 'Major': '0.3125', 'Type': 'c'},
+{'Thread': '5/16-24', 'Aluminum': '0.3281', 'Steel': '0.3281', 'Major': '0.3125', 'Type': 'f'},
+{'Thread': '3/8-16', 'Aluminum': '0.397', 'Steel': '0.397', 'Major': '0.375', 'Type': 'c'},
+{'Thread': '3/8-24', 'Aluminum': '0.3906', 'Steel': '0.3906', 'Major': '0.375', 'Type': 'f'},
+{'Thread': '7/16-14', 'Aluminum': '0.4531', 'Steel': '0.4531', 'Major': '0.4375', 'Type': 'c'},
+{'Thread': '7/16-20', 'Aluminum': '0.4531', 'Steel': '0.4531', 'Major': '0.4375', 'Type': 'f'},
+{'Thread': '1/2-13', 'Aluminum': '0.5156', 'Steel': '0.5312', 'Major': '0.5', 'Type': 'c'},
+{'Thread': '1/2-20', 'Aluminum': '0.5156', 'Steel': '0.5156', 'Major': '0.5', 'Type': 'f'},
+{'Thread': '9/16-12', 'Aluminum': '0.5781', 'Steel': '0.5938', 'Major': '0.5625', 'Type': 'c'},
+{'Thread': '9/16-18', 'Aluminum': '0.5781', 'Steel': '0.5781', 'Major': '0.5625', 'Type': 'f'},
+{'Thread': '5/8-11', 'Aluminum': '0.6562', 'Steel': '0.6562', 'Major': '0.625', 'Type': 'c'},
+{'Thread': '5/8-18', 'Aluminum': '0.6406', 'Steel': '0.6406', 'Major': '0.625', 'Type': 'f'},
+{'Thread': '3/4-10', 'Aluminum': '0.7812', 'Steel': '0.7812', 'Major': '0.75', 'Type': 'c'},
+{'Thread': '3/4-16', 'Aluminum': '0.7656', 'Steel': '0.7656', 'Major': '0.75', 'Type': 'f'},
+{'Thread': '7/8-9', 'Aluminum': '0.9062', 'Steel': '0.9062', 'Major': '0.875', 'Type': 'c'},
+{'Thread': '7/8-14', 'Aluminum': '0.8906', 'Steel': '0.8906', 'Major': '0.875', 'Type': 'f'},
+{'Thread': '1-8', 'Aluminum': '1.0312', 'Steel': '1.0312', 'Major': '1', 'Type': 'c'},
+{'Thread': '1-14', 'Aluminum': '1.0156', 'Steel': '1.0312', 'Major': '1', 'Type': 'f'},
+{'Thread': 'M2-.4', 'Aluminum': '2.1mm', 'Steel': '2.1mm', 'Major': 'M2', 'Type': 'c'},
+{'Thread': 'M3-.5', 'Aluminum': '3.15mm', 'Steel': '3.2mm', 'Major': 'M3', 'Type': 'c'},
+{'Thread': 'M4-.7', 'Aluminum': '4.2mm', 'Steel': '4.25mm', 'Major': 'M4', 'Type': 'c'},
+{'Thread': 'M5-.8', 'Aluminum': '5.2mm', 'Steel': '5.3mm', 'Major': 'M5', 'Type': 'c'},
+{'Thread': 'M6-1', 'Aluminum': '6.25mm', 'Steel': '6.3mm', 'Major': 'M6', 'Type': 'c'},
+{'Thread': 'M8-1.25', 'Aluminum': '8.3mm', 'Steel': '8.4mm', 'Major': 'M8', 'Type': 'c'},
+{'Thread': 'M8-1.0', 'Aluminum': '8.25mm', 'Steel': '8.3mm', 'Major': 'M8', 'Type': 'f'},
+{'Thread': 'M10-1.5', 'Aluminum': '10.5mm', 'Steel': '10.5mm', 'Major': 'M10', 'Type': 'c'},
+{'Thread': 'M10-1.25', 'Aluminum': '10.25mm', 'Steel': '10.25mm', 'Major': 'M10', 'Type': 'f'},
+{'Thread': 'M12-1.75', 'Aluminum': '12.5mm', 'Steel': '12.5mm', 'Major': 'M12', 'Type': 'c'},
+{'Thread': 'M12-1.25', 'Aluminum': '12.25mm', 'Steel': '12.25mm', 'Major': 'M12', 'Type': 'f'},
+{'Thread': 'M14-2', 'Aluminum': '14.5mm', 'Steel': '14.5mm', 'Major': 'M14', 'Type': 'c'},
+{'Thread': 'M14-1.5', 'Aluminum': '14.25mm', 'Steel': '14.5mm', 'Major': 'M14', 'Type': 'f'},
+{'Thread': 'M16-2', 'Aluminum': '16.5mm', 'Steel': '16.5mm', 'Major': 'M16', 'Type': 'c'},
+{'Thread': 'M16-1.5', 'Aluminum': '16.25mm', 'Steel': '16.5mm', 'Major': 'M16', 'Type': 'f'},
+{'Thread': 'M18-2.5', 'Aluminum': '18.75mm', 'Steel': '18.75', 'Major': 'M18', 'Type': 'c'},
+{'Thread': 'M18-1.5', 'Aluminum': '18.25mm', 'Steel': '18.5mm', 'Major': 'M18', 'Type': 'f'},
+{'Thread': 'M20-2.5', 'Aluminum': '20.75mm', 'Steel': '20.75mm', 'Major': 'M20', 'Type': 'c'},
+{'Thread': 'M20-2.0', 'Aluminum': '20.5mm', 'Steel': '20.5mm', 'Major': 'M20', 'Type': 'f'}
+    ] 
+    formThreads = [
+{'Size': '0-80', '75%Thread': '0.054', '65%Thread': '0.055', 'Drill size': '#54', 'Major': '0.06', 'Type': 'c'},
+{'Size': '1-64', '75%Thread': '0.066', '65%Thread': '0.067', 'Drill size': '#51', 'Major': '0.073', 'Type': 'c'},
+{'Size': '1-72', '75%Thread': '0.067', '65%Thread': '0.068', 'Drill size': '#51', 'Major': '0.073', 'Type': 'f'},
+{'Size': '2-56', '75%Thread': '0.078', '65%Thread': '0.079', 'Drill size': '#47', 'Major': '0.086', 'Type': 'c'},
+{'Size': '2-64', '75%Thread': '0.079', '65%Thread': '0.08', 'Drill size': '2mm', 'Major': '0.086', 'Type': 'f'},
+{'Size': '3-48', '75%Thread': '0.09', '65%Thread': '0.091', 'Drill size': '2.3mm', 'Major': '0.099', 'Type': 'c'},
+{'Size': '3-56', '75%Thread': '0.091', '65%Thread': '0.092', 'Drill size': '2.3mm', 'Major': '0.099', 'Type': 'f'},
+{'Size': '4-40', '75%Thread': '0.1', '65%Thread': '0.101', 'Drill size': '#39', 'Major': '0.112', 'Type': 'c'},
+{'Size': '4-48', '75%Thread': '0.103', '65%Thread': '0.104', 'Drill size': '#37', 'Major': '0.112', 'Type': 'f'},
+{'Size': '5-40', '75%Thread': '0.113', '65%Thread': '0.114', 'Drill size': '#33', 'Major': '0.125', 'Type': 'c'},
+{'Size': '5-44', '75%Thread': '0.114', '65%Thread': '0.115', 'Drill size': '#33', 'Major': '0.125', 'Type': 'f'},
+{'Size': '6-32', '75%Thread': '0.124', '65%Thread': '0.125', 'Drill size': '3.1mm', 'Major': '0.138', 'Type': 'c'},
+{'Size': '6-40', '75%Thread': '0.126', '65%Thread': '0.127', 'Drill size': '(1/8', 'Major': '0.138', 'Type': 'f'},
+{'Size': '8-32', '75%Thread': '0.149', '65%Thread': '0.15', 'Drill size': '#25', 'Major': '0.164', 'Type': 'c'},
+{'Size': '8-36', '75%Thread': '0.151', '65%Thread': '0.152', 'Drill size': '#24', 'Major': '0.164', 'Type': 'f'},
+{'Size': '10-24', '75%Thread': '0.17', '65%Thread': '0.172', 'Drill size': '(11/64', 'Major': '0.19', 'Type': 'c'},
+{'Size': '10-32', '75%Thread': '0.175', '65%Thread': '0.176', 'Drill size': '#16', 'Major': '0.19', 'Type': 'f'},
+{'Size': '12-24', '75%Thread': '0.196', '65%Thread': '0.198', 'Drill size': '#9', 'Major': '0.216', 'Type': 'c'},
+{'Size': '12-28', '75%Thread': '0.199', '65%Thread': '0.201', 'Drill size': '#7', 'Major': '0.216', 'Type': 'f'},
+{'Size': '1/4-20', '75%Thread': '0.225', '65%Thread': '0.227', 'Drill size': '5.75mm', 'Major': '0.25', 'Type': 'c'},
+{'Size': '1/4-28', '75%Thread': '0.233', '65%Thread': '0.235', 'Drill size': 'A', 'Major': '0.25', 'Type': 'f'},
+{'Size': '5/16-18', '75%Thread': '0.285', '65%Thread': '0.287', 'Drill size': '7.25mm', 'Major': '0.3125', 'Type': 'c'},
+{'Size': '5/16-24', '75%Thread': '0.292', '65%Thread': '0.294', 'Drill size': '0.293', 'Major': '0.3125', 'Type': 'f'},
+{'Size': '3/8-16', '75%Thread': '0.344', '65%Thread': '0.347', 'Drill size': 'S', 'Major': '0.375', 'Type': 'c'},
+{'Size': '3/8-24', '75%Thread': '0.355', '65%Thread': '0.357', 'Drill size': '9mm', 'Major': '0.375', 'Type': 'f'},
+{'Size': '7/16-14', '75%Thread': '0.402', '65%Thread': '0.405', 'Drill size': 'Y', 'Major': '0.4375', 'Type': 'c'},
+{'Size': '7/16-20', '75%Thread': '0.414', '65%Thread': '0.416', 'Drill size': 'Z', 'Major': '0.4375', 'Type': 'f'},
+{'Size': '1/2-13', '75%Thread': '0.462', '65%Thread': '0.466', 'Drill size': '0.463', 'Major': '0.5', 'Type': 'c'},
+{'Size': 'M2-.4', '75%Thread': '0.072', '65%Thread': '0.073', 'Drill size': '1.85mm', 'Major': 'M2', 'Type': 'c'},
+{'Size': 'M2.5-.45', '75%Thread': '0.091', '65%Thread': '0.092', 'Drill size': '2.3mm', 'Major': 'M2.5', 'Type': 'c'},
+{'Size': 'M3-.5', '75%Thread': '0.11', '65%Thread': '0.111', 'Drill size': '#35', 'Major': 'M3', 'Type': 'c'},
+{'Size': 'M3.5-.6', '75%Thread': '0.128', '65%Thread': '0.129', 'Drill size': '#30', 'Major': 'M3.5', 'Type': 'c'},
+{'Size': 'M4-.7', '75%Thread': '0.145', '65%Thread': '0.146', 'Drill size': '3.7mm', 'Major': 'M4', 'Type': 'c'},
+{'Size': 'M5-.8', '75%Thread': '0.183', '65%Thread': '0.184', 'Drill size': '#14', 'Major': 'M5', 'Type': 'c'},
+{'Size': 'M6-1', '75%Thread': '0.218', '65%Thread': '0.22', 'Drill size': '5.5mm', 'Major': 'M6', 'Type': 'c'},
+{'Size': 'M8-1.25', '75%Thread': '0.291', '65%Thread': '0.294', 'Drill size': '7.4mm', 'Major': 'M8', 'Type': 'c'},
+{'Size': 'M10-1.5', '75%Thread': '0.365', '65%Thread': '0.368', 'Drill size': '9.3mm', 'Major': 'M10', 'Type': 'c'},
+{'Size': 'M12-1.75', '75%Thread': '0.439', '65%Thread': '0.442', 'Drill size': '(7/16', 'Major': 'M12', 'Type': 'c'}
+    ]
+    
+    
+    function holeEleHighlighter(data) {
+
+      holeEleCreate(data)
+      if(data == drillSizes){
+        inputValue = document.getElementById('drill-search')
+      }
+      else if(data == cBorescSinks){
+        inputValue = document.getElementById('cbores')
+      }
+      
+      
+      scanList = document.querySelectorAll('.scannedElement')
+      for(let i = 0; i < data.length - 1; i++){
+        
+        if(parseFloat(inputValue.value) == parseFloat(scanList[i].innerText)){
+          scanList[i].parentElement.classList.add('highlight');
+          let focused = document.createElement('a')
+          focused.setAttribute('id', 'idselect')
+          focused.setAttribute('href', '_self')
+          scanList[i].appendChild(focused)
+          focused.focus()
+        break
+      }
+        if(parseFloat(inputValue.value) > parseFloat(scanList[i].innerText) && parseFloat(inputValue.value) < parseFloat(scanList[i + 1].innerText)){
+          scanList[i].parentElement.classList.add('highlight');
+          scanList[i + 1].parentElement.classList.add('highlight');
+          let focused = document.createElement('a')
+          focused.setAttribute('id', 'idselect')
+          focused.setAttribute('href', '_self')
+          scanList[i].appendChild(focused)
+          focused.focus()
+        break
+      }
+    }
+      inputValue.focus()
+    }
+      
+    function tapEleHighlight(data){
+      tapEleCreate(data)
+      if(data == taps){
+        inputValue = document.getElementById('taps')
+      }
+      else if(data == heliCoils){
+        inputValue = document.getElementById('helicoils')
+      }
+      else if(data == formThreads){
+        inputValue = document.getElementById('form-taps')
+      }
+      
+      scanList = document.querySelectorAll('.scannedElement')
+      for(let i = 0; i < data.length - 1; i++){
+        if(inputValue.value.toUpperCase() == scanList[i].innerText || parseFloat(inputValue.value) == parseFloat(scanList[i].innerText)){
+          scanList[i].parentElement.classList.add('highlight');
+          let focused = document.createElement('a')
+          focused.setAttribute('id', 'idselect')
+          focused.setAttribute('href', '_self')
+          scanList[i].appendChild(focused)
+          focused.focus()
+        break
+      }
+        if(parseFloat(inputValue.value) > parseFloat(scanList[i].innerText) && parseFloat(inputValue.value) < parseFloat(scanList[i + 1].innerText)){
+          scanList[i].parentElement.classList.add('highlight');
+          scanList[i + 1].parentElement.classList.add('highlight');
+          let focused = document.createElement('a')
+          focused.setAttribute('id', 'idselect')
+          focused.setAttribute('href', '_self')
+          scanList[i].appendChild(focused)
+          focused.focus()
+        break
+      }
+    }
+      inputValue.focus()
+    }
+    
+
+    function tapEleCreate(data) {
+      // empty other inputboxes
+      if(data == taps){
+        document.getElementById('helicoils').value='';
+        document.getElementById('form-taps').value='';
+      }
+      else if(data == heliCoils){
+        document.getElementById('taps').value='';
+        document.getElementById('form-taps').value='';      
+      }
+      else if(data == formThreads){
+        document.getElementById('helicoils').value='';
+        document.getElementById('taps').value='';
+      }
+
+      // removeGuy clears table so chart doesnt have repeating values
+      const removeGuy = document.querySelectorAll(".ele");
+      removeGuy.forEach(guy => {
+      guy.remove()});
+
+        // create table head variables
+      let tHeadkeys = Object.keys(data[0])
+      let tHeadvalue  = Object.values(data[0])
+
+        for(let i = 0; i < tHeadkeys.length - 1; i++){
+          const tHeadEle = document.createElement('th');
+          tHeadEle.setAttribute('class', 'ele')
+          tHeadEle.classList.add('table-bordered')
+          tHeadEle.innerHTML+=tHeadkeys[i]
+          document.getElementById('t-head-row').appendChild(tHeadEle);
+        }
+
+        // create elements based on data. Append to table body.
+        for(let i = 0; i < data.length; i++){
+          const wrapper = document.createElement('tr');
+          wrapper.setAttribute("class", "ele");
+          wrapper.classList.add('table-bordered');
+          document.getElementById('table-body').appendChild(wrapper)
+          
+          for(let x = 0; x < tHeadkeys.length - 1; x++){
+            const newGuy = document.createElement("th");
+        
+            if(tHeadkeys[x] == 'Major'){
+              newGuy.setAttribute('class', 'scannedElement')
+              newGuy.innerHTML += data[i]['Major']
+            }
+            else if(tHeadkeys[x] != 'Type') {
+              newGuy.innerHTML += data[i][tHeadkeys[x]]
+            }
+            wrapper.appendChild(newGuy)
+          }  
+        }
+
+        // create event listener that will highlight or unhighlight on click
+        let highlighter = document.querySelectorAll('.ele');
+        Array.from(highlighter).forEach(el => {
+        el.addEventListener('click', function() {
+        if(el.classList.contains('highlight')){
+          el.classList.remove('highlight')
+        }
+        else {
+          el.classList.add('highlight')
+        }
+      })
+    })
+    }
+      
+      function holeEleCreate(data){
+
+        // removeGuy clears table so chart doesnt have repeating values
+        const removeGuy = document.querySelectorAll(".ele");
+        removeGuy.forEach(guy => {
+        guy.remove()});
+        
+        // create table head
+        let tHeadkeys = Object.keys(data[0])
+        let tHeadvalue  = Object.values(data[0])
+        for(let i = 0; i < tHeadkeys.length; i++){
+          const tHeadEle = document.createElement('th');
+          tHeadEle.setAttribute('class', 'ele')
+          tHeadEle.classList.add('table-bordered')
+          tHeadEle.innerHTML+=tHeadkeys[i]
+          document.getElementById('t-head-row').appendChild(tHeadEle);
+        }
+          
+        // create elements based on data. Append to table body.
+        for(let i = 0; i < data.length; i++){
+          const wrapper = document.createElement('tr');
+          wrapper.setAttribute("class", "ele");
+          wrapper.classList.add('table-bordered');
+          document.getElementById('table-body').appendChild(wrapper)
+          
+          for(let x = 0; x < tHeadkeys.length; x++){
+            const newGuy = document.createElement("th");
+        
+            if(tHeadkeys[x] == 'size'){
+              newGuy.setAttribute('class', 'scannedElement')
+              newGuy.innerHTML += data[i]['size']
+            }
+            else if(tHeadkeys[x] == 'Counterbore depth'){
+              newGuy.setAttribute('class', 'scannedElement')
+              newGuy.innerHTML += data[i]['Counterbore depth']
+            }
+            else {
+              newGuy.innerHTML += data[i][tHeadkeys[x]]
+            }
+            wrapper.appendChild(newGuy)
+          }  
+        }
+
+        // create event listener that will highlight or unhighlight on click
+        let highlighter = document.querySelectorAll('.ele');
+        Array.from(highlighter).forEach(el => {
+        el.addEventListener('click', function() {
+        if(el.classList.contains('highlight')){
+          el.classList.remove('highlight')
+        }
+        else {
+          el.classList.add('highlight')
+        }
+      })
+    })
+      }
+  </script>
+<div id="drill-tap-container">
+<div id="buttons-labels">
+<div class="input-group mb-1">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick={holeEleCreate(drillSizes)}>Drill Sizes</button>
+  <input type="text" id="drill-search" onkeyup={holeEleHighlighter(drillSizes)} class="form-control" placeholder="Search" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+<div class="input-group mb-1">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick={holeEleCreate(cBorescSinks)}>C-bores & C-sinks</button>
+  <input type="text" id="cbores" onkeyup={holeEleHighlighter(cBorescSinks)} class="form-control" placeholder="Search" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+<div class="input-group mb-1">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick={tapEleCreate(taps)}>Standard Taps</button>
+  <input type="text" id="taps" onkeyup={tapEleHighlight(taps)} class="form-control" placeholder="Search by major diameter" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+<div class="input-group mb-1">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick={tapEleCreate(formThreads)}>Form-taps</button>
+  <input type="text" id="form-taps" onkeyup={tapEleHighlight(formThreads)} class="form-control" placeholder="Search by major diameter" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+<div class="input-group mb-1">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick={tapEleCreate(heliCoils)}>Helicoils</button>
+  <input type="text" id="helicoils" onkeyup={tapEleHighlight(heliCoils)} class="form-control" placeholder="Search by major diameter" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+</div>
+<div class="table-div" id="table-divider">
+  <table class="table">
+    <thead id="t-head">
+      <tr id="t-head-row">
+        
+      </tr>
+    </thead>
+    <tbody  id="table-body">
+      
+    </tbody>
+  </table>
+</div>
+</div>
+{% endblock %}

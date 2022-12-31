@@ -1,0 +1,330 @@
+{% extends "layout.html" %}
+{% block title %}
+Slutazontals
+{% endblock %}
+{% block main %}
+    <script>
+        let xCenterLine = 0;
+        let zCenterLine = 0;
+        let newX = 0;
+        let newZ = 0;
+        
+
+        function myfun(){   
+            // grab the radio buttons by id
+            let a = document.getElementById('a')
+            let b = document.getElementById('b')
+            let c = document.getElementById('c')
+            // grabbing the machine containers for opacity settings
+            let divA = document.getElementById('machine-a')
+            let divB = document.getElementById('machine-b')
+            let divC = document.getElementById('machine-c')
+    
+            // if statements to find selected, set opacity, set global centerline variables
+            if(a.checked){
+                divA.style.opacity = "1.0";
+                divB.style.opacity = ".0";
+                divC.style.opacity = ".0";
+                xcl = document.getElementById('mz4-a-x').innerText
+                zcl = document.getElementById('mz4-a-z').innerText
+                xCenterLine = parseFloat(xcl)
+                zCenterLine = parseFloat(zcl)
+            }
+            if(b.checked){
+                divA.style.opacity = ".0";
+                divB.style.opacity = "1.0";
+                divC.style.opacity = ".0";
+                xcl = document.getElementById('mz4-b-x').innerText
+                zcl = document.getElementById('mz4-b-z').innerText
+                xCenterLine = parseFloat(xcl)
+                zCenterLine = parseFloat(zcl)
+            }
+            if(c.checked){
+                divA.style.opacity = ".0";
+                divB.style.opacity = ".0";
+                divC.style.opacity = "1.0";
+                xcl = document.getElementById('mz4-c-x').innerText
+                zcl = document.getElementById('mz4-c-z').innerText
+                xCenterLine = parseFloat(xcl)
+                zCenterLine = parseFloat(zcl)
+            }
+            a.disabled=true
+            b.disabled=true
+            c.disabled=true
+            document.getElementById('wpcs').style.opacity='1.0'
+            document.getElementById('x-input').disabled=false
+            document.getElementById('z-input').disabled=false
+            document.getElementById('math-button').disabled=false
+        }
+
+        function loadMath(){
+            const removeGuy = document.querySelectorAll(".userAdded");
+            removeGuy.forEach(guy => {
+            guy.remove()});
+            document.getElementById('new-index-button').disabled=false
+            document.getElementById('new-index-input').disabled=false
+            doMath(90)
+            document.getElementById('index-90-x').innerText=`X ${(Math.round(newX * 100000) / 100000)}`;
+            document.getElementById('index-90-z').innerText=`Z ${(Math.round(newZ * 100000) / 100000)}`;
+            doMath(180)
+            document.getElementById('index-180-x').innerText=`X ${(Math.round(newX * 100000) / 100000)}`;
+            document.getElementById('index-180-z').innerText=`Z ${(Math.round(newZ * 100000) / 100000)}`;
+            doMath(270)
+            document.getElementById('index-270-x').innerText=`X ${(Math.round(newX * 100000) / 100000)}`;
+            document.getElementById('index-270-z').innerText=`Z ${(Math.round(newZ * 100000) / 100000)}`;
+        }
+
+        function createNewIndex(){
+            let userNewAngle = document.getElementById('new-index-input').value;
+            let regExp = /[a-z]/i;
+            if(userNewAngle > 360 || userNewAngle < -360){
+                alert('Invalid angle')
+            }
+            else if(regExp.test(userNewAngle)){
+                alert('No letters')
+            }
+            else{
+            let newDivContainer = document.createElement('div');
+            newDivContainer.setAttribute('class', 'card-container');
+            newDivContainer.classList.add('userAdded');
+            let newIndexB = document.createElement('h3');
+            newIndexB.setAttribute('id', 'index-new');
+            let newIndexX = document.createElement('h4');
+            newIndexX.setAttribute('id', 'index-new-x');
+            let newIndexZ = document.createElement('h4');
+            newIndexZ.setAttribute('id', 'index-new-y');
+            document.getElementById('card-master').appendChild(newDivContainer);
+            newDivContainer.appendChild(newIndexB);
+            newDivContainer.appendChild(newIndexX);
+            newDivContainer.appendChild(newIndexZ);
+            
+            userNewAngle = parseFloat(userNewAngle);
+
+            saveAngle = userNewAngle
+            if(userNewAngle < 0){
+                userNewAngle = 360 + userNewAngle
+            }
+            doMath(userNewAngle);
+            newIndexB.innerText=`B ${Math.round(saveAngle * 100000) / 100000} Deg`;
+            newIndexX.innerText=`X ${Math.round(parseFloat(newX) * 100000) / 100000}`;
+            newIndexZ.innerText=`Z ${Math.round(parseFloat(newZ) * 100000) / 100000}`;
+            }
+        }
+
+        function doMath(userAngle){
+            let xInput = document.getElementById('x-input').value
+            let zInput = document.getElementById('z-input').value
+            xInput = parseFloat(xInput)
+            zInput = parseFloat(zInput)
+
+
+            // check if numbers are negative
+            if(xInput > 0 || zInput > 0){
+                alert('number must be negative')
+                return 1;
+            }
+            // make sure we have numbers
+            let regExp = /[a-z]/i;
+            if(!Number.isInteger(xInput) || !Number.isInteger(zInput)){
+                if(regExp.test(xInput) || regExp.test(zInput)){
+                    alert('must be a number')
+                return 1;
+            }}
+
+            // create B0 coordinates in first index card
+            document.getElementById('index-0-x').innerText=`X ${(Math.round(xInput * 100000) / 100000)}`;
+            document.getElementById('index-0-z').innerText=`Z ${(Math.round(zInput * 100000) / 100000)}`;
+
+            // find triangle legs, then hypotenuse
+            let base = xCenterLine - xInput;
+            let height = zCenterLine - zInput;
+            base = Math.abs(base)
+            height = Math.abs(height)
+            let hypotenuse = Math.sqrt(height * height + base * base)
+            let angleRemaining = userAngle;
+            // determine quadrant
+            let quadrant = 0;
+            let AngleToFirstCrosshair = 0;
+            
+            if(xInput >= xCenterLine && zInput <= zCenterLine){
+                quadrant = 1
+                 AngleToFirstCrosshair = Math.asin(height/hypotenuse)
+            }
+            else if(xInput >= xCenterLine && zInput >= zCenterLine) {
+                quadrant = 2
+                 AngleToFirstCrosshair = Math.asin(base/hypotenuse)
+            }
+            else if(xInput <= xCenterLine && zInput >= zCenterLine) {
+                quadrant = 3
+                 AngleToFirstCrosshair = Math.asin(height/hypotenuse)
+            }
+            else if(xInput <= xCenterLine && zInput <= zCenterLine) {
+                quadrant = 4
+                 AngleToFirstCrosshair = Math.asin(base/hypotenuse)
+            }
+            
+            // create new coordiates based on a 90 degree move
+            let degAngleToFirstCrosshair = AngleToFirstCrosshair / (Math.PI / 180)
+
+            // make calculations around grid until remaining angle is less than 90 degrees
+            while(angleRemaining > 90){
+                let split90AngleAfterFirstCrossHair = 90 - degAngleToFirstCrosshair;
+                let radianAngleRemaining = split90AngleAfterFirstCrossHair * (Math.PI / 180);
+                let newBase = Math.sin(radianAngleRemaining) * hypotenuse;
+                let newHeight = Math.cos(radianAngleRemaining) * hypotenuse;
+                angleRemaining -= 90;
+        
+                if(quadrant == 4){
+                    quadrant = 1;
+                }
+                else {
+                    quadrant += 1;
+                }
+
+                if(quadrant == 1){
+                    newX = xCenterLine + newBase;
+                    newZ = zCenterLine - newHeight;
+                }
+
+                else if(quadrant == 2) {
+                    newX = xCenterLine + newHeight;
+                    newZ = zCenterLine + newBase;
+                }
+
+                else if(quadrant == 3) {
+                    newX = xCenterLine - newBase;
+                    newZ = zCenterLine + newHeight;
+                } 
+
+                else if(quadrant == 4) {
+                    newX = xCenterLine - newHeight;
+                    newZ = zCenterLine - newBase;
+                }
+            }
+
+            // finish calculation
+            if(angleRemaining <= degAngleToFirstCrosshair){
+                let newAngleRemaining = 90 - degAngleToFirstCrosshair + angleRemaining;
+                let radianNewAngleRemaining = newAngleRemaining * (Math.PI / 180)
+                let newBase = Math.sin(radianNewAngleRemaining) * hypotenuse;
+                let newHeight = Math.cos(radianNewAngleRemaining) * hypotenuse;
+                if(quadrant == 1){
+                    newX = xCenterLine + newBase;
+                    newZ = zCenterLine - newHeight;
+                }
+
+                else if(quadrant == 2) {
+                    newX = xCenterLine + newHeight;
+                    newZ = zCenterLine + newBase;
+                }
+
+                else if(quadrant == 3) {
+                    newX = xCenterLine - newBase;
+                    newZ = zCenterLine + newHeight;
+                } 
+
+                else if(quadrant == 4) {
+                    newX = xCenterLine - newHeight;
+                    newZ = zCenterLine - newBase;
+                }
+                angleRemaining = 0;
+                return newX, newZ
+            }
+
+            else {
+                let split90AngleAfterFirstCrossHair = angleRemaining - degAngleToFirstCrosshair;
+                let radianAngleRemaining = split90AngleAfterFirstCrossHair * (Math.PI / 180);
+                let newBase = Math.sin(radianAngleRemaining) * hypotenuse;
+                let newHeight = Math.cos(radianAngleRemaining) * hypotenuse;
+                angleRemaining = angleRemaining - (degAngleToFirstCrosshair + split90AngleAfterFirstCrossHair)
+
+                if(quadrant == 4){
+                    quadrant = 1;
+                }
+                else {
+                    quadrant += 1;
+                }
+
+                if(quadrant == 1){
+                    newX = xCenterLine + newBase;
+                    newZ = zCenterLine - newHeight;    
+                }
+
+                else if(quadrant == 2) {
+                    newX = xCenterLine + newHeight;
+                    newZ = zCenterLine + newBase;                
+                }
+
+                else if(quadrant == 3) {
+                    newX = xCenterLine - newBase;
+                    newZ = zCenterLine + newHeight;                     
+                } 
+
+                else if(quadrant == 4) {
+                    newX = xCenterLine - newHeight;
+                    newZ = zCenterLine - newBase;                 
+                }
+                return newX, newZ
+            }
+        }
+    </script>
+        <a id='cl-nav' class="nav-link" href="{{ url_for('mz4cl') }}">Change <image src="{{ url_for('static', filename='centerline.jpeg') }}" class='cl-img'></image></a>
+    <div id="main-container">
+    <div class="machine-select">
+    <div class="machine-div" id="machine-a">
+        <h5>MZ4 A</h5>
+        <p>X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-a-x'>{{ mz4a[0] }}</span></p>
+        <P>Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-a-z'>{{ mz4a[1] }}</span></P>
+        <input type="radio" id="a"  name="mach" class="mt-2" onclick="{myfun()}" value="a">
+        <label for="a">Select</label><br> 
+    </div>
+       <div class="machine-div" id="machine-b"> 
+        <h5>MZ4 B</h5> 
+        <p>X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-b-x'>{{ mz4b[0] }}</span></p>
+        <P>Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-b-z'>{{ mz4b[1] }}</span></P>
+        <input type="radio" id="b"  name="mach" class="mt-2" onclick="{myfun()}" value="b">
+        <label for="b">Select</label><br>
+    </div>
+        <div class="machine-div" id="machine-c"> 
+        <h5>MZ4 C</h5> 
+        <p>X <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-c-x'>{{ mz4c[0] }}</span></p>
+        <P>Z <image src="{{ url_for('static', filename='centerline.jpeg') }}" alt="cl"  class="cl-img"></image> <span id='mz4-c-z'>{{ mz4c[1] }}</span></P>
+        <input type="radio" id="c"  name="mach" class="mt-2" onclick="{myfun()}" value="c">
+        <label for="c">Select</label><br>
+    </div>
+    </div>
+    <div id="wpcs">
+        <div class="input-group mb-1">
+            <button class="btn btn-outline-secondary" type="button" id="math-button" onclick={loadMath()} disabled>Shift WPC's</button>
+            <input type="text" id="x-input" class="form-control" placeholder="x-" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled>
+            <input type="text" id="z-input" class="form-control" placeholder="z-" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled>
+        </div>
+        <div class="input-group mb-1">
+            <button class="btn btn-outline-secondary" type="button" id="new-index-button" onclick={createNewIndex()} disabled>Add index</button>
+            <input type="text" id="new-index-input" class="form-control" placeholder="Angle" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled>
+        </div>
+    </div>
+    <div class="card-master" id="card-master">
+        <div class="card-container">
+            <h3 id="index-0">B 0 Deg</h3>
+            <h4 id="index-0-x">X-</h4>
+            <h4 id="index-0-z">Z-</h4>
+        </div>
+        <div class="card-container">
+            <h3 id="index-90">B 90 Deg</h3>
+            <h4 id="index-90-x">X-</h4>
+            <h4 id="index-90-z">Z-</h4>
+        </div>
+        <div class="card-container">
+            <h3 id="index-180">B 180 Deg</h3>
+            <h4 id="index-180-x">X-</h4>
+            <h4 id="index-180-z">Z-</h4>
+        </div>
+        <div class="card-container">
+            <h3 id="index-270">B 270 Deg</h3>
+            <h4 id="index-270-x">X-</h4>
+            <h4 id="index-270-z">Z-</h4>
+        </div>
+    </div>
+    </div>
+{% endblock %}

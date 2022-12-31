@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Login In
+{% endblock %}
+{% block main %}
+<div id="login-container">
+<form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="userName" class="form-label">User Name</label>
+      <input type="text" class="form-control" autofocus id="userName" aria-describedby="emailHelp" placeholder="Your name" name="username">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="MTG login" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible alert-div" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+    </div>
+{% endblock %}
