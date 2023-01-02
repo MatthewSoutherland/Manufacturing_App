@@ -169,6 +169,11 @@ def mz4cl():
     return render_template("mz4cl.html", mz4a=mz4a, mz4b=mz4b, mz4c=mz4c)
 
 
+@app.route("/truePos")
+def truePos():
+    return render_template("truePos.html")
+
+
 @app.route("/toollist", methods=["GET", "POST"])
 def toollist():
 
