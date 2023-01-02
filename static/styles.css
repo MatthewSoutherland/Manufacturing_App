@@ -36,14 +36,14 @@ body {
 
 .calc-inputs {
   width: 4rem;
-  text-indent: .2rem;
+  text-indent: 0.2rem;
   height: 1.4rem;
   border: 1px solid whitesmoke;
   border-bottom: 1px solid grey;
 }
 
 .calc-labels {
-  margin-bottom: -.1rem;
+  margin-bottom: -0.1rem;
   font-family: Geneva, Tahoma, sans-serif;
 }
 
@@ -148,7 +148,7 @@ fieldset {
 
 #home-id {
   padding-top: 5rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   line-height: 2rem;
 }
 
@@ -187,7 +187,7 @@ h5 {
 
 .machine-div {
   padding-left: 5rem;
-  line-height: .5rem;
+  line-height: 0.5rem;
 }
 
 .machine-select {
@@ -209,7 +209,7 @@ h5 {
 }
 
 .new-font-style {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -231,7 +231,7 @@ p {
 
 .personal-info-input {
   width: 20%;
-  text-indent: .3rem;
+  text-indent: 0.3rem;
 }
 
 .port {
@@ -260,7 +260,7 @@ p {
 
 .remove-button {
   background-color: aliceblue;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   cursor: pointer;
 }
 
@@ -284,8 +284,8 @@ p {
 }
 
 .table-div {
-  line-height: .7rem;
-  font-size: .9rem;
+  line-height: 0.7rem;
+  font-size: 0.9rem;
   padding-top: 5%;
   width: 60%;
 }
@@ -299,17 +299,16 @@ p {
 }
 
 #table-divider {
-  line-height: .7rem;
-  font-size: .8rem;
+  line-height: 0.7rem;
+  font-size: 0.8rem;
   padding-top: 5%;
   width: 50%;
   padding-left: 0rem;
 }
 
 table {
-  border-collapse:initial;
+  border-collapse: initial;
 }
-
 
 .table-div thead th {
   position: sticky;
@@ -356,12 +355,12 @@ table {
 .tool-page-inputboxes {
   font-size: 1rem;
   width: 7rem;
-  border-radius: .3rem;
-  text-indent: .3rem;
+  border-radius: 0.3rem;
+  text-indent: 0.3rem;
 }
 
 #tool-form-container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -373,7 +372,7 @@ table {
 }
 
 .tool-page-div label {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
 }
 
@@ -392,8 +391,8 @@ table {
 
 .triangle-input {
   border: 1px solid rgb(231, 186, 193);
-  border-radius: .2rem;
-  text-indent: .2rem;
+  border-radius: 0.2rem;
+  text-indent: 0.2rem;
   width: 5rem;
   height: 1.4rem;
   padding-top: 1px;
@@ -411,13 +410,13 @@ table {
   position: absolute;
   top: 24rem;
   left: 50%;
-  font-family:Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .trig-buttons {
   cursor: pointer;
   border: 1px solid rgb(235, 224, 224);
-  border-radius: .2rem;
+  border-radius: 0.2rem;
 }
 
 #trig-button-check:hover {
@@ -426,6 +425,21 @@ table {
 
 #trig-button-clear:hover {
   background-color: lightpink;
+}
+
+#tru-box-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.true-inputs {
+  width: 6rem;
+  text-indent: 0.3rem;
+}
+
+#truePos {
+  padding-top: 4rem;
 }
 
 .value {
@@ -438,12 +452,12 @@ table {
   flex-direction: column;
   top: 12rem;
   left: 3rem;
-  opacity: .2;
+  opacity: 0.2;
 }
 
 @media (max-width: 1000px) {
   .table {
-    line-height: .8rem;
+    line-height: 0.8rem;
     padding-top: 21rem;
     width: 30%;
     padding-left: 0;
@@ -451,7 +465,7 @@ table {
 
   #drill-tap-container {
     justify-content: flex-start;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
   }
 
   .port {
@@ -461,20 +475,18 @@ table {
     top: 20rem;
     left: 10%;
   }
-
 }
 
-
-@media (max-width: 800px){
+@media (max-width: 800px) {
   .machine-select {
     padding-top: 6.5rem;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   .machine-div {
     padding-left: 1rem;
-    line-height: .6rem;
-    font-size: .6rem;
+    line-height: 0.6rem;
+    font-size: 0.6rem;
   }
 
   #wpcs {
@@ -490,20 +502,20 @@ table {
     top: 20rem;
   }
   .navbar-nav {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 
   .head-contain {
-    padding-left: .5rem;
+    padding-left: 0.5rem;
   }
 
   .card-container {
     width: 10rem;
     height: 10rem;
     border: 1px solid black;
-    border-radius: .5rem;
-    padding: .5rem;
-    margin: .5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
   }
 
   h3 {
@@ -520,7 +532,7 @@ table {
 
   .table-port {
     line-height: 1rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-align: center;
     padding-top: 5%;
     width: 50%;
