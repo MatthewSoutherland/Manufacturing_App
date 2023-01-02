@@ -436,6 +436,13 @@ table {
 .true-inputs {
   width: 6rem;
   text-indent: 0.3rem;
+  border-radius: 5px;
+}
+
+.true-inputs:focus,
+.true-inputs:hover {
+  box-shadow: 1px 1px blue;
+  background-color: whitesmoke;
 }
 
 #truePos {
