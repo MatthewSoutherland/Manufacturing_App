@@ -1,16 +1,60 @@
 {% extends 'layout.html' %} {% block title %} True position {% endblock %}
 {%block main%}
+<script>
+  function calculate() {
+    let xValue = document.getElementById("x-box").value;
+    let yValue = document.getElementById("y-box").value;
+    let mmcValue = document.getElementById("mmc").value;
+    let truePos = document.getElementById("true-pos-span");
+    let truePosBonus = document.getElementById("true-pos-bonus-span");
+
+    let truePostionCalculated =
+      Math.sqrt(xValue * xValue + yValue * yValue) * 2;
+    roundedTruePostion = Math.round(truePostionCalculated * 10000) / 10000;
+    let bonus = roundedTruePostion - mmcValue;
+    bonusRound = Math.round(bonus * 10000) / 10000;
+
+    truePos.innerText = roundedTruePostion;
+    truePosBonus.innerText = bonusRound;
+  }
+</script>
 <div id="truePos">
   <div id="tru-box-one">
-    <p class="tru">Enter postion for basic X, Y</p>
+    <p class="tru">Enter postion deviation for basic X, Y</p>
     <label for="x-box"
-      >X
-      <input type="text" id="x-box" class="true-inputs" />
+      >X:
+      <input
+        type="text"
+        id="x-box"
+        class="true-inputs"
+        value=".0000"
+        onkeyup="{calculate()}"
+      />
     </label>
-    <label for="-box"
-      >Y
-      <input type="text" id="y-box" class="true-inputs" />
+    <label for="y-box"
+      >Y:
+      <input
+        type="text"
+        id="y-box"
+        class="true-inputs"
+        value=".0000"
+        onkeyup="{calculate()}"
+      />
     </label>
+    <p class="tru">Enter MMC or other hole modifier</p>
+    <label for="mmc"
+      >Y:
+      <input
+        type="text"
+        id="mmc"
+        class="true-inputs"
+        value=".0000"
+        onkeyup="{calculate()}"
+      />
+    </label>
+    <h4>Results</h4>
+    <p>True postion = <span id="true-pos-span">.0000</span></p>
+    <p>True postion w/ bonus = <span id="true-pos-bonus-span">.0000</span></p>
   </div>
 </div>
 {%endblock%}
