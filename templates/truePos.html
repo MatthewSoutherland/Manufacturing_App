@@ -14,8 +14,15 @@
     let bonus = roundedTruePostion - mmcValue;
     bonusRound = Math.round(bonus * 10000) / 10000;
 
+    console.log(event.target.value);
     truePos.innerText = roundedTruePostion;
-    truePosBonus.innerText = bonusRound;
+    if (bonusRound >= 0) {
+      truePosBonus.innerText = bonusRound;
+    } else {
+      truePosBonus.innerText = 0;
+    }
+
+    return 0;
   }
 </script>
 <div id="truePos">
@@ -43,7 +50,7 @@
     </label>
     <p class="tru">Enter MMC or other hole modifier</p>
     <label for="mmc"
-      >Y:
+      >Bonus:
       <input
         type="text"
         id="mmc"
