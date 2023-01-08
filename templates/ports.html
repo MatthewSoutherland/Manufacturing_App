@@ -1,16 +1,266 @@
 {% extends "layout.html" %} {% block title %} Ports {% endblock %} {% block main
 %}
 <script>
-  let asPorts = [
+  const as1300 = [
+    {
+      sizeCode: "02",
+      tubeSize: ".125",
+      thread: ".216-28",
+      Class: "UNJF",
+      "minor dia.": ".1827-.1857",
+      A: ".408",
+      B: "50",
+      C: ".381-384",
+      D: ".254-.256",
+      E: ".093",
+      F: ".153-.158",
+      G: ".296-.301",
+      H: ".507",
+      J: "24",
+      K: ".061",
+      L: ".418",
+      M: ".032",
+    },
+    {
+      sizeCode: "03",
+      tubeSize: ".188",
+      thread: ".250-28",
+      Class: "UNJF",
+      "minor dia.": ".2167-.2197",
+      A: ".478",
+      B: ".62",
+      C: ".448-.451",
+      D: ".286-.288",
+      E: ".093",
+      F: ".153-.158",
+      G: ".296-.301",
+      H: ".568",
+      J: "2",
+      K: ".061",
+      L: ".488",
+      M: ".032",
+    },
+    {
+      sizeCode: "04",
+      tubeSize: ".250",
+      thread: ".3125-24",
+      Class: "UNJF",
+      "minor dia.": ".2734-.2764",
+      A: ".524",
+      B: ".68",
+      C: ".495-.498",
+      D: ".339-.341",
+      E: ".093",
+      F: ".153-.158",
+      G: ".296-.301",
+      H: ".568",
+      J: "30",
+      K: ".061",
+      L: ".534",
+      M: ".032",
+    },
+    {
+      sizeCode: "05",
+      tubeSize: ".312",
+      thread: ".375-24",
+      Class: "UNJF",
+      "minor dia.": ".3359-.3389",
+      A: ".635",
+      B: ".79",
+      C: ".601-.604",
+      D: ".401-.403",
+      E: ".093",
+      F: ".153-.158",
+      G: ".296-.301",
+      H: ".594",
+      J: "36",
+      K: ".061",
+      L: ".645",
+      M: ".032",
+    },
+    {
+      sizeCode: "06",
+      tubeSize: ".375",
+      thread: ".4375-20",
+      Class: "UNJF",
+      "minor dia.": ".3903-.3933",
+      A: ".710",
+      B: ".85",
+      C: ".675-.678",
+      D: ".464-.466",
+      E: ".108",
+      F: ".168-.173",
+      G: ".311-.316",
+      H: ".631",
+      J: "36",
+      K: ".073",
+      L: ".720",
+      M: ".035",
+    },
+    {
+      sizeCode: "08",
+      tubeSize: ".500",
+      thread: ".5625-18",
+      Class: "UNJF",
+      "minor dia.": ".5099-.5129",
+      A: ".826",
+      B: "1.04",
+      C: ".784-.787",
+      D: ".582-.584",
+      E: ".108",
+      F: ".168-.173",
+      G: ".311-.316",
+      H: ".672",
+      J: "40",
+      K: ".073",
+      L: ".831",
+      M: ".035 ",
+    },
+    {
+      sizeCode: "10",
+      tubeSize: ".625",
+      thread: ".6875-24",
+      Class: "UNJEF",
+      "minor dia.": ".6484-.6514",
+      A: "1.052",
+      B: "1.17",
+      C: "1.015-1.018",
+      D: ".725-.727",
+      E: ".108",
+      F: ".168-.173",
+      G: ".311-.316",
+      H: ".693",
+      J: "38",
+      K: ".073",
+      L: "1.062",
+      M: ".035",
+    },
+    {
+      sizeCode: "12",
+      tubeSize: ".750",
+      thread: ".8125-20",
+      Class: "UNJEF",
+      "minor dia.": ".7653-.7683",
+      A: "1.182",
+      B: "1.42",
+      C: "1.139-1.142",
+      D: ".899-.901",
+      E: ".108",
+      F: ".168-.173",
+      G: ".343-.348",
+      H: ".763",
+      J: "40",
+      K: ".073",
+      L: "1.192",
+      M: ".035",
+    },
+    {
+      sizeCode: "14",
+      tubeSize: ".875",
+      thread: ".9375-20",
+      Class: "UNJEF",
+      "minor dia.": ".8903-.8933",
+      A: "1.354",
+      B: "1.54",
+      C: "1.311-1.314",
+      D: "1.030-1.032",
+      E: ".108",
+      F: ".168-.173",
+      G: ".343-.348",
+      H: ".800",
+      J: "50",
+      K: ".073",
+      L: "1.364",
+      M: ".035",
+    },
+    {
+      sizeCode: "16",
+      tubeSize: "1.000",
+      thread: "1.125-18",
+      Class: "UNJEF",
+      "minor dia.": "1.0714-1.0744",
+      A: "1.471",
+      B: "1.67",
+      C: "1.427-1.430",
+      D: "1.162-1.164",
+      E: ".108",
+      F: ".168-.173",
+      G: ".343-.348",
+      H: ".806",
+      J: "36",
+      K: ".073",
+      L: "1.481",
+      M: ".035",
+    },
+    {
+      sizeCode: "20",
+      tubeSize: "1.250",
+      thread: "1.3125-18",
+      Class: "UNJEF",
+      "minor dia.": "1.2599-1.2629",
+      A: "1.795",
+      B: "1.98",
+      C: "1.75-1.753",
+      D: "1.387-1.389",
+      E: ".135",
+      F: ".195-.2",
+      G: ".375-.380",
+      H: ".838",
+      J: "56",
+      K: ".093",
+      L: "1.805",
+      M: ".042",
+    },
+    {
+      sizeCode: "24",
+      tubeSize: "1.500",
+      thread: "1.625-18",
+      Class: "UNJEF",
+      "minor dia.": "1.5724-1.5754",
+      A: "2.045",
+      B: "2.23",
+      C: "2.0-2.005",
+      D: "1.664-1.666",
+      E: ".135",
+      F: ".195-.2",
+      G: ".375-.380",
+      H: ".877",
+      J: "81",
+      K: ".093",
+      L: "2.055",
+      M: ".042",
+    },
+    {
+      sizeCode: "32",
+      tubeSize: "2.000",
+      thread: "2.125-16",
+      Class: "UNJ",
+      "minor dia.": "2.0627-2.0657",
+      A: "2.561",
+      B: "2.86",
+      C: "2.516-2.521",
+      D: "2.202-2.204",
+      E: ".135",
+      F: ".236-.241",
+      G: ".416-.421",
+      H: "1.050",
+      J: "102",
+      K: ".093",
+      L: "2.571",
+      M: ".042",
+    },
+  ];
+
+  const as5202 = [
     {
       sizeCode: "01",
-      tubeSize: "-",
+      tubeSize: "None",
       thread: "1/4-28",
-      "A(+.015 -0)": "0.359",
+      A: "0.359",
       B: "0.33",
       C: "0.062",
-      "D(+.005 -0)": "0.264",
-      "E(+.015 -0)": "0.063",
+      D: "0.264",
+      E: "0.063",
       G: "0.478",
       J: "0.402",
       N: "0.002",
@@ -19,11 +269,11 @@
       sizeCode: "02",
       tubeSize: "0.125",
       thread: "5/16-24",
-      "A(+.015 -0)": "0.438",
+      A: "0.438",
       B: "0.482",
       C: "0.062",
-      "D(+.005 -0)": "0.328",
-      "E(+.015 -0)": "0.063",
+      D: "0.328",
+      E: "0.063",
       G: "0.602",
       J: "0.577",
       N: "0.003",
@@ -32,11 +282,11 @@
       sizeCode: "03",
       tubeSize: "0.188",
       thread: "3/8-24",
-      "A(+.015 -0)": "0.5",
+      A: "0.5",
       B: "0.538",
       C: "0.125",
-      "D(+.005 -0)": "0.39",
-      "E(+.015 -0)": "0.063",
+      D: "0.39",
+      E: "0.063",
       G: "0.665",
       J: "0.583",
       N: "0.003",
@@ -45,11 +295,11 @@
       sizeCode: "04",
       tubeSize: "0.25",
       thread: "7/16-20",
-      "A(+.015 -0)": "0.562",
+      A: "0.562",
       B: "0.568",
       C: "0.172",
-      "D(+.005 -0)": "0.454",
-      "E(+.015 -0)": "0.075",
+      D: "0.454",
+      E: "0.075",
       G: "0.728",
       J: "0.656",
       N: "0.003",
@@ -58,11 +308,11 @@
       sizeCode: "05",
       tubeSize: "0.312",
       thread: "1/2-20",
-      "A(+.015 -0)": "0.625",
+      A: "0.625",
       B: "0.568",
       C: "0.234",
-      "D(+.005 -0)": "0.517",
-      "E(+.015 -0)": "0.075",
+      D: "0.517",
+      E: "0.075",
       G: "0.79",
       J: "0.656",
       N: "0.003",
@@ -71,11 +321,11 @@
       sizeCode: "06",
       tubeSize: "0.375",
       thread: "9/16-18",
-      "A(+.015 -0)": "0.688",
+      A: "0.688",
       B: "0.598",
       C: "0.297",
-      "D(+.005 -0)": "0.58",
-      "E(+.015 -0)": "0.083",
+      D: "0.58",
+      E: "0.083",
       G: "0.852",
       J: "0.709",
       N: "0.004",
@@ -84,11 +334,11 @@
       sizeCode: "07",
       tubeSize: "0.438",
       thread: "5/8-18",
-      "A(+.015 -0)": "0.75",
+      A: "0.75",
       B: "0.614",
       C: "0.36",
-      "D(+.005 -0)": "0.643",
-      "E(+.015 -0)": "0.094",
+      D: "0.643",
+      E: "0.094",
       G: "0.915",
       J: "0.725",
       N: "0.004",
@@ -97,11 +347,11 @@
       sizeCode: "08",
       tubeSize: "0.5",
       thread: "3/4-16",
-      "A(+.015 -0)": "0.875",
+      A: "0.875",
       B: "0.714",
       C: "0.391",
-      "D(+.005 -0)": "0.769",
-      "E(+.015 -0)": "0.094",
+      D: "0.769",
+      E: "0.094",
       G: "1.04",
       J: "0.834",
       N: "0.004",
@@ -110,11 +360,11 @@
       sizeCode: "09",
       tubeSize: "0.562",
       thread: "13/16-16",
-      "A(+.015 -0)": "0.938",
+      A: "0.938",
       B: "0.73",
       C: "0.438",
-      "D(+.005 -0)": "0.832",
-      "E(+.015 -0)": "0.107",
+      D: "0.832",
+      E: "0.107",
       G: "1.102",
       J: "0.85",
       N: "0.004",
@@ -123,11 +373,11 @@
       sizeCode: "10",
       tubeSize: "0.625",
       thread: "7/8-14",
-      "A(+.015 -0)": "1",
+      A: "1",
       B: "0.802",
       C: "0.484",
-      "D(+.005 -0)": "0.896",
-      "E(+.015 -0)": "0.107",
+      D: "0.896",
+      E: "0.107",
       G: "1.165",
       J: "0.93",
       N: "0.004",
@@ -136,11 +386,11 @@
       sizeCode: "11",
       tubeSize: "0.688",
       thread: "1-12",
-      "A(+.015 -0)": "1.156",
+      A: "1.156",
       B: "0.877",
       C: "0.547",
-      "D(+.005 -0)": "1.023",
-      "E(+.015 -0)": "0.125",
+      D: "1.023",
+      E: "0.125",
       G: "1.352",
       J: "1.064",
       N: "0.004",
@@ -149,11 +399,11 @@
       sizeCode: "12",
       tubeSize: "0.75",
       thread: "1-1/16-12",
-      "A(+.015 -0)": "1.234",
+      A: "1.234",
       B: "0.877",
       C: "0.609",
-      "D(+.005 -0)": "1.086",
-      "E(+.015 -0)": "0.125",
+      D: "1.086",
+      E: "0.125",
       G: "1.415",
       J: "1.064",
       N: "0.004",
@@ -162,11 +412,11 @@
       sizeCode: "14",
       tubeSize: "0.875",
       thread: "1-3/16-12",
-      "A(+.015 -0)": "1.362",
+      A: "1.362",
       B: "0.877",
       C: "0.734",
-      "D(+.005 -0)": "1.211",
-      "E(+.015 -0)": "0.125",
+      D: "1.211",
+      E: "0.125",
       G: "1.54",
       J: "1.064",
       N: "0.004",
@@ -175,11 +425,11 @@
       sizeCode: "16",
       tubeSize: "1",
       thread: "1-5/16-12",
-      "A(+.015 -0)": "1.487",
+      A: "1.487",
       B: "0.877",
       C: "0.844",
-      "D(+.005 -0)": "1.336",
-      "E(+.015 -0)": "0.125",
+      D: "1.336",
+      E: "0.125",
       G: "1.665",
       J: "1.064",
       N: "0.004",
@@ -188,11 +438,11 @@
       sizeCode: "18",
       tubeSize: "1.125",
       thread: "1.5-12",
-      "A(+.015 -0)": "1.675",
+      A: "1.675",
       B: "0.877",
       C: "0.953",
-      "D(+.005 -0)": "1.524",
-      "E(+.015 -0)": "0.125",
+      D: "1.524",
+      E: "0.125",
       G: "1.79",
       J: "1.116",
       N: "0.004",
@@ -201,11 +451,11 @@
       sizeCode: "20",
       tubeSize: "1.25",
       thread: "1-5/8-12",
-      "A(+.015 -0)": "1.8",
+      A: "1.8",
       B: "0.877",
       C: "1.078",
-      "D(+.005 -0)": "1.648",
-      "E(+.015 -0)": "0.125",
+      D: "1.648",
+      E: "0.125",
       G: "1.978",
       J: "1.116",
       N: "0.004",
@@ -214,11 +464,11 @@
       sizeCode: "24",
       tubeSize: "1.5",
       thread: "1-7/8-12",
-      "A(+.015 -0)": "2.05",
+      A: "2.05",
       B: "0.877",
       C: "1.312",
-      "D(+.005 -0)": "1.898",
-      "E(+.015 -0)": "0.125",
+      D: "1.898",
+      E: "0.125",
       G: "2.228",
       J: "1.127",
       N: "0.006",
@@ -227,11 +477,11 @@
       sizeCode: "28",
       tubeSize: "1.75",
       thread: "2-1/4-12",
-      "A(+.015 -0)": "2.425",
+      A: "2.425",
       B: "0.877",
       C: "1.547",
-      "D(+.005 -0)": "2.273",
-      "E(+.015 -0)": "0.125",
+      D: "2.273",
+      E: "0.125",
       G: "2.602",
       J: "1.243",
       N: "0.006",
@@ -240,17 +490,18 @@
       sizeCode: "32",
       tubeSize: "2",
       thread: "2.5-12",
-      "A(+.015 -0)": "2.675",
+      A: "2.675",
       B: "0.907",
       C: "1.781",
-      "D(+.005 -0)": "2.524",
-      "E(+.015 -0)": "0.125",
+      D: "2.524",
+      E: "0.125",
       G: "2.852",
       J: "1.368",
       N: "0.006",
     },
   ];
-  let jPorts = [
+
+  const j1926 = [
     {
       sizeCode: "02",
       tubeSize: "1/8",
@@ -435,26 +686,590 @@
     },
   ];
 
+  const as1958 = [
+    {
+      sizeCode: "02",
+      tubeSize: ".125",
+      thread: ".4375-28",
+      Class: "UNJEF",
+      B: ".67",
+      C: ".473",
+      D: ".55",
+      E: ".225",
+      T: ".8",
+    },
+    {
+      sizeCode: "03",
+      tubeSize: ".188",
+      thread: ".5-28",
+      Class: "UNJEF",
+      B: ".733",
+      C: ".54",
+      D: ".52",
+      E: ".225",
+      T: ".84",
+    },
+    {
+      sizeCode: "04",
+      tubeSize: ".25",
+      thread: ".5625-24",
+      Class: "UNJEF",
+      B: ".795",
+      C: ".603",
+      D: ".565",
+      E: ".225",
+      T: ".92",
+    },
+    {
+      sizeCode: "05",
+      tubeSize: ".312",
+      thread: ".625-24",
+      Class: "UNJEF",
+      B: ".858",
+      C: ".666",
+      D: ".59",
+      E: ".225",
+      T: ".98",
+    },
+    {
+      sizeCode: "06",
+      tubeSize: ".375",
+      thread: ".6875-24",
+      Class: "UNJEF",
+      B: ".905",
+      C: ".728",
+      D: ".62",
+      E: ".225",
+      T: "1.03",
+    },
+    {
+      sizeCode: "08",
+      tubeSize: ".5",
+      thread: ".9375-20",
+      Class: "UNJEF",
+      B: "1.155",
+      C: ".958",
+      D: ".745",
+      E: ".225",
+      T: "1.4",
+    },
+    {
+      sizeCode: "10",
+      tubeSize: ".625",
+      thread: "1.0625-18",
+      Class: "UNJEF",
+      B: "1.28",
+      C: "1.083",
+      D: ".83",
+      E: ".225",
+      T: "1.6",
+    },
+    {
+      sizeCode: "12",
+      tubeSize: ".75",
+      thread: "1.25-18",
+      Class: "UNJEF",
+      B: "1.499",
+      C: "1.271",
+      D: ".95",
+      E: ".225",
+      T: "1.83",
+    },
+    {
+      sizeCode: "16",
+      tubeSize: "1",
+      thread: "1.5-18",
+      Class: "UNJEF",
+      B: "1.765",
+      C: "1.521",
+      D: ".95",
+      E: ".225",
+      T: "2.2",
+    },
+    {
+      sizeCode: "20",
+      tubeSize: "1.25",
+      thread: "1.875-16",
+      Class: "UNJ",
+      B: "2.155",
+      C: "1.922",
+      D: "1",
+      E: ".265",
+      T: "2.8",
+    },
+  ];
+
+  const iso6419 = [
+    {
+      sizeCode: "04",
+      thread: "M8 X 1.0",
+      minor: "6.92-7.15",
+      D: "3",
+      J: "1O.O",
+      K: "1.6",
+      O: "11",
+      P: "11.5",
+      S: "1.0",
+      U: "9.1",
+      Y: "17",
+      Z: "12",
+    },
+    {
+      sizeCode: "05",
+      thread: "M1O X 1.0",
+      minor: "8.92-9.15",
+      D: "4",
+      J: "10",
+      K: "1.6",
+      O: "13",
+      P: "11.5",
+      S: "1.0",
+      U: "11.1",
+      Y: "20",
+      Z: "12",
+    },
+    {
+      sizeCode: "06",
+      thread: "M12 X 1.5",
+      minor: "10.38-10.68",
+      D: "6",
+      J: "11.5",
+      K: "2.4",
+      O: "16",
+      P: "14.0",
+      S: "1.5",
+      U: "13.8",
+      Y: "22",
+      Z: "15",
+    },
+    {
+      sizeCode: "08",
+      thread: "M14 X 1.5",
+      minor: "12.38-12.68",
+      D: "7.5",
+      J: "11.5",
+      K: "2.4",
+      O: "18",
+      P: "14.0",
+      S: "1.5",
+      U: "15.8",
+      Y: "25",
+      Z: "15",
+    },
+    {
+      sizeCode: "10",
+      thread: "M16 X 1.5",
+      minor: "14.38-14.68",
+      D: "9",
+      J: "13.0",
+      K: "2.4",
+      O: "20",
+      P: "15.5",
+      S: "1.5",
+      U: "17.8",
+      Y: "28",
+      Z: "15",
+    },
+    {
+      sizeCode: "12",
+      thread: "M18 X 1.5",
+      minor: "16.38-16.68",
+      D: "11",
+      J: "14.5",
+      K: "2.4",
+      O: "22",
+      P: "16.5",
+      S: "2.0",
+      U: "19.8",
+      Y: "29",
+      Z: "15",
+    },
+    {
+      sizeCode: "16",
+      thread: "M22 X 1.5",
+      minor: "20.38-20.68",
+      D: "14",
+      J: "15.5",
+      K: "2.4",
+      O: "26",
+      P: "18.0",
+      S: "2.0",
+      U: "23.8",
+      Y: "34",
+      Z: "15",
+    },
+    {
+      sizeCode: "20",
+      thread: "M27 X 2.0",
+      minor: "24.84-25.21",
+      D: "16",
+      J: "19.0",
+      K: "3.1",
+      O: "32",
+      P: "22.0",
+      S: "2.0",
+      U: "29.4",
+      Y: "40",
+      Z: "15",
+    },
+    {
+      sizeCode: "22",
+      thread: "M30 X 2.0",
+      minor: "27.84-28.21",
+      D: "18",
+      J: "19.0",
+      K: "3.1",
+      O: "35",
+      P: "22.0",
+      S: "2.0",
+      U: "32.4",
+      Y: "43",
+      Z: "15",
+    },
+    {
+      sizeCode: "25",
+      thread: "M33 x 2.0",
+      minor: "30.84-31.21",
+      D: "22",
+      J: "19.0",
+      K: "3.1",
+      O: "38",
+      P: "22.0",
+      S: "2.5",
+      U: "35.4",
+      Y: "49",
+      Z: "15",
+    },
+    {
+      sizeCode: "32",
+      thread: "M42 X 2.0",
+      minor: "39.84-40.21",
+      D: "30",
+      J: "19.5",
+      K: "3.1",
+      O: "47",
+      P: "22.5",
+      S: "2.5",
+      U: "44.4",
+      Y: "60",
+      Z: "15",
+    },
+    {
+      sizeCode: "38",
+      thread: "M48 x 2.0",
+      minor: "45.84-46.21",
+      D: "36",
+      J: "19.5",
+      K: "3.1",
+      O: "53",
+      P: "22.5",
+      S: "2.5",
+      U: "50.4",
+      Y: "66",
+      Z: "15",
+    },
+    {
+      sizeCode: "50",
+      thread: "M60 X 2.0",
+      minor: "57.84-58.21",
+      D: "40",
+      J: "21.5",
+      K: "3.1",
+      O: "65",
+      P: "24.5",
+      S: "2.5",
+      U: "62.4",
+      Y: "76",
+      Z: "15",
+    },
+  ];
+
+  const iso1179 = [
+    {
+      thread: "G 1/8",
+      d2: "4.5",
+      d3: "9.8-10.0",
+      "d4(Type N)": "15",
+      "d4(Type W)": "17.2",
+      L1: "1",
+      L2: "8.5",
+      L3: "10.5",
+      W: "0.1",
+    },
+    {
+      thread: "G 1/4",
+      d2: "7.5",
+      d3: "13.2-13.4",
+      "d4(Type N)": "20",
+      "d4(Type W)": "20.7",
+      L1: "1.5",
+      L2: "12.5",
+      L3: "15.5",
+      W: "0.1",
+    },
+    {
+      thread: "G 3/8",
+      d2: "9",
+      d3: "16.7-16.9",
+      "d4(Type N)": "23",
+      "d4(Type W)": "24.5",
+      L1: "2",
+      L2: "12.5",
+      L3: "15.5",
+      W: "0.1",
+    },
+    {
+      thread: "G 1/2",
+      d2: "14",
+      d3: "21.0-21.2",
+      "d4(Type N)": "28",
+      "d4(Type W)": "29.6",
+      L1: "2.5",
+      L2: "15",
+      L3: "19",
+      W: "0.1",
+    },
+    {
+      thread: "G 3/4",
+      d2: "18",
+      d3: "26.5-26.7",
+      "d4(Type N)": "33",
+      "d4(Type W)": "36.9",
+      L1: "2.5",
+      L2: "16.5",
+      L3: "20.5",
+      W: "0.2",
+    },
+    {
+      thread: "G 1",
+      d2: "23",
+      d3: "33.3-33.6",
+      "d4(Type N)": "41",
+      "d4(Type W)": "46.1",
+      L1: "2.5",
+      L2: "19",
+      L3: "24",
+      W: "0.2",
+    },
+    {
+      thread: "G 1 1/4",
+      d2: "30",
+      d3: "42-42.3",
+      "d4(Type N)": "51",
+      "d4(Type W)": "54",
+      L1: "2.5",
+      L2: "21.5",
+      L3: "26.5",
+      W: "0.2",
+    },
+    {
+      thread: "G 1 1/2",
+      d2: "36",
+      d3: "47.9-48.2",
+      "d4(Type N)": "56",
+      "d4(Type W)": "60.5",
+      L1: "2.5",
+      L2: "22.5",
+      L3: "27.5",
+      W: "0.2",
+    },
+    {
+      thread: "G 2d",
+      d2: "47",
+      d3: "59.7-60.0",
+      "d4(Type N)": "76",
+      "d4(Type W)": "None",
+      L1: "3",
+      L2: "26",
+      L3: "31",
+      W: "0.2",
+    },
+  ];
+
+  const iso11926 = [
+    {
+      thread: "3/8-24",
+      Class: "UNF-2B",
+      d2: "19",
+      d3: "3.5",
+      d4: "13",
+      d5: "10.75",
+      L1: "1.9",
+      L2: "12",
+      L3: "1.6",
+      L4: "10",
+      Z: "12",
+    },
+    {
+      thread: "7/16-20",
+      Class: "UNF-2B",
+      d2: "21",
+      d3: "4.5",
+      d4: "15",
+      d5: "12.45",
+      L1: "2.4",
+      L2: "14",
+      L3: "1.6",
+      L4: "11.5",
+      Z: "12",
+    },
+    {
+      thread: "1/2-20",
+      Class: "UNF-2B",
+      d2: "23",
+      d3: "6",
+      d4: "16",
+      d5: "14.05",
+      L1: "2.4",
+      L2: "14",
+      L3: "1.6",
+      L4: "11.5",
+      Z: "12",
+    },
+    {
+      thread: "9/16-18",
+      Class: "UNF-2B",
+      d2: "25",
+      d3: "7.5",
+      d4: "18",
+      d5: "15.7",
+      L1: "2.5",
+      L2: "15.5",
+      L3: "1.6",
+      L4: "12.7",
+      Z: "12",
+    },
+    {
+      thread: "3/4-16",
+      Class: "UNF-2B",
+      d2: "30",
+      d3: "10",
+      d4: "22",
+      d5: "20.65",
+      L1: "2.5",
+      L2: "17.5",
+      L3: "2.4",
+      L4: "14.3",
+      Z: "15",
+    },
+    {
+      thread: "7/8-14",
+      Class: "UNF-2B",
+      d2: "34",
+      d3: "12.5",
+      d4: "26",
+      d5: "24",
+      L1: "2.5",
+      L2: "20",
+      L3: "2.4",
+      L4: "16.7",
+      Z: "15",
+    },
+    {
+      thread: "1 1/16-12",
+      Class: "UN-2B",
+      d2: "41",
+      d3: "16",
+      d4: "32",
+      d5: "29.2",
+      L1: "3.3",
+      L2: "23",
+      L3: "2.4",
+      L4: "19",
+      Z: "15",
+    },
+    {
+      thread: "1 3/16-12",
+      Class: "UN-2B",
+      d2: "45",
+      d3: "18",
+      d4: "35",
+      d5: "32.4",
+      L1: "3.3",
+      L2: "23",
+      L3: "2.4",
+      L4: "19",
+      Z: "15",
+    },
+    {
+      thread: "1 5/16-12",
+      Class: "UN-2B",
+      d2: "49",
+      d3: "21",
+      d4: "38",
+      d5: "35.55",
+      L1: "3.3",
+      L2: "23",
+      L3: "3.2",
+      L4: "19",
+      Z: "15",
+    },
+    {
+      thread: "1 5/8-12",
+      Class: "UN-2B",
+      d2: "58",
+      d3: "27",
+      d4: "48",
+      d5: "43.55",
+      L1: "3.3",
+      L2: "23",
+      L3: "3.2",
+      L4: "19",
+      Z: "15",
+    },
+    {
+      thread: "1 7/8-12",
+      Class: "UN-2B",
+      d2: "65",
+      d3: "33",
+      d4: "54",
+      d5: "49.9",
+      L1: "3.3",
+      L2: "23",
+      L3: "3.2",
+      L4: "19",
+      Z: "15",
+    },
+    {
+      thread: "2 1/2-12",
+      Class: "UN-2B",
+      d2: "88",
+      d3: "45",
+      d4: "70",
+      d5: "65.75",
+      L1: "3.3",
+      L2: "23",
+      L3: "3.2",
+      L4: "19",
+      Z: "15",
+    },
+  ];
+
   function createPortTable(data) {
+    // make opacity 0 on all images
+    const j1926PortImg = document.getElementById("j1926-port-img");
+    const as5202PortImg = document.getElementById("as5202-port-img");
+    j1926PortImg.style.opacity = "0";
+    as5202PortImg.style.opacity = "0";
+
     let selectedValue = "";
+
     // get select box value based on port selection
-    if (data == asPorts) {
-      selectedValue = document.getElementById("as-ports-id").value;
-      let jGuy = document.getElementById("j-port");
-      jGuy.style.opacity = "0";
-      let nGuy = document.getElementById("as-port");
-      nGuy.style.opacity = "1";
-    } else if (data == jPorts) {
-      selectedValue = document.getElementById("j-ports-id").value;
-      let jGuy = document.getElementById("j-port");
-      jGuy.style.opacity = "1";
-      let nGuy = document.getElementById("as-port");
-      nGuy.style.opacity = "0";
+    if (data == as5202) {
+      selectedValue = document.getElementById("as5202-portSelect").value;
+      as5202PortImg.style.opacity = 1;
+    } else if (data == j1926) {
+      selectedValue = document.getElementById("j1926-portSelect").value;
+      j1926PortImg.style.opacity = 1;
     }
 
     // removeGuy clears table so chart doesnt have repeating values
     const removeGuy = document.querySelectorAll(".ele");
     removeGuy.forEach(guy => {
+      guy.remove();
+    });
+    const removeGuys = document.querySelectorAll(".port-value-boxes");
+    removeGuys.forEach(guy => {
       guy.remove();
     });
 
@@ -475,28 +1290,149 @@
         let wrapper = document.createElement("tr");
         wrapper.setAttribute("class", "ele");
         wrapper.classList.add("table-bordered");
+        wrapper.classList.add("row-data");
         document.getElementById("table-body-port").appendChild(wrapper);
 
         for (let x = 0; x < tHeadkeys.length; x++) {
           const newGuy = document.createElement("th");
           newGuy.innerHTML += data[i][tHeadkeys[x]];
+          newGuy.classList.add(`${tHeadkeys[x]}-Value`);
           wrapper.appendChild(newGuy);
         }
       }
     }
+    if (data == as5202) {
+      as5202Map();
+    }
+  }
+  function as5202Map() {
+    // grab container in html, and key values for port size specs
+    let container = document.getElementById("as5202-fixed");
+    let aValue = document.getElementsByClassName("A-Value")[0].textContent;
+    let bValue = document.getElementsByClassName("B-Value")[0].textContent;
+    let cValue = document.getElementsByClassName("C-Value")[0].textContent;
+    let dValue = document.getElementsByClassName("D-Value")[0].textContent;
+    let eValue = document.getElementsByClassName("E-Value")[0].textContent;
+    let gValue = document.getElementsByClassName("G-Value")[0].textContent;
+    let jValue = document.getElementsByClassName("J-Value")[0].textContent;
+    let nValue = document.getElementsByClassName("N-Value")[0].textContent;
+
+    // create div container for each port spec: A
+    let aBox = document.createElement("div");
+    let diaImage = document.createElement("img");
+    let aValP = document.createElement("p");
+    let aKeyVal = document.createElement("p");
+    aValP.className = "p-values";
+    aValP.textContent = aValue;
+    aKeyVal.className = "p-key-values";
+    aKeyVal.textContent = "A:";
+    diaImage.setAttribute("class", "diameter-image");
+    diaImage.setAttribute("src", "/static/diameter.jpeg");
+    diaImage.setAttribute("alt", "image of diameter");
+    aBox.setAttribute("class", "port-value-boxes");
+    aBox.setAttribute("id", "port-aBox");
+    container.appendChild(aBox);
+    aBox.appendChild(aKeyVal);
+    aBox.appendChild(diaImage);
+    aBox.appendChild(aValP);
+
+    // create div container for each port spec: B
+    let bBox = document.createElement("div");
+    let bValp = document.createElement("p");
+    bValp.className = "p-values";
+    bValp.innerHTML = `<b>B:</b>\n
+    ${bValue} (min) thread depth`;
+    bBox.setAttribute("class", "port-value-boxes");
+    bBox.setAttribute("id", "port-bBox");
+    container.appendChild(bBox);
+    bBox.appendChild(bValp);
+
+    // create div container for each port spec: C
+    let cBox = document.createElement("div");
+    let cBox2 = document.createElement("div");
+    let diaImageC = document.createElement("img");
+    let cValp = document.createElement("p");
+    let cKeyVal = document.createElement("p");
+    cValp.className = "p-values";
+    cValp.textContent = `${cValue} (min)`;
+    cKeyVal.className = "p-key-values";
+    cKeyVal.textContent = "C:\n";
+    diaImageC.setAttribute("class", "diameter-image");
+    diaImageC.setAttribute("src", "/static/diameter.jpeg");
+    diaImageC.setAttribute("alt", "image of diameter");
+    cBox.setAttribute("class", "port-value-boxes");
+    cBox.setAttribute("id", "port-cBox");
+    cBox2.setAttribute("class", "port-value-boxes");
+    cBox2.setAttribute("id", "port-cBox2");
+    container.appendChild(cBox);
+    container.appendChild(cBox2);
+    cBox.appendChild(cKeyVal);
+    cBox2.appendChild(diaImageC);
+    cBox2.appendChild(cValp);
+
+    // create div container for each port spec: D
+    let dBox = document.createElement("div");
+    let diaImageD = document.createElement("img");
+    let dValp = document.createElement("p");
+    let dKeyVal = document.createElement("p");
+    dValp.className = "p-values";
+    dValp.textContent = dValue;
+    dKeyVal.className = "p-key-values";
+    dKeyVal.textContent = "D:";
+    diaImageD.setAttribute("class", "diameter-image");
+    diaImageD.setAttribute("src", "/static/diameter.jpeg");
+    diaImageD.setAttribute("alt", "image of diameter");
+    dBox.setAttribute("class", "port-value-boxes");
+    dBox.setAttribute("id", "port-dBox");
+    container.appendChild(dBox);
+    dBox.appendChild(dKeyVal);
+    dBox.appendChild(diaImageD);
+    dBox.appendChild(dValp);
+
+    // create div container for each port spec: G
+    let gBox = document.createElement("div");
+    let diaImageG = document.createElement("img");
+    let gValp = document.createElement("p");
+    let gKeyVal = document.createElement("p");
+    gValp.className = "p-values";
+    gValp.textContent = `${gValue} (min)`;
+    gKeyVal.className = "p-key-values";
+    gKeyVal.textContent = "G:";
+    diaImageG.setAttribute("class", "diameter-image");
+    diaImageG.setAttribute("src", "/static/diameter.jpeg");
+    diaImageG.setAttribute("alt", "image of diameter");
+    gBox.setAttribute("class", "port-value-boxes");
+    gBox.setAttribute("id", "port-gBox");
+    container.appendChild(gBox);
+    gBox.appendChild(gKeyVal);
+    gBox.appendChild(diaImageG);
+    gBox.appendChild(gValp);
+
+    // create div container for each port spec: J
+    let jBox = document.createElement("div");
+    let jValp = document.createElement("p");
+    jValp.className = "p-values";
+    jValp.innerHTML = `<b>J:</b>\n
+    ${jValue} (min)`;
+    jBox.setAttribute("class", "port-value-boxes");
+    jBox.setAttribute("id", "port-jBox");
+    container.appendChild(jBox);
+    jBox.appendChild(jValp);
   }
 </script>
 <div id="port-container">
   <div class="dropdown-ports">
     <div class="as-ms-ports label-div-port">
-      <label for="as-ports" class="new-font-style">AS5202<br />MS33649</label>
+      <label for="as5202-portSelect" class="new-font-style"
+        >AS5202<br />MS33649</label
+      >
       <select
         class="form-select form-select-sm shorten"
-        name="as-ports"
-        id="as-ports-id"
-        aria-label="Default select example"
+        name="as5202-ports"
+        id="as5202-portSelect"
+        aria-label="AS5202 port select box"
         value=""
-        onchange="{createPortTable(asPorts)}"
+        onchange="{createPortTable(as5202)}"
       >
         <option selected></option>
         <option value="01">- 01</option>
@@ -521,14 +1457,14 @@
       </select>
     </div>
     <div class="j-ports label-div-port">
-      <label for="j-ports" class="new-font-style">J1926</label>
+      <label for="j1926-ports" class="new-font-style">J1926</label>
       <select
         class="form-select form-select-sm shorten"
-        name="j-ports"
-        aria-label="Default select example"
-        id="j-ports-id"
+        name="j-portSelect"
+        aria-label="J1926 port select box"
+        id="j1926-portSelect"
         value=""
-        onchange="{createPortTable(jPorts)}"
+        onchange="{createPortTable(j1926)}"
       >
         <option selected></option>
         <option value="02">- 02</option>
@@ -547,10 +1483,23 @@
       </select>
     </div>
     <form action="https://www.google.com/search" method="get" target="_blank">
-    <div class="input-group mb-1" id="port-search-div">
-      <button class="btn btn-outline-secondary" type="submit" id="button-addon1" >Search</button>
-      <input type="text" name="q" id="port-search"  class="form-control" placeholder="Search for a port" aria-label="Example text with button addon" aria-describedby="button-addon1">
-    </div>
+      <div class="input-group mb-1" id="port-search-div">
+        <button
+          class="btn btn-outline-secondary"
+          type="submit"
+          id="google-search"
+        >
+          Search
+        </button>
+        <input
+          type="text"
+          name="q"
+          id="port-search"
+          class="form-control"
+          placeholder="Search for a port"
+          aria-label="Search google for port"
+        />
+      </div>
     </form>
   </div>
   <div class="table-div-port" id="table-divider-port">
@@ -561,17 +1510,19 @@
       <tbody id="table-body-port"></tbody>
     </table>
   </div>
-  <image
-    src="{{ url_for('static', filename='AS5202.png') }}"
-    id="as-port"
-    class="port"
-    alt="port"
-  ></image>
-  <image
-    src="{{ url_for('static', filename='SAEJ1926.jpg') }}"
-    id="j-port"
-    class="port"
-    alt="port"
-  ></image>
+  <div class="port-image-container" id="as5202-fixed">
+    <image
+      src="{{ url_for('static', filename='ms33649.png') }}"
+      id="as5202-port-img"
+      class="port-images"
+      alt="port"
+    ></image>
+    <image
+      src="{{ url_for('static', filename='SAEJ1926.jpg') }}"
+      id="j1926-port-img"
+      class="port-images"
+      alt="port"
+    ></image>
+  </div>
 </div>
 {% endblock %}
