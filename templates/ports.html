@@ -1249,8 +1249,10 @@
     // make opacity 0 on all images
     const j1926PortImg = document.getElementById("j1926-port-img");
     const as5202PortImg = document.getElementById("as5202-port-img");
+    const as5202PortImgTwo = document.getElementById("as5202-port-img-two");
     j1926PortImg.style.opacity = "0";
     as5202PortImg.style.opacity = "0";
+    as5202PortImgTwo.style.opacity = "0";
 
     let selectedValue = "";
 
@@ -1258,6 +1260,7 @@
     if (data == as5202) {
       selectedValue = document.getElementById("as5202-portSelect").value;
       as5202PortImg.style.opacity = 1;
+      as5202PortImgTwo.style.opacity = 1;
     } else if (data == j1926) {
       selectedValue = document.getElementById("j1926-portSelect").value;
       j1926PortImg.style.opacity = 1;
@@ -1306,8 +1309,9 @@
     }
   }
   function as5202Map() {
-    // grab container in html, and key values for port size specs
-    let container = document.getElementById("as5202-fixed");
+    // grab containers in html, and key values for port size specs
+    let container = document.getElementById("port-image-container-id");
+    let containerTwo = document.getElementById("port-image-container-id-two");
     let aValue = document.getElementsByClassName("A-Value")[0].textContent;
     let bValue = document.getElementsByClassName("B-Value")[0].textContent;
     let cValue = document.getElementsByClassName("C-Value")[0].textContent;
@@ -1323,7 +1327,7 @@
     let aValP = document.createElement("p");
     let aKeyVal = document.createElement("p");
     aValP.className = "p-values";
-    aValP.textContent = aValue;
+    aValP.innerHTML = `${aValue} <span class="smaller">(+.015 -.0)</span>`;
     aKeyVal.className = "p-key-values";
     aKeyVal.textContent = "A:";
     diaImage.setAttribute("class", "diameter-image");
@@ -1376,7 +1380,7 @@
     let dValp = document.createElement("p");
     let dKeyVal = document.createElement("p");
     dValp.className = "p-values";
-    dValp.textContent = dValue;
+    dValp.innerHTML = `${dValue} \n<span class="smaller">(+.005 -.0)</span>`;
     dKeyVal.className = "p-key-values";
     dKeyVal.textContent = "D:";
     diaImageD.setAttribute("class", "diameter-image");
@@ -1418,6 +1422,17 @@
     jBox.setAttribute("id", "port-jBox");
     container.appendChild(jBox);
     jBox.appendChild(jValp);
+
+    // create div container for each port spec: E
+    let eBox = document.createElement("div");
+    let eValp = document.createElement("p");
+    eValp.className = "p-values";
+    eValp.innerHTML = `<b>E:</b>\n
+    ${eValue} <span class="smaller">(+.015 -.0)</span>`;
+    eBox.setAttribute("class", "port-value-boxes");
+    eBox.setAttribute("id", "port-eBox");
+    containerTwo.appendChild(eBox);
+    eBox.appendChild(eValp);
   }
 </script>
 <div id="port-container">
@@ -1510,17 +1525,26 @@
       <tbody id="table-body-port"></tbody>
     </table>
   </div>
-  <div class="port-image-container" id="as5202-fixed">
+  <div class="port-image-container" id="port-image-container-id">
     <image
       src="{{ url_for('static', filename='ms33649.png') }}"
       id="as5202-port-img"
       class="port-images"
       alt="port"
     ></image>
+
     <image
       src="{{ url_for('static', filename='SAEJ1926.jpg') }}"
       id="j1926-port-img"
       class="port-images"
+      alt="port"
+    ></image>
+  </div>
+  <div class="port-image-container-two" id="port-image-container-id-two">
+    <image
+      src="{{ url_for('static', filename='as5202two.png') }}"
+      id="as5202-port-img-two"
+      class="port-images-two"
       alt="port"
     ></image>
   </div>

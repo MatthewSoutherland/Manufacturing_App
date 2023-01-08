@@ -85,6 +85,7 @@ body {
 
 #chip-container {
   padding-top: 6rem;
+  margin-left: 10rem;
   width: 40%;
 }
 
@@ -116,6 +117,10 @@ body {
   justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
+}
+
+#home-id {
+  margin-left: 5rem;
 }
 
 .ele {
@@ -258,6 +263,14 @@ p {
   width: 55rem;
   object-fit: cover;
   position: absolute;
+  opacity: 0;
+}
+
+.port-images-two {
+  width: 17rem;
+  object-fit: contain;
+  position: absolute;
+  opacity: 0;
 }
 
 #port-container {
@@ -265,11 +278,18 @@ p {
 }
 
 .port-image-container {
-  border: 1px solid black;
   position: absolute;
   width: auto;
   height: 35rem;
-  padding-left: -5rem;
+  margin-left: -5rem;
+}
+
+.port-image-container-two {
+  position: absolute;
+  width: auto;
+  height: 35rem;
+  left: 55rem;
+  padding-top: 5rem;
 }
 
 #port-search-div {
@@ -287,7 +307,8 @@ p {
 
 #port-aBox {
   top: 105px;
-  left: 370px;
+  left: 350px;
+  width: 9rem;
 }
 
 #port-bBox {
@@ -309,7 +330,8 @@ p {
 
 #port-dBox {
   top: 129px;
-  left: 370px;
+  left: 352px;
+  width: 9rem;
 }
 
 #port-gBox {
@@ -324,9 +346,13 @@ p {
   width: 9rem;
 }
 
+#port-eBox {
+  top: 231px;
+  left: 220px;
+  width: 9rem;
+}
+
 .program-container {
-  display: flex;
-  justify-content: center;
   width: 100%;
 }
 
@@ -355,19 +381,28 @@ p {
   width: 4rem;
 }
 
+.smaller {
+  font-size: 12px;
+}
+
 .table-div {
   line-height: 0.7rem;
   font-size: 0.9rem;
   padding-top: 5%;
-  width: 60%;
+  width: 50%;
+}
+
+.table-div-port {
+  display: flex;
+  justify-content: center;
 }
 
 .table-port {
   line-height: 2rem;
   font-size: 1rem;
   text-align: center;
-  padding-top: 5%;
-  width: 100%;
+  padding-top: 1%;
+  width: 60%;
 }
 
 #table-divider {
@@ -534,6 +569,13 @@ table {
   opacity: 0.2;
 }
 
+@media (max-width: 1275px) {
+  .port-image-container-two {
+    left: 15rem;
+    top: 45rem;
+  }
+}
+
 @media (max-width: 1000px) {
   .table {
     line-height: 0.8rem;
@@ -549,8 +591,6 @@ table {
 
   .port-image-container {
     width: 45rem;
-    object-fit: cover;
-    position: absolute;
   }
 }
 
@@ -601,8 +641,6 @@ table {
 
   .port-image-container {
     width: 25rem;
-    object-fit: cover;
-    position: absolute;
     background-color: lightblue;
   }
 
