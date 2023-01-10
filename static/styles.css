@@ -359,6 +359,12 @@ p {
   width: 9rem;
 }
 
+#port-threadBox {
+  top: 311px;
+  left: 380px;
+  width: 5rem;
+}
+
 .program-container {
   width: 100%;
 }
