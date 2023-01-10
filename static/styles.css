@@ -93,8 +93,14 @@ body {
 
 #chip-container {
   padding-top: 6rem;
-  margin-left: 10rem;
-  width: 40%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#chip-container-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .cl-img {
