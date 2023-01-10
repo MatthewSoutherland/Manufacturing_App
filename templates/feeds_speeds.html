@@ -1,0 +1,120 @@
+{% extends 'layout.html' %} {% block title %} Feeds/speeds calculator {%
+endblock %} {% block main %}
+<script>
+  function doMath() {
+    // grab all variables
+    let rpmValue = document.getElementById("rpm").value;
+    let sfmValue = document.getElementById("sfm").value;
+    let ipmValue = document.getElementById("ipm").value;
+    let iprValue = document.getElementById("ipr").value;
+    let diameterValue = document.getElementById("feed-speed-diameter").value;
+    let rpmP = document.getElementById("p-rpm");
+    let sfmP = document.getElementById("p-sfm");
+    let ipmP = document.getElementById("p-ipm");
+    let iprP = document.getElementById("p-ipr");
+
+    if (diameterValue != "") {
+      if ((rpmValue == "") & (sfmValue == "")) {
+        return 0;
+      }
+      if (rpmValue == "") {
+        let calcRpm =
+          (parseFloat(sfmValue) * parseFloat(3.82)) / parseFloat(diameterValue);
+        calcRpm = Math.round(calcRpm * 1000) / 1000;
+        sfmP.textContent = `SFM: ${sfmValue}`;
+        rpmP.textContent = `RPM: ${calcRpm}`;
+        if (ipmValue == "" && iprValue == "") {
+          ipmP.textContent = "IPM: 0";
+          iprP.textContent = "IPR: 0";
+        } else {
+          if (ipmValue != "") {
+            calcIpr = parseFloat(ipmValue / calcRpm);
+            calcIpr = Math.round(calcIpr * 1000) / 1000;
+            ipmP.textContent = `IPM: ${ipmValue}`;
+            iprP.textContent = `IPR: ${calcIpr}`;
+          } else {
+            calcIpm = parseFloat(calcRpm * iprValue);
+            calcIpm = Math.round(calcIpm * 1000) / 1000;
+            ipmP.textContent = `IPM: ${calcIpm}`;
+            iprP.textContent = `IPR: ${iprValue}`;
+          }
+        }
+      } else {
+        let calcSfm =
+          (parseFloat(rpmValue) / parseFloat(3.82)) * parseFloat(diameterValue);
+        calcSfm = Math.round(calcSfm * 1000) / 1000;
+        sfmP.textContent = `SFM: ${calcSfm}`;
+        rpmP.textContent = `RPM: ${rpmValue}`;
+        if (ipmValue == "" && iprValue == "") {
+          ipmP.textContent = "IPM: 0";
+          iprP.textContent = "IPR: 0";
+        } else {
+          if (ipmValue != "") {
+            calcIpr = parseFloat(ipmValue / rpmValue);
+            calcIpr = Math.round(calcIpr * 1000) / 1000;
+            ipmP.textContent = `IPM: ${ipmValue}`;
+            iprP.textContent = `IPR: ${calcIpr}`;
+          } else {
+            calcIpm = parseFloat(rpmValue * iprValue);
+            calcIpm = Math.round(calcIpm * 1000) / 1000;
+            ipmP.textContent = `IPM: ${calcIpm}`;
+            iprP.textContent = `IPR: ${iprValue}`;
+          }
+        }
+      }
+    } else {
+      alert("need tool diameter");
+    }
+    return 0;
+  }
+</script>
+<div id="feedSpeed-container">
+  <div id="feedSpeed-container-col">
+    <div id="tool-dia-div">
+      <label for="feed-speed-diameter" class="cool-style-label"
+        >Tool Diameter:</label
+      >
+      <input
+        type="text"
+        id="feed-speed-diameter"
+        class="cool-style"
+        onkeyup="{doMath()}"
+      />
+    </div>
+    <div class="rpm-sfm-div">
+      <div class="feed-in-split">
+        <label for="rpm"
+          >RPM:
+          <input type="text" id="rpm" class="cool-style" onkeyup="{doMath()}" />
+        </label>
+      </div>
+      <div class="feed-in-split">
+        <label for="sfm"
+          >SFM:
+          <input type="text" id="sfm" class="cool-style" onkeyup="{doMath()}" />
+        </label>
+      </div>
+    </div>
+    <div class="rpm-sfm-div">
+      <div class="feed-in-split">
+        <label for="ipm"
+          >IPM:
+          <input type="text" id="ipm" class="cool-style" onkeyup="{doMath()}" />
+        </label>
+      </div>
+      <div class="feed-in-split">
+        <label for="ipr"
+          >IPR:
+          <input type="text" id="ipr" class="cool-style" onkeyup="{doMath()}" />
+        </label>
+      </div>
+    </div>
+    <div id="feed-speed-calc">
+      <p id="p-rpm">RPM:</p>
+      <p id="p-sfm">SFM:</p>
+      <p id="p-ipm">IPM:</p>
+      <p id="p-ipr">IPR:</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

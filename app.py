@@ -174,6 +174,11 @@ def truePos():
     return render_template("truePos.html")
 
 
+@app.route("/feeds_speeds")
+def feeds_speeds():
+    return render_template("feeds_speeds.html")
+
+
 @app.route("/toollist", methods=["GET", "POST"])
 def toollist():
 

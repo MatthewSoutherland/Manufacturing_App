@@ -114,6 +114,22 @@ body {
   left: 3rem;
 }
 
+.cool-style {
+  width: 70px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  text-indent: 4px;
+}
+
+.cool-style:hover {
+  border: 2px solid #555;
+}
+
+.cool-style:focus {
+  border-bottom: 2px solid linear-gradient(to right, #9a9a9a, #242424);
+}
+
 .diameter-image {
   width: 10px;
   border-radius: 50%;
@@ -156,6 +172,27 @@ body {
 
 #exInput {
   display: none;
+}
+
+.feed-in-split {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#feed-speed-calc {
+  margin-top: 3rem;
+}
+
+#feedSpeed-container {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#feedSpeed-container-col {
+  display: flex;
+  flex-direction: column;
 }
 
 fieldset {
@@ -398,10 +435,15 @@ p {
   cursor: pointer;
 }
 
-#rpm-to-sfm {
+.rpm-to-sfm {
   display: flex;
   flex-direction: row;
   padding-top: 2rem;
+}
+
+.rpm-sfm-div {
+  display: flex;
+  flex-direction: row;
 }
 
 #sae-port {
