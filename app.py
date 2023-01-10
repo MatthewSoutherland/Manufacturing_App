@@ -230,12 +230,12 @@ def messagesent():
     return render_template("messagesent.html", messageguy=messageguy)
 
 
-@app.route("/calculator")
-def calculator():
+@app.route("/trig_triangle")
+def trig_triangle():
     if not session.get("name"):
         return redirect(url_for("login"))
 
-    return render_template("calculator.html")
+    return render_template("trig_triangle.html")
 
 
 if __name__ == "__main__":
