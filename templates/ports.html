@@ -1471,9 +1471,7 @@
 <div id="port-container">
   <div class="dropdown-ports">
     <div class="as-ms-ports label-div-port">
-      <label for="as5202-portSelect" class="new-font-style"
-        >AS5202<br />MS33649</label
-      >
+      <label for="as5202-portSelect" class="new-font-style">AS5202</label>
       <select
         class="form-select form-select-sm shorten"
         name="as5202-ports"
@@ -1536,11 +1534,40 @@
         <option value="32">- 32</option>
       </select>
     </div>
-    <div class="j-ports label-div-port">
-      <label for="j1926-ports" class="new-font-style"
-        >J1926 <br />
-        ISO6419</label
+    <div class="as-ports label-div-port">
+      <label for="as1958-portSelect" class="new-font-style">AS1958</label>
+      <select
+        class="form-select form-select-sm shorten"
+        name="as1958-ports"
+        id="as1958-portSelect"
+        aria-label="AS1958 port select box"
+        value=""
+        onchange="{createPortTable(as1958)}"
       >
+        <option selected></option>
+        <option value="01">- 01</option>
+        <option value="02">- 02</option>
+        <option value="03">- 03</option>
+        <option value="04">- 04</option>
+        <option value="05">- 05</option>
+        <option value="06">- 06</option>
+        <option value="07">- 07</option>
+        <option value="08">- 08</option>
+        <option value="09">- 09</option>
+        <option value="10">- 10</option>
+        <option value="11">- 11</option>
+        <option value="12">- 12</option>
+        <option value="14">- 14</option>
+        <option value="16">- 16</option>
+        <option value="18">- 18</option>
+        <option value="20">- 20</option>
+        <option value="24">- 24</option>
+        <option value="28">- 28</option>
+        <option value="32">- 32</option>
+      </select>
+    </div>
+    <div class="j-ports label-div-port">
+      <label for="j1926-ports" class="new-font-style">J1926 </label>
       <select
         class="form-select form-select-sm shorten"
         name="j-portSelect"
@@ -1548,6 +1575,32 @@
         id="j1926-portSelect"
         value=""
         onchange="{createPortTable(j1926)}"
+      >
+        <option selected></option>
+        <option value="02">- 02</option>
+        <option value="03">- 03</option>
+        <option value="04">- 04</option>
+        <option value="05">- 05</option>
+        <option value="06">- 06</option>
+        <option value="08">- 08</option>
+        <option value="10">- 10</option>
+        <option value="12">- 12</option>
+        <option value="14">- 14</option>
+        <option value="16">- 16</option>
+        <option value="20">- 20</option>
+        <option value="24">- 24</option>
+        <option value="32">- 32</option>
+      </select>
+    </div>
+    <div class="iso-ports label-div-port">
+      <label for="iso6419-ports" class="new-font-style"> ISO6419</label>
+      <select
+        class="form-select form-select-sm shorten"
+        name="isoPortSelect"
+        aria-label="iso6419 port select box"
+        id="iso6419-portSelect"
+        value=""
+        onchange="{createPortTable(iso6419)}"
       >
         <option selected></option>
         <option value="02">- 02</option>
