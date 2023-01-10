@@ -4,7 +4,6 @@
 }
 
 .alert-div {
-  display: block;
   margin-top: 1rem;
 }
 
@@ -189,15 +188,23 @@ h5 {
 }
 
 #login-container {
-  padding-top: 3rem;
+  margin-top: 5rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
 #login-font {
   padding-left: 3rem;
   font-family: Times, serif;
+}
+
+.login-in {
+  width: 20rem;
+}
+
+#login-justify {
+  display: flex;
+  flex-direction: column;
 }
 
 .machine-div {
