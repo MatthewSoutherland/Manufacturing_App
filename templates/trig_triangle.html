@@ -1,5 +1,5 @@
-{% extends "layout.html" %} {% block title %} Calculator {% endblock %} {% block
-main %}
+{% extends "layout.html" %} {% block title %} Triangle trig {% endblock %} {%
+block main %}
 <script>
   function trigClearFun() {
     let angleA = (document.getElementById("angle-a").value = "");
@@ -141,92 +141,8 @@ main %}
       }
     }
   }
-
-  function rpmtosf() {
-    // grab all variables
-    let rpm = document.getElementById("rpm2").value;
-    let toolDiameter = document.getElementById("diameter2").value;
-    let calcSfm = document.getElementById("calc-sfm2");
-
-    if (sfm != 0 && toolDiameter != 0) {
-      calcSfm.innerText =
-        (parseFloat(rpm) / parseFloat(3.82)) * parseFloat(toolDiameter);
-    }
-  }
-
-  function sftorpm() {
-    // grab all variables
-    let sfm = document.getElementById("sfm").value;
-    let toolDiameter = document.getElementById("diameter").value;
-    let calcRpm = document.getElementById("calc-rpm");
-
-    if (sfm != 0 && toolDiameter != 0) {
-      calcRpm.innerText =
-        (parseFloat(sfm) * parseFloat(3.82)) / parseFloat(toolDiameter);
-    }
-  }
 </script>
 <div id="calc-container">
-  <div id="sfm-to-rpm">
-    <div class="calc-label-input-div">
-      <label class="calc-labels" for="sfm">SFM</label>
-      <input
-        type="text"
-        id="sfm"
-        name="sfm"
-        onkeyup="{sftorpm()}"
-        class="calc-inputs"
-      />
-    </div>
-    <p class="calc-p-elements">X</p>
-    <p class="calc-p-elements">3.82</p>
-    <p class="calc-p-elements calc-p-equals">/</p>
-    <div class="calc-label-input-div">
-      <label class="calc-labels" for="diameter">Tool Dia</label>
-      <input
-        type="text"
-        id="diameter"
-        name="diameter"
-        onkeyup="{sftorpm()}"
-        class="calc-inputs"
-      />
-    </div>
-    <p class="calc-p-elements calc-p-equals">=</p>
-    <div class="calc-label-input-div">
-      <p class="calc-p-elements">RPM</p>
-      <p id="calc-rpm" class="calc-p-elements">0</p>
-    </div>
-  </div>
-  <div id="rpm-to-sfm">
-    <div class="calc-label-input-div">
-      <label class="calc-labels" for="rpm2">RPM</label>
-      <input
-        type="text"
-        id="rpm2"
-        name="rpm2"
-        onkeyup="{rpmtosf()}"
-        class="calc-inputs"
-      />
-    </div>
-    <p class="calc-p-elements calc-p-equals">/</p>
-    <p class="calc-p-elements">3.82</p>
-    <p class="calc-p-elements">X</p>
-    <div class="calc-label-input-div">
-      <label class="calc-labels" for="diameter">Tool Dia</label>
-      <input
-        type="text"
-        id="diameter2"
-        name="diameter"
-        onkeyup="{rpmtosf()}"
-        class="calc-inputs"
-      />
-    </div>
-    <p class="calc-p-elements calc-p-equals">=</p>
-    <div class="calc-label-input-div">
-      <p class="calc-p-elements">SFM</p>
-      <p id="calc-sfm2" class="calc-p-elements">0</p>
-    </div>
-  </div>
   <div id="triangle-div">
     <image
       src="{{ url_for('static', filename='triangle.jpeg') }}"

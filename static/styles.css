@@ -38,41 +38,7 @@ body {
 #calc-container {
   display: flex;
   flex-direction: column;
-  padding-top: 5rem;
   font-family: Roboto;
-}
-
-.calc-inputs {
-  width: 4rem;
-  text-indent: 0.2rem;
-  height: 1.4rem;
-  border: 1px solid whitesmoke;
-  border-bottom: 1px solid grey;
-}
-
-.calc-labels {
-  margin-bottom: -0.1rem;
-  font-family: Geneva, Tahoma, sans-serif;
-}
-
-.calc-p-elements {
-  align-self: flex-end;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.calc-p-equals {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.calc-label-input-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: flex-end;
 }
 
 .card-container {
@@ -240,8 +206,8 @@ h5 {
 .label-div-port {
   display: flex;
   flex-direction: column;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 #login-container {
@@ -450,11 +416,6 @@ p {
   opacity: 0;
 }
 
-#sfm-to-rpm {
-  display: flex;
-  flex-direction: row;
-}
-
 .shorten {
   width: 4rem;
 }
@@ -563,8 +524,8 @@ table {
 
 #triangle {
   position: absolute;
-  top: 23rem;
-  left: 10%;
+  top: 10rem;
+  left: 15%;
   width: 20rem;
   object-fit: cover;
 }
@@ -593,8 +554,8 @@ table {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 24rem;
-  left: 50%;
+  top: 11rem;
+  left: 55%;
   font-family: Arial, sans-serif;
 }
 
