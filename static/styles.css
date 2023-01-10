@@ -11,6 +11,15 @@
   opacity: 0;
 }
 
+#bg-image {
+  background: url("/static/homeBG.jpg");
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -119,7 +128,9 @@ body {
 }
 
 #home-id {
-  margin-left: 5rem;
+  text-align: center;
+  height: 100%;
+  overflow: hidden;
 }
 
 .ele {
@@ -157,8 +168,11 @@ fieldset {
 }
 
 #home-id {
-  padding-top: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 100%;
   line-height: 2rem;
 }
 
@@ -194,7 +208,10 @@ h5 {
 }
 
 #login-font {
-  padding-left: 3rem;
+  position: absolute;
+  top: 4rem;
+  left: 40%;
+  background-color: transparent;
   font-family: Times, serif;
 }
 
