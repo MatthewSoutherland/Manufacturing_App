@@ -7,10 +7,6 @@
   margin-top: 1rem;
 }
 
-#as5202-port-img {
-  opacity: 0;
-}
-
 #bg-image {
   background: url("/static/homeBG.jpg");
   height: 800px;
@@ -325,6 +321,14 @@ p {
   padding-top: 5rem;
 }
 
+#port-j1926-img {
+  position: absolute;
+  width: auto;
+  height: 25rem;
+  margin-left: 15rem;
+  padding-top: 2rem;
+}
+
 #port-search-div {
   width: 16rem;
   padding-left: 2rem;
@@ -367,6 +371,23 @@ p {
   width: 9rem;
 }
 
+#port-dBoxj {
+  top: 365px;
+  left: 444px;
+}
+
+#port-dBox2j {
+  top: 385px;
+  left: 422px;
+  width: 14rem;
+}
+
+#port-eBox {
+  top: 231px;
+  left: 220px;
+  width: 9rem;
+}
+
 #port-gBox {
   top: 72px;
   left: 355px;
@@ -379,10 +400,46 @@ p {
   width: 9rem;
 }
 
-#port-eBox {
-  top: 231px;
-  left: 220px;
+#port-jBoxj {
+  top: 200px;
+  left: 625px;
+  width: 14rem;
+}
+
+#port-kBoxj {
+  top: 180px;
+  left: 210px;
+  width: 10rem;
+}
+
+#port-oBoxj {
+  top: 90px;
+  left: 400px;
+  width: 8rem;
+}
+
+#port-pBoxj {
+  top: 180px;
+  left: 260px;
+  line-height: 1.3rem;
+}
+
+#port-sBoxj {
+  top: 120px;
+  left: 585px;
+  width: 10rem;
+}
+
+#port-uBoxj {
+  top: 110px;
+  left: 130px;
   width: 9rem;
+}
+
+#port-yBoxj {
+  top: 50px;
+  left: 380px;
+  width: 14rem;
 }
 
 #port-threadBox {
