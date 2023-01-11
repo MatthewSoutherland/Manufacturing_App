@@ -206,7 +206,7 @@ def chips():
     if request.method == "POST":
         message1 = request.form.get("message1")
         responseData = sms.send_message(
-            {"from": secret.from_number, "to": secret.my_number, "text": message1}
+            {"from": "Vonage APIs", "to": secret.my_number, "text": message1}
         )
         if responseData["messages"][0]["status"] == "0":
             messageguy = "message sent successfully"
