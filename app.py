@@ -185,11 +185,6 @@ def toollist():
     if not session.get("name"):
         return redirect(url_for("login"))
     if request.method == "POST":
-
-        exInput = request.form["exInput"]
-        msg = Message("Tool List", recipients=["ToolList@outlook.com"])
-        msg.html = json.loads(exInput)
-        mail.send(msg)
         return redirect(url_for("emailsent"))
     return render_template("toollist.html")
 
@@ -206,7 +201,7 @@ def chips():
     if request.method == "POST":
         message1 = request.form.get("message1")
         responseData = sms.send_message(
-            {"from": "Vonage APIs", "to": secret.my_number, "text": message1}
+            {"from": "19893556167", "to": secret.my_number, "text": message1}
         )
         if responseData["messages"][0]["status"] == "0":
             messageguy = "message sent successfully"
