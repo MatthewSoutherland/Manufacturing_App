@@ -1,5 +1,9 @@
-{% extends "layout.html" %} {% block title %} Ports {% endblock %} {% block main
-%}
+{% extends "layout.html" %} {%block title%} Ports {%endblock%} {%block head%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='ports.css') }}"
+/>{%endblock%} {%block main%}
 <script>
   const as1300 = [
     {
@@ -1279,13 +1283,13 @@
 
   function createPortTable(data) {
     // make opacity 0 on all images
-    const j1926PortImg = document.getElementById("port-j1926-img");
-    const j1926PortImgTwo = document.getElementById("port-j1926-img-two");
-    const as5202PortImg = document.getElementById("port-as5202-img");
-    const as5202PortImgTwo = document.getElementById("port-as5202-img-two");
-    const as1300PortImg = document.getElementById("port-as1300-img");
-    const as1300PortImgTwo = document.getElementById("port-as1300-img-two");
-    const as1958PortImg = document.getElementById("port-as1958-img");
+    const j1926PortImg = document.getElementById("j1926-img");
+    const j1926PortImgTwo = document.getElementById("j1926-img-two");
+    const as5202PortImg = document.getElementById("as5202-img");
+    const as5202PortImgTwo = document.getElementById("as5202-img-two");
+    const as1300PortImg = document.getElementById("as1300-img");
+    const as1300PortImgTwo = document.getElementById("as1300-img-two");
+    const as1958PortImg = document.getElementById("as1958-img");
     j1926PortImg.style.opacity = "0";
     j1926PortImgTwo.style.opacity = 0;
     as5202PortImg.style.opacity = "0";
@@ -2354,25 +2358,25 @@
   <div class="port-image-container" id="port-image-container-id">
     <image
       src="{{ url_for('static', filename='ms33649.png') }}"
-      id="port-as5202-img"
+      id="as5202-img"
       class="port-images"
       alt="port"
     ></image>
     <image
       src="{{ url_for('static', filename='j1926.png') }}"
-      id="port-j1926-img"
+      id="j1926-img"
       class="port-images"
       alt="port"
     ></image>
     <image
       src="{{ url_for('static', filename='as1300.png') }}"
-      id="port-as1300-img"
+      id="as1300-img"
       class="port-images"
       alt="port"
     ></image>
     <image
       src="{{ url_for('static', filename='as1958.png') }}"
-      id="port-as1958-img"
+      id="as1958-img"
       class="port-images"
       alt="port"
     ></image>
@@ -2380,19 +2384,19 @@
   <div class="port-image-container-two" id="port-image-container-id-two">
     <image
       src="{{ url_for('static', filename='as5202two.png') }}"
-      id="port-as5202-img-two"
+      id="as5202-img-two"
       class="port-images-two"
       alt="port"
     ></image>
     <image
       src="{{ url_for('static', filename='j1926two.png') }}"
-      id="port-j1926-img-two"
+      id="j1926-img-two"
       class="port-images-two"
       alt="port"
     ></image>
     <image
       src="{{ url_for('static', filename='as1300two.png') }}"
-      id="port-as1300-img-two"
+      id="as1300-img-two"
       class="port-images-two"
       alt="port"
     ></image>

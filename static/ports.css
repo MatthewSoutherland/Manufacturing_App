@@ -1,0 +1,296 @@
+#as1300-img {
+  position: absolute;
+  width: auto;
+  height: 25rem;
+  margin-left: 12rem;
+  padding-top: 4rem;
+}
+
+#as1300-img-two {
+  position: absolute;
+  width: auto;
+  height: 18rem;
+  margin-left: -5rem;
+  padding-top: 2rem;
+}
+
+#as1958-img {
+  position: absolute;
+  width: auto;
+  height: 32rem;
+  margin-left: 20rem;
+  padding-top: 5rem;
+}
+
+#j1926-img {
+  position: absolute;
+  width: auto;
+  height: 25rem;
+  margin-left: 15rem;
+  padding-top: 2rem;
+}
+
+.port-images {
+  width: 55rem;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+}
+
+.port-images-two {
+  width: 17rem;
+  object-fit: contain;
+  position: absolute;
+  opacity: 0;
+}
+
+#port-container {
+  padding-top: 4rem;
+}
+
+.port-image-container {
+  position: absolute;
+  width: auto;
+  height: 35rem;
+  margin-left: -5rem;
+}
+
+.port-image-container-two {
+  position: absolute;
+  width: auto;
+  height: 35rem;
+  left: 55rem;
+  padding-top: 5rem;
+}
+
+#port-search-div {
+  width: 16rem;
+  padding-left: 2rem;
+  margin: 1rem;
+}
+
+.port-value-boxes {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  display: flex;
+  width: auto;
+}
+
+#port-aBox {
+  top: 105px;
+  left: 350px;
+  width: 9rem;
+}
+
+#port-bBox {
+  top: 250px;
+  left: 672px;
+  width: 14rem;
+}
+
+#port-bBoxas {
+  top: 120px;
+  left: 520px;
+  width: 9rem;
+}
+
+#port-bBoxRos {
+  top: 40px;
+  left: 370px;
+  width: 8rem;
+}
+
+#port-cBox {
+  top: 480px;
+  left: 415px;
+}
+
+#port-cBoxas {
+  top: 170px;
+  left: 540px;
+  width: 9rem;
+}
+
+#port-cBoxRos {
+  top: 70px;
+  left: 370px;
+  width: 9rem;
+}
+
+#port-cBox2 {
+  top: 500px;
+  left: 380px;
+  width: 14rem;
+}
+
+#port-dBox {
+  top: 129px;
+  left: 352px;
+  width: 9rem;
+}
+
+#port-dBoxas {
+  top: 300px;
+  left: 320px;
+  width: 6rem;
+}
+
+#port-dBoxRos {
+  top: 100px;
+  left: 370px;
+  width: 9rem;
+}
+
+#port-dBoxj {
+  top: 365px;
+  left: 444px;
+}
+
+#port-dBox2j {
+  top: 385px;
+  left: 422px;
+  width: 14rem;
+}
+
+#port-eBox {
+  top: 231px;
+  left: 220px;
+  width: 9rem;
+}
+
+#port-eBoxas {
+  top: 270px;
+  left: 920px;
+  width: 8rem;
+}
+
+#port-eBoxRos {
+  top: 260px;
+  left: 177px;
+  width: 5rem;
+}
+
+#port-fBoxRos {
+  top: 170px;
+  left: 650px;
+  width: 7rem;
+}
+
+#port-gBox {
+  top: 72px;
+  left: 355px;
+  width: 8rem;
+}
+
+#port-gBoxRos {
+  top: 72px;
+  left: 355px;
+  width: 8rem;
+}
+
+#port-hBoxRos {
+  top: 222px;
+  left: 630px;
+  width: 13rem;
+}
+
+#port-jBox {
+  top: 330px;
+  left: 730px;
+  width: 9rem;
+}
+
+#port-jBoxj {
+  top: 200px;
+  left: 625px;
+  width: 14rem;
+}
+
+#port-kBoxj {
+  top: 180px;
+  left: 210px;
+  width: 10rem;
+}
+
+#port-kBoxRos {
+  top: 215px;
+  left: 130px;
+  width: 10rem;
+}
+
+#port-lBoxRos {
+  top: 180px;
+  left: 210px;
+  width: 10rem;
+}
+
+#port-mBoxRos {
+  top: 260px;
+  left: 480px;
+  width: 5rem;
+}
+
+#port-oBoxj {
+  top: 90px;
+  left: 400px;
+  width: 8rem;
+}
+
+#port-pBoxj {
+  top: 180px;
+  left: 260px;
+  line-height: 1.3rem;
+}
+
+#port-sBoxj {
+  top: 120px;
+  left: 585px;
+  width: 10rem;
+}
+
+#port-tBoxas {
+  top: 90px;
+  left: 510px;
+  width: 7rem;
+}
+
+#port-uBoxj {
+  top: 110px;
+  left: 130px;
+  width: 9rem;
+}
+
+#port-yBoxj {
+  top: 50px;
+  left: 380px;
+  width: 14rem;
+}
+
+#port-threadBox {
+  top: 311px;
+  left: 380px;
+  width: 5rem;
+}
+
+#port-threadBoxRos {
+  top: 311px;
+  left: 380px;
+  width: 6rem;
+}
+
+.table-div-port {
+  display: flex;
+  justify-content: center;
+}
+
+.table-port {
+  line-height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 1%;
+  width: 60%;
+}
+
+#t-head-port {
+  background-color: aliceblue;
+}
