@@ -833,7 +833,7 @@
 
   const iso6419 = [
     {
-      "Size-Code": "04",
+      "Tube-OD": "04",
       Thread: "M8 X 1.0",
       minor: "6.92-7.15",
       D: "3",
@@ -847,7 +847,7 @@
       Z: "12",
     },
     {
-      "Size-Code": "05",
+      "Tube-OD": "05",
       Thread: "M1O X 1.0",
       minor: "8.92-9.15",
       D: "4",
@@ -861,7 +861,7 @@
       Z: "12",
     },
     {
-      "Size-Code": "06",
+      "Tube-OD": "06",
       Thread: "M12 X 1.5",
       minor: "10.38-10.68",
       D: "6",
@@ -875,7 +875,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "08",
+      "Tube-OD": "08",
       Thread: "M14 X 1.5",
       minor: "12.38-12.68",
       D: "7.5",
@@ -889,7 +889,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "10",
+      "Tube-OD": "10",
       Thread: "M16 X 1.5",
       minor: "14.38-14.68",
       D: "9",
@@ -903,7 +903,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "12",
+      "Tube-OD": "12",
       Thread: "M18 X 1.5",
       minor: "16.38-16.68",
       D: "11",
@@ -917,7 +917,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "16",
+      "Tube-OD": "16",
       Thread: "M22 X 1.5",
       minor: "20.38-20.68",
       D: "14",
@@ -931,7 +931,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "20",
+      "Tube-OD": "20",
       Thread: "M27 X 2.0",
       minor: "24.84-25.21",
       D: "16",
@@ -945,7 +945,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "22",
+      "Tube-OD": "22",
       Thread: "M30 X 2.0",
       minor: "27.84-28.21",
       D: "18",
@@ -959,7 +959,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "25",
+      "Tube-OD": "25",
       Thread: "M33 x 2.0",
       minor: "30.84-31.21",
       D: "22",
@@ -973,7 +973,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "32",
+      "Tube-OD": "32",
       Thread: "M42 X 2.0",
       minor: "39.84-40.21",
       D: "30",
@@ -987,7 +987,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "38",
+      "Tube-OD": "38",
       Thread: "M48 x 2.0",
       minor: "45.84-46.21",
       D: "36",
@@ -1001,7 +1001,7 @@
       Z: "15",
     },
     {
-      "Size-Code": "50",
+      "Tube-OD": "50",
       Thread: "M60 X 2.0",
       minor: "57.84-58.21",
       D: "40",
@@ -1346,8 +1346,8 @@
       iso11926Select.value = "";
     } else if (data == iso6419) {
       selectedValue = document.getElementById("iso6419-portSelect").value;
-      iso6419PortImg.style.opacity = 1;
-      iso6419PortImgTwo.style.opacity = 1;
+      j1926PortImg.style.opacity = 1;
+      j1926PortImgTwo.style.opacity = 1;
       as5202Select.value = "";
       as1300Select.value = "";
       as1958Select.value = "";
@@ -1401,7 +1401,10 @@
 
     // create elements based on data. Append to table body.
     for (let i = 0; i < data.length; i++) {
-      if (data[i]["Size-Code"] == selectedValue) {
+      if (
+        data[i]["Size-Code"] == selectedValue ||
+        data[i]["Tube-OD"] == selectedValue
+      ) {
         let wrapper = document.createElement("tr");
         wrapper.setAttribute("class", "ele");
         wrapper.classList.add("table-bordered");
@@ -1424,6 +1427,8 @@
       as1300Map();
     } else if (data == as1958) {
       as1958Map();
+    } else if (data == iso6419) {
+      iso6419Map();
     }
   }
 
@@ -1976,6 +1981,148 @@
     tBoxas.appendChild(diaImageT);
     tBoxas.appendChild(tValp);
   }
+
+  function iso6419Map() {
+    // grab containers in html, and key values for port size specs
+    let container = document.getElementById("port-image-container-id");
+    let containerTwo = document.getElementById("port-image-container-id-two");
+    let dValue = document.getElementsByClassName("D-Value")[0].textContent;
+    let jValue = document.getElementsByClassName("J-Value")[0].textContent;
+    let kValue = document.getElementsByClassName("K-Value")[0].textContent;
+    let oValue = document.getElementsByClassName("O-Value")[0].textContent;
+    let pValue = document.getElementsByClassName("P-Value")[0].textContent;
+    let sValue = document.getElementsByClassName("S-Value")[0].textContent;
+    let uValue = document.getElementsByClassName("U-Value")[0].textContent;
+    let yValue = document.getElementsByClassName("Y-Value")[0].textContent;
+    let minorSize =
+      document.getElementsByClassName("minor-Value")[0].textContent;
+    let threadSize =
+      document.getElementsByClassName("Thread-Value")[0].textContent;
+
+    // create div container for each port spec: D
+    let dBox = document.createElement("div");
+    let dBox2 = document.createElement("div");
+    let diaImageC = document.createElement("img");
+    let dValp = document.createElement("p");
+    let cKeyVal = document.createElement("p");
+    dValp.className = "p-values";
+    dValp.textContent = `${dValue} (min)`;
+    cKeyVal.className = "p-key-values";
+    cKeyVal.textContent = "D:\n";
+    diaImageC.setAttribute("class", "diameter-image");
+    diaImageC.setAttribute("src", "/static/diameter.jpeg");
+    diaImageC.setAttribute("alt", "image of diameter");
+    dBox.setAttribute("class", "port-value-boxes");
+    dBox.setAttribute("id", "port-dBoxj");
+    dBox2.setAttribute("class", "port-value-boxes");
+    dBox2.setAttribute("id", "port-dBox2j");
+    container.appendChild(dBox);
+    container.appendChild(dBox2);
+    dBox.appendChild(cKeyVal);
+    dBox2.appendChild(diaImageC);
+    dBox2.appendChild(dValp);
+
+    // create div container for each port spec: J
+    let jBoxj = document.createElement("div");
+    let jBoxp = document.createElement("p");
+    jBoxp.className = "p-values";
+    jBoxp.innerHTML = `<b>J:</b>
+    ${jValue} (min) thread depth`;
+    jBoxj.setAttribute("class", "port-value-boxes");
+    jBoxj.setAttribute("id", "port-jBoxj");
+    container.appendChild(jBoxj);
+    jBoxj.appendChild(jBoxp);
+
+    // create div container for each port spec: K
+    let kBoxj = document.createElement("div");
+    let kValp = document.createElement("p");
+    kValp.className = "p-values";
+    kValp.innerHTML = `<b>K:</b>\n
+    ${kValue} <span class="smaller">(+.015 -.0)</span>`;
+    kBoxj.setAttribute("class", "port-value-boxes");
+    kBoxj.setAttribute("id", "port-kBoxj");
+    containerTwo.appendChild(kBoxj);
+    kBoxj.appendChild(kValp);
+
+    // create div container for each port spec: O
+    let oBoxj = document.createElement("div");
+    let diaImageG = document.createElement("img");
+    let oValp = document.createElement("p");
+    let gKeyVal = document.createElement("p");
+    oValp.className = "p-values";
+    oValp.textContent = `${oValue} (min)`;
+    gKeyVal.className = "p-key-values";
+    gKeyVal.textContent = "O:";
+    diaImageG.setAttribute("class", "diameter-image");
+    diaImageG.setAttribute("src", "/static/diameter.jpeg");
+    diaImageG.setAttribute("alt", "image of diameter");
+    oBoxj.setAttribute("class", "port-value-boxes");
+    oBoxj.setAttribute("id", "port-oBoxj");
+    container.appendChild(oBoxj);
+    oBoxj.appendChild(gKeyVal);
+    oBoxj.appendChild(diaImageG);
+    oBoxj.appendChild(oValp);
+
+    // create div container for each port spec: P
+    let pBoxj = document.createElement("div");
+    let pBoxp = document.createElement("p");
+    pBoxp.className = "p-values";
+    pBoxp.innerHTML = `<b>P:</b>
+    ${pValue} (min)`;
+    pBoxj.setAttribute("class", "port-value-boxes");
+    pBoxj.setAttribute("id", "port-pBoxj");
+    container.appendChild(pBoxj);
+    pBoxj.appendChild(pBoxp);
+
+    // create div container for each port spec: S
+    let sBoxj = document.createElement("div");
+    let sBoxp = document.createElement("p");
+    sBoxp.className = "p-values";
+    sBoxp.innerHTML = `<b>S:</b>
+    ${sValue} (max)`;
+    sBoxj.setAttribute("class", "port-value-boxes");
+    sBoxj.setAttribute("id", "port-sBoxj");
+    container.appendChild(sBoxj);
+    sBoxj.appendChild(sBoxp);
+
+    // create div container for each port spec: U
+    let uBoxj = document.createElement("div");
+    let diaImageD = document.createElement("img");
+    let uValp = document.createElement("p");
+    let dKeyVal = document.createElement("p");
+    uValp.className = "p-values";
+    uValp.innerHTML = `${uValue} \n<span class="smaller">(+.005 -.0)</span>`;
+    dKeyVal.className = "p-key-values";
+    dKeyVal.textContent = "U:";
+    diaImageD.setAttribute("class", "diameter-image");
+    diaImageD.setAttribute("src", "/static/diameter.jpeg");
+    diaImageD.setAttribute("alt", "image of diameter");
+    uBoxj.setAttribute("class", "port-value-boxes");
+    uBoxj.setAttribute("id", "port-uBoxj");
+    containerTwo.appendChild(uBoxj);
+    uBoxj.appendChild(dKeyVal);
+    uBoxj.appendChild(diaImageD);
+    uBoxj.appendChild(uValp);
+
+    // create div container for each port spec: Y
+    let yBoxj = document.createElement("div");
+    let diaImage = document.createElement("img");
+    let yValp = document.createElement("p");
+    let yKeyVal = document.createElement("p");
+    yValp.className = "p-values";
+    yValp.innerHTML = `${yValue} <span class="smaller">Recommended spot face</span>`;
+    yKeyVal.className = "p-key-values";
+    yKeyVal.textContent = "Y:";
+    diaImage.setAttribute("class", "diameter-image");
+    diaImage.setAttribute("src", "/static/diameter.jpeg");
+    diaImage.setAttribute("alt", "image of diameter");
+    yBoxj.setAttribute("class", "port-value-boxes");
+    yBoxj.setAttribute("id", "port-yBoxj");
+    container.appendChild(yBoxj);
+    yBoxj.appendChild(yKeyVal);
+    yBoxj.appendChild(diaImage);
+    yBoxj.appendChild(yValp);
+  }
 </script>
 <div id="port-container">
   <div class="dropdown-ports">
@@ -2097,19 +2244,19 @@
         onchange="{createPortTable(iso6419)}"
       >
         <option selected></option>
-        <option value="02">- 02</option>
-        <option value="03">- 03</option>
         <option value="04">- 04</option>
         <option value="05">- 05</option>
         <option value="06">- 06</option>
         <option value="08">- 08</option>
         <option value="10">- 10</option>
         <option value="12">- 12</option>
-        <option value="14">- 14</option>
         <option value="16">- 16</option>
         <option value="20">- 20</option>
-        <option value="24">- 24</option>
+        <option value="22">- 22</option>
+        <option value="25">- 25</option>
         <option value="32">- 32</option>
+        <option value="38">- 38</option>
+        <option value="50">- 50</option>
       </select>
     </div>
     <div class="asros-ports label-div-port">
