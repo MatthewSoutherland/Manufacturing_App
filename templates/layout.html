@@ -21,8 +21,9 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
-
+    {%block head%}
     <title>{% block title %} {% endblock %}</title>
+    {%endblock%}
   </head>
   <body>
     <div class="program-container">
