@@ -6,9 +6,8 @@ from flask import (
     session,
     url_for,
     flash,
-    sessions,
 )
-from flask_mail import Message, Mail
+
 from datetime import *
 import csv
 import json
@@ -28,20 +27,6 @@ app.permanent_session_lifetime = timedelta(days=7)
 client = vonage.Client(key="a0d95cf9", secret=secret.vonage_secret)
 sms = vonage.Sms(client)
 
-# initialize mail for this app
-
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = "ToolList91@gmail.com"
-app.config["MAIL_PASSWORD"] = secret.mail_password
-app.config["MAIL_DEFAULT_SENDER"] = "ToolList91@gmail.com"
-app.config["MAIL_MAX_EMAILS"] = 2
-# tls and ssl are email encriptions, might have to play with until it works.
-app.config["MAIL_USE_TLS"] = False
-app.config["MAIL_USE_SSL"] = True
-
-mail = Mail(app)
-# mail.init_app(app)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
