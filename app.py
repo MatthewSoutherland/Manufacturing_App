@@ -23,10 +23,6 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_COOKIE_SECURE"] = True
 app.permanent_session_lifetime = timedelta(days=7)
 
-# SMS message setup
-client = vonage.Client(key="a0d95cf9", secret=secret.vonage_secret)
-sms = vonage.Sms(client)
-
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -182,18 +178,6 @@ def chips():
     hours = datetime.now().strftime("%H")
     hours = int(hours)
     day = datetime.today().strftime("%A")
-
-    if request.method == "POST":
-        message1 = request.form.get("message1")
-        responseData = sms.send_message(
-            {"from": "19893556167", "to": secret.my_number, "text": message1}
-        )
-        if responseData["messages"][0]["status"] == "0":
-            messageguy = "message sent successfully"
-            return redirect(url_for("messagesent", messageguy=messageguy))
-        else:
-            messageguy = f"Message failed with error: {responseData['messages'][0]['error-text']}"
-            return redirect(url_for("messagesent", messageguy=messageguy))
 
     return render_template("chips.html", hours=hours, day=day)
 
