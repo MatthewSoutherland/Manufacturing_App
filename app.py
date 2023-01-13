@@ -10,8 +10,6 @@ from flask import (
 
 from datetime import *
 import csv
-import json
-import vonage
 import secret
 
 app = Flask(__name__)
