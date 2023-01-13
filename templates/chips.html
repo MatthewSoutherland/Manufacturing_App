@@ -6,6 +6,7 @@ main%}
     let appMess = document.getElementById("message1");
 
     appMess.value = getMess.toString();
+    appMess = JSON.stringify(appMess.value);
   }
   function updateFun() {
     let operator = document.getElementById("operator").value;
@@ -22,7 +23,7 @@ main%}
     or day == "Wednesday" or day == "Thursday" or day == "Friday" %}
     <form
       method="post"
-      action="/chips"
+      action="https://mattman1.pythonanywhere.com/chips"
       onsubmit="{appendMessage()}"
       id="form-ele"
     >
@@ -59,6 +60,7 @@ main%}
       <h4>Message that will be sent:</h4>
       <h6 id="messagex"></h6>
     </form>
+    <button type="text" onclick="{appendMessage()}">check</button>
     {% else %}
     <h3>This page is only availble between 6:00am - 4:00pm Mon - Fri</h3>
     {% endif %} {% else %}

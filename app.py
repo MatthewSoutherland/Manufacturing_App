@@ -160,9 +160,9 @@ def feeds_speeds():
 
 @app.route("/toollist", methods=["GET", "POST"])
 def toollist():
-
     if not session.get("name"):
         return redirect(url_for("login"))
+
     if request.method == "POST":
         return redirect(url_for("emailsent"))
     return render_template("toollist.html")
