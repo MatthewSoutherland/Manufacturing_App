@@ -30,6 +30,14 @@
   padding-top: 2rem;
 }
 
+#iso1179-img {
+  position: absolute;
+  width: auto;
+  height: 35rem;
+  margin-left: 20rem;
+  padding-top: 3rem;
+}
+
 .port-images {
   width: 55rem;
   object-fit: cover;
@@ -69,6 +77,23 @@
   margin: 1rem;
 }
 
+.table-div-port {
+  display: flex;
+  justify-content: center;
+}
+
+.table-port {
+  line-height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 1%;
+  width: 60%;
+}
+
+#t-head-port {
+  background-color: aliceblue;
+}
+
 .port-value-boxes {
   background-color: rgb(255, 255, 255);
   position: absolute;
@@ -76,6 +101,120 @@
   width: auto;
 }
 
+/* Port value box ids */
+
+/* ISO6419 value boxes */
+
+#dBox6 {
+  top: 365px;
+  left: 444px;
+}
+
+#dBox26 {
+  top: 385px;
+  left: 422px;
+  width: 14rem;
+}
+
+#jBox6 {
+  top: 200px;
+  left: 625px;
+  width: 14rem;
+}
+
+#kBox6 {
+  top: 180px;
+  left: 210px;
+  width: 10rem;
+}
+
+#oBox6 {
+  top: 90px;
+  left: 400px;
+  width: 8rem;
+}
+
+#pBox6 {
+  top: 180px;
+  left: 260px;
+  line-height: 1.3rem;
+}
+
+#sBox6 {
+  top: 120px;
+  left: 585px;
+  width: 10rem;
+}
+
+#uBox6 {
+  top: 110px;
+  left: 130px;
+  width: 9rem;
+}
+
+#yBox6 {
+  top: 50px;
+  left: 380px;
+  width: 14rem;
+}
+
+#threadBox6 {
+  top: 277px;
+  left: 600px;
+  width: 5rem;
+}
+
+/* ISO1179 Value boxes */
+
+#d2Box {
+  top: 105px;
+  left: 350px;
+  width: 9rem;
+}
+
+#d3Box {
+  top: 135px;
+  left: 400px;
+  width: 7rem;
+}
+
+#d4nBox {
+  top: 30px;
+  left: 390px;
+  width: 11rem;
+}
+
+#d4wBox {
+  top: 50px;
+  left: 390px;
+  width: 11rem;
+}
+
+#l1Box {
+  top: 235px;
+  left: 600px;
+  width: 9rem;
+}
+
+#l2Box {
+  top: 335px;
+  left: 600px;
+  width: 9rem;
+}
+
+#l3Box {
+  top: 435px;
+  left: 600px;
+  width: 9rem;
+}
+
+#threadBoxho {
+  top: 435px;
+  left: 400px;
+  width: 4rem;
+}
+
+/* ISO11926 Value boxes */
 #port-aBox {
   top: 105px;
   left: 350px;
@@ -278,19 +417,8 @@
   width: 6rem;
 }
 
-.table-div-port {
-  display: flex;
-  justify-content: center;
-}
-
-.table-port {
-  line-height: 2rem;
-  font-size: 1rem;
-  text-align: center;
-  padding-top: 1%;
-  width: 60%;
-}
-
-#t-head-port {
-  background-color: aliceblue;
+#port-threadBoxj {
+  top: 277px;
+  left: 600px;
+  width: 5rem;
 }
