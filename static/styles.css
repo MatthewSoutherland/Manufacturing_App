@@ -136,6 +136,10 @@ body {
   display: none;
 }
 
+#exInput2 {
+  display: none;
+}
+
 .feed-in-split {
   margin-top: 1rem;
   margin-left: 1rem;

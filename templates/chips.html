@@ -7,6 +7,9 @@ main%}
 
     appMess.value = getMess.toString();
     appMess = JSON.stringify(appMess.value);
+
+    let exInput2 = document.getElementById("exInput2");
+    exInput2.setAttribute("value", appMess);
   }
   function updateFun() {
     let operator = document.getElementById("operator").value;
@@ -59,8 +62,9 @@ main%}
       <input type="text" name="message1" id="message1" />
       <h4>Message that will be sent:</h4>
       <h6 id="messagex"></h6>
+      <label for="exInput2"></label>
+      <input id="exInput2" type="text" name="exInput2" placeholder="/" />
     </form>
-    <button type="text" onclick="{appendMessage()}">check</button>
     {% else %}
     <h3>This page is only availble between 6:00am - 4:00pm Mon - Fri</h3>
     {% endif %} {% else %}
