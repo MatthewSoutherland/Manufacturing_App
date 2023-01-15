@@ -1,3 +1,17 @@
+.port-image-container {
+  position: absolute;
+  width: auto;
+  height: 38rem;
+  margin-left: -5rem;
+}
+
+.port-image-container-two {
+  position: absolute;
+  width: auto;
+  height: 35rem;
+  left: 32rem;
+}
+
 #as1300-img {
   position: absolute;
   width: auto;
@@ -13,6 +27,22 @@
   margin-left: -5rem;
   padding-top: 2rem;
 }
+
+/* #as5202-img {
+  position: absolute;
+  width: auto;
+  height: 25rem;
+  margin-left: 12rem;
+  padding-top: 4rem;
+}
+
+#as5202-img-two {
+  position: absolute;
+  width: auto;
+  height: 18rem;
+  margin-left: -5rem;
+  padding-top: 2rem;
+} */
 
 #as1958-img {
   position: absolute;
@@ -38,6 +68,22 @@
   padding-top: 3rem;
 }
 
+/* #iso11926-img {
+  position: absolute;
+  width: auto;
+  height: 31rem;
+  margin-left: 10rem;
+  padding-top: 3rem;
+}
+
+#iso11926-img-two {
+  position: absolute;
+  width: auto;
+  height: 30rem;
+  margin-left: 1rem;
+  padding-top: 3rem;
+} */
+
 .port-images {
   width: 55rem;
   object-fit: cover;
@@ -46,7 +92,7 @@
 }
 
 .port-images-two {
-  width: 17rem;
+  width: 55rem;
   object-fit: contain;
   position: absolute;
   opacity: 0;
@@ -54,21 +100,6 @@
 
 #port-container {
   padding-top: 4rem;
-}
-
-.port-image-container {
-  position: absolute;
-  width: auto;
-  height: 35rem;
-  margin-left: -5rem;
-}
-
-.port-image-container-two {
-  position: absolute;
-  width: auto;
-  height: 35rem;
-  left: 55rem;
-  padding-top: 5rem;
 }
 
 #port-search-div {
@@ -215,6 +246,75 @@
 }
 
 /* ISO11926 Value boxes */
+
+#d2Boxi {
+  top: 65px;
+  left: 370px;
+  width: 7rem;
+}
+
+#d3Boxi {
+  top: 430px;
+  left: 410px;
+  width: 2rem;
+}
+
+#d3Boxi2 {
+  top: 21px;
+  left: -18px;
+  width: 6rem;
+}
+
+#d4Boxi {
+  top: 106px;
+  left: 370px;
+  width: 7rem;
+}
+
+#d5Boxi {
+  top: 146px;
+  left: 387px;
+  width: 5rem;
+}
+
+#d5Boxi2 {
+  top: 20px;
+  left: 25px;
+  width: 4rem;
+}
+
+#l1Boxi {
+  top: 235px;
+  left: 200px;
+  width: 6rem;
+}
+
+#l2Boxi {
+  top: 315px;
+  left: 705px;
+  width: 7rem;
+}
+
+#l3Boxi {
+  top: 183px;
+  left: 644px;
+  width: 6rem;
+}
+
+#l4Boxi {
+  top: 270px;
+  left: 645px;
+  width: 7rem;
+}
+
+#threadBoxi {
+  top: 310px;
+  left: 400px;
+  width: 4rem;
+}
+
+/* AS5202 Value boxes */
+
 #port-aBox {
   top: 105px;
   left: 350px;
@@ -227,6 +327,43 @@
   width: 14rem;
 }
 
+#port-cBox {
+  top: 480px;
+  left: 415px;
+}
+
+#port-dBox {
+  top: 129px;
+  left: 352px;
+  width: 9rem;
+}
+
+#port-eBox {
+  top: 203px;
+  left: 248px;
+  width: 8rem;
+}
+
+#port-gBox {
+  top: 72px;
+  left: 355px;
+  width: 8rem;
+}
+
+#port-jBox {
+  top: 330px;
+  left: 730px;
+  width: 9rem;
+}
+
+#port-threadBox {
+  top: 311px;
+  left: 380px;
+  width: 5rem;
+}
+
+/* AS1300 Value boxes */
+
 #port-bBoxas {
   top: 120px;
   left: 520px;
@@ -237,11 +374,6 @@
   top: 40px;
   left: 370px;
   width: 8rem;
-}
-
-#port-cBox {
-  top: 480px;
-  left: 415px;
 }
 
 #port-cBoxas {
@@ -260,12 +392,6 @@
   top: 500px;
   left: 380px;
   width: 14rem;
-}
-
-#port-dBox {
-  top: 129px;
-  left: 352px;
-  width: 9rem;
 }
 
 #port-dBoxas {
@@ -291,12 +417,6 @@
   width: 14rem;
 }
 
-#port-eBox {
-  top: 231px;
-  left: 220px;
-  width: 9rem;
-}
-
 #port-eBoxas {
   top: 270px;
   left: 920px;
@@ -315,12 +435,6 @@
   width: 7rem;
 }
 
-#port-gBox {
-  top: 72px;
-  left: 355px;
-  width: 8rem;
-}
-
 #port-gBoxRos {
   top: 72px;
   left: 355px;
@@ -331,12 +445,6 @@
   top: 222px;
   left: 630px;
   width: 13rem;
-}
-
-#port-jBox {
-  top: 330px;
-  left: 730px;
-  width: 9rem;
 }
 
 #port-jBoxj {
@@ -405,12 +513,6 @@
   width: 14rem;
 }
 
-#port-threadBox {
-  top: 311px;
-  left: 380px;
-  width: 5rem;
-}
-
 #port-threadBoxRos {
   top: 311px;
   left: 380px;
@@ -421,4 +523,12 @@
   top: 277px;
   left: 600px;
   width: 5rem;
+}
+
+@media (max-width: 1275px) {
+  .port-image-container-two {
+    left: 0rem;
+    top: 49rem;
+    margin-left: -5rem;
+  }
 }
