@@ -53,6 +53,24 @@ body {
   flex-wrap: wrap;
 }
 
+.clear-button {
+  cursor: pointer;
+  border: 1px solid rgb(235, 224, 224);
+  border-radius: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin: 0.2rem;
+}
+
+.clear-button:hover {
+  background-color: rgb(255, 215, 221);
+}
+
+.clear-button-div {
+  display: flex;
+  justify-content: center;
+}
+
 #chip-container {
   padding-top: 6rem;
   display: flex;

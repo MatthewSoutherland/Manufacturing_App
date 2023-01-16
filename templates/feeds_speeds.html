@@ -1,6 +1,25 @@
 {% extends 'layout.html' %} {% block title %} Feeds/speeds calculator {%
 endblock %} {% block main %}
 <script>
+  function clearFun() {
+    let rpmValue = document.getElementById("rpm");
+    let sfmValue = document.getElementById("sfm");
+    let ipmValue = document.getElementById("ipm");
+    let iprValue = document.getElementById("ipr");
+    let rpmP = document.getElementById("p-rpm");
+    let sfmP = document.getElementById("p-sfm");
+    let ipmP = document.getElementById("p-ipm");
+    let iprP = document.getElementById("p-ipr");
+
+    rpmValue.value = "";
+    sfmValue.value = "";
+    ipmValue.value = "";
+    iprValue.value = "";
+    rpmP.innerHTML = "RPM:";
+    sfmP.innerHTML = "SFM:";
+    ipmP.innerHTML = "IPM:";
+    iprP.innerHTML = "IPR:";
+  }
   function doMath() {
     // grab all variables
     let rpmValue = document.getElementById("rpm").value;
@@ -114,6 +133,9 @@ endblock %} {% block main %}
       <p id="p-sfm">SFM:</p>
       <p id="p-ipm">IPM:</p>
       <p id="p-ipr">IPR:</p>
+      <div class="clear-button-div">
+        <button class="clear-button" onclick="{clearFun()}">Clear</button>
+      </div>
     </div>
   </div>
 </div>
