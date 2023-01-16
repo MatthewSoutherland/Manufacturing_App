@@ -193,22 +193,21 @@
 
     // create div container for each port spec: A
     let aBox = document.createElement("div");
-    let diaImage = document.createElement("img");
+    let diaImagea = document.createElement("img");
     let aValP = document.createElement("p");
     let aKeyVal = document.createElement("p");
     aValP.className = "p-values";
     aValP.innerHTML = `${aValue} <span class="smaller">(+.015 -.0)</span>`;
     aKeyVal.className = "p-key-values";
     aKeyVal.textContent = "A:";
-    diaImage.setAttribute("class", "diameter-image");
-    // diaImage.setAttribute("src", "/static/diameter.jpeg");
-    diaImage.src = {{url_for('static', filename='diameter.jpeg')}}
-    diaImage.setAttribute("alt", "image of diameter");
+    diaImagea.setAttribute("class", "diameter-image");
+    diaImagea.setAttribute("src", "/static/diameter.jpeg");
+    diaImagea.setAttribute("alt", "image of diameter");
     aBox.setAttribute("class", "port-value-boxes");
     aBox.setAttribute("id", "port-aBox");
     container.appendChild(aBox);
     aBox.appendChild(aKeyVal);
-    aBox.appendChild(diaImage);
+    aBox.appendChild(diaImagea);
     aBox.appendChild(aValP);
 
     // create div container for each port spec: B
@@ -1381,7 +1380,7 @@
   </div>
   <div class="port-image-container" id="port-image-container-id">
     <image
-      src="{{ url_for('static', filename='ms33649.png') }}"
+      src="{{ url_for('static', filename='ms33649.PNG') }}"
       id="as5202-img"
       class="port-images"
       alt="port"
