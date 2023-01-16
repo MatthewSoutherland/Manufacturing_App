@@ -1,3 +1,9 @@
+.diameter-image {
+  width: 10px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
 .port-image-container {
   position: absolute;
   width: auto;

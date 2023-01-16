@@ -92,12 +92,6 @@ body {
   border-bottom: 2px solid linear-gradient(to right, #9a9a9a, #242424);
 }
 
-.diameter-image {
-  width: 10px;
-  border-radius: 50%;
-  object-fit: contain;
-}
-
 #drill-tap-container {
   width: 100%;
   display: flex;
@@ -488,13 +482,6 @@ table {
   top: 12rem;
   left: 3rem;
   opacity: 0.2;
-}
-
-@media (max-width: 1275px) {
-  .port-image-container-two {
-    left: 15rem;
-    top: 45rem;
-  }
 }
 
 @media (max-width: 1000px) {

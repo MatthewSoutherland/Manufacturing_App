@@ -201,7 +201,8 @@
     aKeyVal.className = "p-key-values";
     aKeyVal.textContent = "A:";
     diaImage.setAttribute("class", "diameter-image");
-    diaImage.setAttribute("src", "/static/diameter.jpeg");
+    // diaImage.setAttribute("src", "/static/diameter.jpeg");
+    diaImage.src = {{url_for('static', filename='diameter.jpeg')}}
     diaImage.setAttribute("alt", "image of diameter");
     aBox.setAttribute("class", "port-value-boxes");
     aBox.setAttribute("id", "port-aBox");
