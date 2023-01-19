@@ -121,12 +121,16 @@
     }
 
     // removeGuy clears table so chart doesnt have repeating values
-    const removeGuy = document.querySelectorAll(".ele");
-    removeGuy.forEach(guy => {
+    const removeElements = document.querySelectorAll(".ele");
+    removeElements.forEach(guy => {
       guy.remove();
     });
-    const removeGuys = document.querySelectorAll(".port-value-boxes");
-    removeGuys.forEach(guy => {
+    const removeValueBoxes = document.querySelectorAll(".port-value-boxes");
+    removeValueBoxes.forEach(guy => {
+      guy.remove();
+    });
+    const removeNotes = document.querySelectorAll(".notes");
+    removeNotes.forEach(guy => {
       guy.remove();
     });
 
@@ -491,24 +495,22 @@
     let threadSize =
       document.getElementsByClassName("Thread-Value")[0].textContent;
 
-    // create div container for each port spec: B
-    let bBoxRos = document.createElement("div");
-    let diaImageB = document.createElement("img");
-    let bValp = document.createElement("p");
-    let gKeyVal = document.createElement("p");
-    bValp.className = "p-values";
-    bValp.textContent = `${bValue} (min)`;
-    gKeyVal.className = "p-key-values";
-    gKeyVal.textContent = "B:";
-    diaImageB.setAttribute("class", "diameter-image");
-    diaImageB.setAttribute("src", "/static/diameter.jpeg");
-    diaImageB.setAttribute("alt", "image of diameter");
-    bBoxRos.setAttribute("class", "port-value-boxes");
-    bBoxRos.setAttribute("id", "port-bBoxRos");
-    container.appendChild(bBoxRos);
-    bBoxRos.appendChild(gKeyVal);
-    bBoxRos.appendChild(diaImageB);
-    bBoxRos.appendChild(bValp);
+    // Notes
+    let noteA = document.createElement("p");
+    noteA.className = "notes";
+    noteA.id = "noteOne";
+    noteA.innerHTML = `<B>A:</B> ${aValue} (min) - Major diameter of teeth serration`;
+    let noteJ = document.createElement("p");
+    noteJ.className = "notes";
+    noteJ.id = "noteTwo";
+    noteJ.innerHTML = `<B>J:</B> ${jValue} - Number of serration teeth`;
+    let noteB = document.createElement("p");
+    noteB.className = "notes";
+    noteB.id = "noteThree";
+    noteB.innerHTML = `<B>B:</B> ${bValue} (min) - diameter of boss, if applicable`;
+    container.appendChild(noteA);
+    container.appendChild(noteJ);
+    container.appendChild(noteB);
 
     // create div container for each port spec: C
     let cBoxRos = document.createElement("div");
@@ -572,24 +574,30 @@
 
     // create div container for each port spec: G
     let gBoxRos = document.createElement("div");
-    let gValp = document.createElement("p");
-    gValp.className = "p-values";
-    gValp.innerHTML = `<b>G:</b>\n
-    ${gValue}`;
+    let gBoxRos2 = document.createElement("div");
+    gBoxRos.innerHTML = `<B>G: </B>`;
+    gBoxRos2.innerHTML = `${gValue}`;
     gBoxRos.setAttribute("class", "port-value-boxes");
     gBoxRos.setAttribute("id", "port-gBoxRos");
+    gBoxRos2.setAttribute("class", "port-value-boxes");
+    gBoxRos2.setAttribute("id", "port-gBoxRos2");
     container.appendChild(gBoxRos);
-    gBoxRos.appendChild(gValp);
+    container.appendChild(gBoxRos2);
 
     // create div container for each port spec: H
     let hBoxRos = document.createElement("div");
+    let hBoxRos2 = document.createElement("div");
     let hValp = document.createElement("p");
     hValp.className = "p-values";
-    hValp.innerHTML = `<b>H:</b>\n
-    ${hValue} (min thread depth)`;
+    hValp.innerHTML = `<b>H:</b>
+    ${hValue}`;
+    hBoxRos2.textContent = "(min) thread depth";
     hBoxRos.setAttribute("class", "port-value-boxes");
     hBoxRos.setAttribute("id", "port-hBoxRos");
+    hBoxRos2.setAttribute("class", "port-value-boxes");
+    hBoxRos2.setAttribute("id", "port-hBoxRos2");
     container.appendChild(hBoxRos);
+    container.appendChild(hBoxRos2);
     hBoxRos.appendChild(hValp);
 
     // create div container for each port spec: K
@@ -657,6 +665,13 @@
     let threadSize =
       document.getElementsByClassName("Thread-Value")[0].textContent;
 
+    // notes
+    let noteT = document.createElement("p");
+    noteT.className = "notes";
+    noteT.id = "noteOne";
+    noteT.innerHTML = `<B>T:</B> ${tValue} (min) - diameter of boss, size of port`;
+    container.appendChild(noteT);
+
     // create div container for each port spec: B
     let bBoxas = document.createElement("div");
     let diaImageB = document.createElement("img");
@@ -697,44 +712,42 @@
 
     // create div container for each port spec: D
     let dBoxas = document.createElement("div");
+    let dBoxas2 = document.createElement("div");
     let dValp = document.createElement("p");
     dValp.className = "p-values";
     dValp.innerHTML = `<b>D:</b>\n
     ${dValue} (min)`;
     dBoxas.setAttribute("class", "port-value-boxes");
     dBoxas.setAttribute("id", "port-dBoxas");
+    dBoxas2.setAttribute("class", "port-value-boxes");
+    dBoxas2.setAttribute("id", "port-dBoxas2");
+    dBoxas2.innerHTML = "Thread depth";
     container.appendChild(dBoxas);
+    container.appendChild(dBoxas2);
     dBoxas.appendChild(dValp);
 
     // create div container for each port spec: E
     let eBoxas = document.createElement("div");
+    let eBoxas2 = document.createElement("div");
     let eValp = document.createElement("p");
     eValp.className = "p-values";
-    eValp.innerHTML = `<b>E:</b>\n
-    ${eValue} <span class="smaller">+.005 -.005</span>`;
+    eValp.innerHTML = `<span class="smaller"> +.005 -.005</span>`;
     eBoxas.setAttribute("class", "port-value-boxes");
     eBoxas.setAttribute("id", "port-eBoxas");
+    eBoxas2.setAttribute("class", "port-value-boxes");
+    eBoxas2.setAttribute("id", "port-eBoxas2");
+    eBoxas.innerHTML = `<B>E: </B>`;
+    eBoxas2.innerHTML = `${eValue} `;
     container.appendChild(eBoxas);
-    eBoxas.appendChild(eValp);
+    eBoxas2.appendChild(eValp);
+    container.appendChild(eBoxas2);
 
-    // create div container for each port spec: T
-    let tBoxas = document.createElement("div");
-    let diaImageT = document.createElement("img");
-    let tValp = document.createElement("p");
-    let tKeyVal = document.createElement("p");
-    tValp.className = "p-values";
-    tValp.innerHTML = `${tValue} (min)`;
-    tKeyVal.className = "p-key-values";
-    tKeyVal.textContent = "T:";
-    diaImageT.setAttribute("class", "diameter-image");
-    diaImageT.setAttribute("src", "/static/diameter.jpeg");
-    diaImageT.setAttribute("alt", "image of diameter");
-    tBoxas.setAttribute("class", "port-value-boxes");
-    tBoxas.setAttribute("id", "port-tBoxas");
-    container.appendChild(tBoxas);
-    tBoxas.appendChild(tKeyVal);
-    tBoxas.appendChild(diaImageT);
-    tBoxas.appendChild(tValp);
+    // create div container for each port spec: thread
+    let threadBoxas = document.createElement("div");
+    threadBoxas.setAttribute("class", "port-value-boxes");
+    threadBoxas.setAttribute("id", "threadBoxas");
+    threadBoxas.innerHTML = `${threadSize} ${threadClass}`;
+    container.appendChild(threadBoxas);
   }
 
   function iso6419Map() {
@@ -799,24 +812,24 @@
     containerTwo.appendChild(kBox6);
     kBox6.appendChild(kValp);
 
-    // create div container for each port spec: O
-    let oBox6 = document.createElement("div");
-    let diaImageG = document.createElement("img");
-    let oValp = document.createElement("p");
-    let gKeyVal = document.createElement("p");
-    oValp.className = "p-values";
-    oValp.textContent = `${oValue} (min)`;
-    gKeyVal.className = "p-key-values";
-    gKeyVal.textContent = "O:";
-    diaImageG.setAttribute("class", "diameter-image");
-    diaImageG.setAttribute("src", "/static/diameter.jpeg");
-    diaImageG.setAttribute("alt", "image of diameter");
-    oBox6.setAttribute("class", "port-value-boxes");
-    oBox6.setAttribute("id", "oBox6");
-    container.appendChild(oBox6);
-    oBox6.appendChild(gKeyVal);
-    oBox6.appendChild(diaImageG);
-    oBox6.appendChild(oValp);
+    // // create div container for each port spec: O
+    // let oBox6 = document.createElement("div");
+    // let diaImageG = document.createElement("img");
+    // let oValp = document.createElement("p");
+    // let gKeyVal = document.createElement("p");
+    // oValp.className = "p-values";
+    // oValp.textContent = `${oValue} (min)`;
+    // gKeyVal.className = "p-key-values";
+    // gKeyVal.textContent = "O:";
+    // diaImageG.setAttribute("class", "diameter-image");
+    // diaImageG.setAttribute("src", "/static/diameter.jpeg");
+    // diaImageG.setAttribute("alt", "image of diameter");
+    // oBox6.setAttribute("class", "port-value-boxes");
+    // oBox6.setAttribute("id", "oBox6");
+    // container.appendChild(oBox6);
+    // oBox6.appendChild(gKeyVal);
+    // oBox6.appendChild(diaImageG);
+    // oBox6.appendChild(oValp);
 
     // create div container for each port spec: P
     let pBox6 = document.createElement("div");
@@ -837,7 +850,7 @@
     ${sValue} (max)`;
     sBox6.setAttribute("class", "port-value-boxes");
     sBox6.setAttribute("id", "sBox6");
-    container.appendChild(sBox6);
+    containerTwo.appendChild(sBox6);
     sBox6.appendChild(sBoxp);
 
     // create div container for each port spec: U
@@ -854,18 +867,22 @@
     diaImageU.setAttribute("alt", "image of diameter");
     uBox6.setAttribute("class", "port-value-boxes");
     uBox6.setAttribute("id", "uBox6");
-    containerTwo.appendChild(uBox6);
+    container.appendChild(uBox6);
     uBox6.appendChild(uKeyVal);
     uBox6.appendChild(diaImageU);
     uBox6.appendChild(uValp);
 
     // create div container for each port spec: Y
     let yBox6 = document.createElement("div");
+    let yBox62 = document.createElement("div");
     let diaImageY = document.createElement("img");
     let yValp = document.createElement("p");
     let yKeyVal = document.createElement("p");
+    let newValp = document.createElement("p");
     yValp.className = "p-values";
-    yValp.innerHTML = `${yValue} <span class="smaller">Recommended spot face</span>`;
+    newValp.className = "p-values";
+    newValp.innerHTML = `<span class="smaller">Recommended spot face</span>`;
+    yValp.innerHTML = `${yValue}`;
     yKeyVal.className = "p-key-values";
     yKeyVal.textContent = "Y:";
     diaImageY.setAttribute("class", "diameter-image");
@@ -873,10 +890,14 @@
     diaImageY.setAttribute("alt", "image of diameter");
     yBox6.setAttribute("class", "port-value-boxes");
     yBox6.setAttribute("id", "yBox6");
+    yBox62.setAttribute("class", "port-value-boxes");
+    yBox62.setAttribute("id", "yBox62");
     container.appendChild(yBox6);
+    container.appendChild(yBox62);
     yBox6.appendChild(yKeyVal);
     yBox6.appendChild(diaImageY);
     yBox6.appendChild(yValp);
+    yBox62.appendChild(newValp);
 
     // create div container for each port spec: thread
     let threadBox6 = document.createElement("div");
@@ -889,6 +910,7 @@
   function iso1179Map() {
     // grab containers in html, and key values for port size specs
     let container = document.getElementById("port-image-container-id");
+    let containerTwo = document.getElementById("port-image-container-id-two");
     let d2Value = document.getElementsByClassName("d2-Value")[0].textContent;
     let d3Value = document.getElementsByClassName("d3-Value")[0].textContent;
     let d4nValue =
@@ -901,6 +923,18 @@
     let wValue = document.getElementsByClassName("W-Value")[0].textContent;
     let threadSize =
       document.getElementsByClassName("Thread-Value")[0].textContent;
+
+    // notes
+    let noteN = document.createElement("p");
+    noteN.className = "notes";
+    noteN.id = "noteOne";
+    let noteW = document.createElement("p");
+    noteW.className = "notes";
+    noteW.id = "noteTwo";
+    noteN.innerHTML = `The N(narrow) or W(wide) should be specified in the spec given.`;
+    noteW.innerHTML = `If no letter symbol is given, it is assumed W will be the spot face.`;
+    container.appendChild(noteN);
+    container.appendChild(noteW);
 
     // create div container for each port spec: d2
     let d2Box = document.createElement("div");
@@ -986,7 +1020,7 @@
     ${l1Value} (max)`;
     l1Box.setAttribute("class", "port-value-boxes");
     l1Box.setAttribute("id", "l1Box");
-    container.appendChild(l1Box);
+    containerTwo.appendChild(l1Box);
     l1Box.appendChild(l1Valp);
 
     // create div container for each port spec: l2
@@ -1002,13 +1036,17 @@
 
     // create div container for each port spec: l3
     let l3Box = document.createElement("div");
+    let l3Box2 = document.createElement("div");
     let l3Valp = document.createElement("p");
     l3Valp.className = "p-values";
-    l3Valp.innerHTML = `<b>L3:</b>
-    ${l3Value} (min)`;
+    l3Valp.innerHTML = `<b>L3:</b>`;
     l3Box.setAttribute("class", "port-value-boxes");
     l3Box.setAttribute("id", "l3Box");
+    l3Box2.setAttribute("class", "port-value-boxes");
+    l3Box2.setAttribute("id", "l3Box2");
+    l3Box2.innerHTML = `${l3Value} (min)`;
     container.appendChild(l3Box);
+    container.appendChild(l3Box2);
     l3Box.appendChild(l3Valp);
 
     // create div container for each port spec: thread
