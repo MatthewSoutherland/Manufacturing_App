@@ -9,25 +9,29 @@
 <script>
   function createPortTable(data) {
     // make opacity 0 on all images
-    const j1926PortImg = document.getElementById("j1926-img");
-    const j1926PortImgTwo = document.getElementById("j1926-img-two");
+    const iso6419PortImg = document.getElementById("iso6419-img");
+    const iso6419PortImgTwo = document.getElementById("iso6419-img-two");
     const as5202PortImg = document.getElementById("as5202-img");
     const as5202PortImgTwo = document.getElementById("as5202-img-two");
     const as1300PortImg = document.getElementById("as1300-img");
     const as1300PortImgTwo = document.getElementById("as1300-img-two");
     const as1958PortImg = document.getElementById("as1958-img");
+    const as1958PortImgTwo = document.getElementById("as1958-img-two");
     const iso1179PortImg = document.getElementById("iso1179-img");
+    const iso1179PortImgTwo = document.getElementById("iso1179-img-two");
     const iso11926PortImg = document.getElementById("iso11926-img");
     const iso11926PortImgTwo = document.getElementById("iso11926-img-two");
 
-    j1926PortImg.style.opacity = "0";
-    j1926PortImgTwo.style.opacity = 0;
+    iso6419PortImg.style.opacity = "0";
+    iso6419PortImgTwo.style.opacity = 0;
     as5202PortImg.style.opacity = "0";
     as5202PortImgTwo.style.opacity = "0";
     as1300PortImg.style.opacity = "0";
     as1300PortImgTwo.style.opacity = "0";
     as1958PortImg.style.opacity = "0";
+    as1958PortImgTwo.style.opacity = "0";
     iso1179PortImg.style.opacity = 0;
+    iso1179PortImgTwo.style.opacity = 0;
     iso11926PortImg.style.opacity = 0;
     iso11926PortImgTwo.style.opacity = 0;
 
@@ -54,8 +58,8 @@
       iso11926Select.value = "";
     } else if (data == j1926) {
       selectedValue = document.getElementById("j1926-portSelect").value;
-      j1926PortImg.style.opacity = 1;
-      j1926PortImgTwo.style.opacity = 1;
+      iso6419PortImg.style.opacity = 1;
+      iso6419PortImgTwo.style.opacity = 1;
       as5202Select.value = "";
       as1300Select.value = "";
       as1958Select.value = "";
@@ -75,6 +79,7 @@
     } else if (data == as1958) {
       selectedValue = document.getElementById("as1958-portSelect").value;
       as1958PortImg.style.opacity = 1;
+      as1958PortImgTwo.style.opacity = 1;
       as5202Select.value = "";
       as1300Select.value = "";
       j1926Select.value = "";
@@ -83,8 +88,8 @@
       iso11926Select.value = "";
     } else if (data == iso6419) {
       selectedValue = document.getElementById("iso6419-portSelect").value;
-      j1926PortImg.style.opacity = 1;
-      j1926PortImgTwo.style.opacity = 1;
+      iso6419PortImg.style.opacity = 1;
+      iso6419PortImgTwo.style.opacity = 1;
       as5202Select.value = "";
       as1300Select.value = "";
       as1958Select.value = "";
@@ -94,6 +99,7 @@
     } else if (data == iso1179) {
       selectedValue = document.getElementById("iso1179-portSelect").value;
       iso1179PortImg.style.opacity = 1;
+      iso1179PortImgTwo.style.opacity = 1;
       as5202Select.value = "";
       as1300Select.value = "";
       as1958Select.value = "";
@@ -1386,31 +1392,31 @@
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='j1926.png') }}"
-      id="j1926-img"
+      src="{{ url_for('static', filename='iso6419.PNG') }}"
+      id="iso6419-img"
       class="port-images"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='as1300.png') }}"
+      src="{{ url_for('static', filename='as1300.PNG') }}"
       id="as1300-img"
       class="port-images"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='as1958.png') }}"
+      src="{{ url_for('static', filename='as1958.PNG') }}"
       id="as1958-img"
       class="port-images"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='iso1179.png') }}"
+      src="{{ url_for('static', filename='iso1179.PNG') }}"
       id="iso1179-img"
       class="port-images"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='iso11926.png') }}"
+      src="{{ url_for('static', filename='iso11926.PNG') }}"
       id="iso11926-img"
       class="port-images"
       alt="port"
@@ -1424,19 +1430,31 @@
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='j1926two.png') }}"
-      id="j1926-img-two"
+      src="{{ url_for('static', filename='iso6419two.PNG') }}"
+      id="iso6419-img-two"
       class="port-images-two"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='as1300two.png') }}"
+      src="{{ url_for('static', filename='as1300two.PNG') }}"
       id="as1300-img-two"
       class="port-images-two"
       alt="port"
     ></image>
     <image
-      src="{{ url_for('static', filename='iso11926two.png') }}"
+      src="{{ url_for('static', filename='as1958two.PNG') }}"
+      id="as1958-img-two"
+      class="port-images-two"
+      alt="port"
+    ></image>
+    <image
+      src="{{ url_for('static', filename='iso1179two.PNG') }}"
+      id="iso1179-img-two"
+      class="port-images-two"
+      alt="port"
+    ></image>
+    <image
+      src="{{ url_for('static', filename='iso11926two.PNG') }}"
       id="iso11926-img-two"
       class="port-images-two"
       alt="port"
