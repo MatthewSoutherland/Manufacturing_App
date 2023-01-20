@@ -8,15 +8,16 @@
   position: absolute;
   width: auto;
   height: 38rem;
-  margin-left: -1rem;
-  margin-top: 3rem;
+  margin-left: -2rem;
+  margin-top: 2rem;
+  z-index: 1;
 }
 
 .port-image-container-two {
   position: absolute;
   width: auto;
   height: 35rem;
-  left: 36rem;
+  left: 40rem;
   margin-top: 2rem;
 }
 
@@ -112,6 +113,7 @@
   top: 273px;
   left: 640px;
   width: 14rem;
+  z-index: 1;
 }
 
 #kBox6 {
@@ -180,13 +182,13 @@
 #d4nBox {
   top: 83px;
   left: 350px;
-  width: 11rem;
+  width: 12rem;
 }
 
 #d4wBox {
   top: 103px;
   left: 341px;
-  width: 11rem;
+  width: 12rem;
 }
 
 #l1Box {
@@ -228,7 +230,7 @@
 }
 
 #d3Boxi {
-  top: 430px;
+  top: 479px;
   left: 410px;
   width: 2rem;
 }
@@ -248,7 +250,7 @@
 #d5Boxi {
   top: 146px;
   left: 387px;
-  width: 5rem;
+  width: 5.5rem;
 }
 
 #d5Boxi2 {
@@ -258,8 +260,8 @@
 }
 
 #l1Boxi {
-  top: 235px;
-  left: 200px;
+  top: 248px;
+  left: 252px;
   width: 6rem;
 }
 
@@ -283,8 +285,13 @@
 
 #threadBoxi {
   top: 310px;
+  left: 396px;
+  width: 5rem;
+}
+#threadBoxi2 {
+  top: 329px;
   left: 400px;
-  width: 4rem;
+  width: 5rem;
 }
 
 /* AS5202 Value boxes */
@@ -351,25 +358,26 @@
 }
 
 #port-cBoxRos {
-  top: 83px;
+  top: 106px;
   left: 366px;
-  width: 7rem;
+  width: 8rem;
 }
 
 #port-dBoxRos {
-  top: 124px;
+  top: 148px;
   left: 366px;
-  width: 7rem;
+  width: 8rem;
 }
 
 #port-eBoxRos {
-  top: 252px;
+  top: 217px;
   left: 643px;
   width: 5rem;
+  background: transparent;
 }
 
 #port-fBoxRos {
-  top: 221px;
+  top: 262px;
   left: 220px;
   width: 6rem;
   background: transparent;
@@ -377,13 +385,13 @@
 
 #port-gBoxRos {
   top: 220px;
-  left: 172px;
+  left: 189px;
   width: 3rem;
   background: transparent;
 }
 #port-gBoxRos2 {
   top: 237px;
-  left: 145px;
+  left: 163px;
   width: 6rem;
   background: transparent;
 }
@@ -401,21 +409,22 @@
 }
 
 #port-kBoxRos {
-  top: 230px;
-  left: 575px;
+  top: 212px;
+  left: 523px;
   width: 10rem;
 }
 
 #port-lBoxRos {
-  top: 180px;
-  left: 210px;
+  top: 85px;
+  left: 300px;
   width: 10rem;
 }
 
 #port-mBoxRos {
   top: 260px;
-  left: 180px;
-  width: 5rem;
+  left: 586px;
+  width: 7rem;
+  background: transparent;
 }
 
 #port-threadBoxRos {
@@ -428,14 +437,14 @@
 
 #port-bBoxas {
   top: 129px;
-  left: 362px;
-  width: 8.5rem;
+  left: 353px;
+  width: 9rem;
 }
 
 #port-cBoxas {
   top: 171px;
-  left: 357px;
-  width: 8.5rem;
+  left: 352px;
+  width: 9rem;
 }
 
 #port-dBoxas {
@@ -452,7 +461,7 @@
 
 #port-eBoxas {
   top: 222px;
-  left: 169px;
+  left: 198px;
   width: 3rem;
   background: transparent;
 }
@@ -477,28 +486,31 @@
 }
 
 /* J1926 value boxes */
-
-#port-dBoxj {
-  top: 365px;
-  left: 444px;
+#dBoxj {
+  top: 477px;
+  left: 415px;
+  z-index: 1;
 }
 
-#port-dBox2j {
-  top: 385px;
-  left: 422px;
+#dBoxj2 {
+  top: 494px;
+  left: 380px;
   width: 14rem;
+  z-index: 1;
+  background: transparent;
 }
 
-#port-jBoxj {
-  top: 200px;
-  left: 625px;
+#jBoxj {
+  top: 273px;
+  left: 640px;
   width: 14rem;
+  z-index: 1;
 }
 
 #port-kBoxj {
-  top: 180px;
-  left: 210px;
-  width: 10rem;
+  top: 230px;
+  left: 217px;
+  width: 9rem;
 }
 
 #port-oBoxj {
@@ -508,39 +520,46 @@
 }
 
 #port-pBoxj {
-  top: 180px;
-  left: 260px;
-  line-height: 1.3rem;
+  top: 315px;
+  left: 709px;
+  width: 8rem;
 }
 
 #port-sBoxj {
-  top: 120px;
-  left: 585px;
-  width: 10rem;
+  top: 165px;
+  left: 686px;
+  width: 8rem;
 }
 
 #port-uBoxj {
-  top: 110px;
-  left: 130px;
+  top: 156px;
+  left: 350px;
   width: 9rem;
 }
 
-#port-yBoxj {
-  top: 50px;
-  left: 380px;
-  width: 14rem;
+#yBoxj {
+  top: 98px;
+  left: 386px;
+  width: 5rem;
+}
+
+#yBoxj2 {
+  top: 80px;
+  left: 351px;
+  width: 10rem;
+  background: transparent;
 }
 
 #port-threadBoxj {
-  top: 277px;
-  left: 600px;
-  width: 5rem;
+  top: 312px;
+  left: 393px;
+  width: 4.5rem;
 }
 
 @media (max-width: 1275px) {
   .port-image-container-two {
     left: 0rem;
-    top: 49rem;
+    top: 51rem;
     margin-left: -5rem;
   }
   #noteOne,
