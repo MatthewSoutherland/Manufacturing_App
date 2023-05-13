@@ -1,10 +1,10 @@
 depth_one = -8.
 depth_two = -13.
-depth_three = -17.
-depth_four = -21.15
+depth_three = -16.75
+depth_four = -19.75
 
-peck_one = .7
-peck_two = .5
+peck_one = .5
+peck_two = .4
 peck_three = .3
 peck_four = .2
 
@@ -15,15 +15,15 @@ high_ipm = 150.
 
 start_depth = -4.
 current_depth = start_depth
-hole_depth = -21.15
+hole_depth = -19.75
 
 tool_number = "T51"
-staged_tool = "T53"
+staged_tool = "T63"
 tool_diameter = .75
-work_offset = "G54.1 P4"
+work_offset = "G54.1 P11"
 index = "B0"
-x_location = -3.8681
-y_location = 2.75
+x_location = -9.917
+y_location = .72
 r_plain = .5
 with open('deep_hole.txt', 'w') as w:
     w.write(f"(DRILL {tool_diameter} DEEP HOLE)\n")
